@@ -1,0 +1,168 @@
+:root{
+    /* colors*/
+    --white: #FFFFFF;
+    --black: #000000;
+    --very-light-gray: #ADA4A4;
+    --text-input-field: #f1f1f1;
+    --logo-red: #c00100;
+
+    /*size*/
+    --sm: 16px;
+    --md: 18px;
+    --lg: 24px;
+    --xlg: 30px;
+
+    /*font*/
+    --font:'Inter', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+}
+
+
+
+a{
+    text-decoration: none;
+    color: var(--white);
+}
+
+.header{
+    background-color: var(--black);
+}
+
+.header nav{
+    display: flex;
+    justify-content: space-around;
+}
+
+body > header > nav > div.name > li {
+    margin: 0;
+}
+.name{
+    display: inline-flex;
+    flex-direction: row;
+    column-gap: 2vw;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+}
+
+.name .name-logo{
+    width: 4vw;
+    border-radius: 50%;
+    vertical-align: -1.5vw;
+}
+
+.name label{
+    color: var(--white);
+    font-size: var(--xlg);
+}
+
+.name a{
+    font-size: var(--lg);
+}
+
+.menu__menu--categ{
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+    background-color: var(--black);
+}
+
+.menu__menu--categ li a{
+    display: block;
+    color: white;
+    padding: 15px 15px 15px 20px;
+    font-size: var(--sm);
+}
+
+/*bloque options*/
+.option{
+    display: inline-flex;
+    flex-direction: row;
+    column-gap: 3vw; 
+    align-items: center;
+}
+
+.option__search,.option__login,.option__shop{
+    margin-top: 1.5vw;
+}
+
+.option__search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2vw;
+    width: 45vw;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.container-input{
+    border: none;
+    outline: none;
+    font-size: var(--sm);
+    margin-left: 1vw;
+}
+
+
+.option__search > a i{
+    color: var(--black);
+    margin-right: 1vw;
+}
+
+.option__login > a{
+    color: var(--white);
+    font-size: var(--md);
+}
+.option__login > i{
+    color: white;
+}
+
+.menu__login-options{
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+    background-color: var(--black);
+}
+
+.option_div .option__login:hover .menu__login-options, .menu:hover .menu__menu--categ{
+    display: block;
+}
+
+.menu__login-options li:hover, .menu__menu--categ li:hover{
+    background-color: var(--logo-red);
+}
+
+.menu__login-options li a{
+    display: block;
+    color: white;
+    padding: 15px 15px 15px 20px;
+}
+
+.option__shop > a  {
+    font-size: 1.4vw;
+}
+
+.option__shop div {
+    width: 1.5vw;
+    height: 1.5vw;
+    background-color: var(--logo-red);
+    border-radius: 50%;
+    font-size: var(--sm);
+    font-weight: bold;
+    position: fixed;
+    margin-top: -2.2vw;
+    margin-left: 1vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
