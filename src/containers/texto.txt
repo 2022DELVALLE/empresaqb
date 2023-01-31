@@ -1,4 +1,64 @@
-        <section>
+           <section>
+            <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
+                <div className="carousel-inner">
+                    <div className="carousel-item active">
+                        <img src="https://home.ripley.com.pe/minisitios/home/huincha/23/01/10/webp/1.webp" className="d-block w-100"
+                            alt="..." />
+                    </div>
+                    <div className="carousel-item">
+                        <img src="https://home.ripley.com.pe/minisitios/home/huincha/23/01/09/webp/3.webp" className="d-block w-100"
+                            alt="..." />
+                    </div>
+                    <div className="carousel-item">
+                        <img src="https://home.ripley.com.pe/minisitios/home/huincha/23/01/10/webp/8.webp" className="d-block w-100"
+                            alt="..." />
+                    </div>
+                    <div className="carousel-item">
+                        <img src="https://home.ripley.com.pe/minisitios/home/huincha/23/01/09/webp/4.webp?v1" className="d-block w-100"
+                            alt="..." />
+                    </div>
+                    <div className="carousel-item">
+                        <img src="https://home.ripley.com.pe/minisitios/home/huincha/23/01/10/webp/8.webp" className="d-block w-100"
+                            alt="..." />
+                    </div>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
+                </button>
+                <br />
+                <div className="carousel-indicators">
+
+                    <button
+                        style="background-color: white; border-radius: 50% ;height: px; width:3px; border: solid rgba(165, 161, 161) 3px"
+                        type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" className="active"
+                        aria-current="true" aria-label="Slide 1"/>
+                    <button
+                        style="background-color: white; border-radius: 50% ;height: 3px; width:3px; border: solid rgba(165, 161, 161) 3px"
+                        type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"/>
+                    <button
+                        style="background-color: white; border-radius: 50% ;height: 3px; width:3px; border: solid rgba(165, 161, 161) 3px "
+                        type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"/>
+                    <button
+                        style="background-color: white; border-radius: 50% ;height: 3px; width:3px; border: solid rgba(165, 161, 161) 3px "
+                        type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="3" aria-label="Slide 4"/>
+                    <button
+                        style="background-color: white; border-radius: 50% ;height: 3px; width:3px; border: solid rgba(165, 161, 161) 3px "
+                        type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="4" aria-label="Slide 5"/>
+                </div>
+            </div>
+        </section>
+   ////////////////////
+
+   ////////////
+
+      <section>
             <div id="cartas">
                 <div>
 
@@ -13,13 +73,15 @@
                                     <h5 class="card-title">NameProduct</h5>
                                     <p class="card-details">This is a wider card with supporting text below as a natural
                                         lead-in to
-                                        additional content. This content is a little bit longer.</p>
+                                        additional content. This content is a little bit longer.
+                                        </p>
                                     <div>
                                         <b class="card-price">S/ 1.00 </b><strong>x unidad</strong>
                                         <p class="card-price-secondary">S/ 10.00 x docena</p>
                                     </div>
 
                                 </div>
+                                
                                 <div class="pie-carta">
                                     <button>Ver producto</button>
                                 </div>
@@ -94,139 +156,3 @@
                 </div>
             </div>
         </section>
-
-
-
-
-        ////////////////////////////////////////////
-
-        ////////////////////////////////////////////
-        
-        ////////////////////////////////////////////
-    
-        ////////////////////////////////////////////
-
-                <div id="filtro">
-            <div className="collapse show" id="collapseExample">
-
-                <div id="C1">
-                    <p><i className="fa-sharp fa-solid fa-bolt" style="margin-top: 15px;"></i> Nombre_Catg </p>
-                </div>
-                <div id="C2">
-                    <p><i className="fa-solid fa-arrow-down-wide-short mover" ></i> Filtros</p>
-                    <div className=" accordion " id=" accordionExample">
-                        <div className="accordion-item">
-                            <h2 className="accordion-header" id="headingOne">
-                                <button className="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true"
-                                    aria-controls="collapseOne">
-                                    PRECIO
-                                </button>
-                            </h2>
-                            <div id="collapseOne" className="accordion-collapse collapse show"
-                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div className="accordion-body">
-                                    <div className="price-input">
-                                        <div className="field">
-                                            <span>Min</span>
-                                            <input type="number" className="input-min" value="2500" />
-                                        </div>
-                                        <div className="separator">-</div>
-                                        <div className="field">
-                                            <span>Max</span>
-                                            <input type="number" className="input-max" value="7500" />
-                                        </div>
-                                    </div>
-                                    <div className="slider">
-                                        <div className="progress"></div>
-                                    </div>
-                                    <div className="range-input">
-                                        <input type="range" className="range-min" min="0" max="10000" value="2500"
-                                            step="10" />
-                                            <input type="range" className="range-max" min="0" max="10000" value="7500"
-                                                step="10" />
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="headingTwo">
-                                    <button className="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                        aria-expanded="false" aria-controls="collapseTwo">
-                                        COLOR
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" className="accordion-collapse collapse"
-                                    aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div className="accordion-body">
-
-                                        <div className="form-check">
-                                            <input className="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault" />
-                                                <label className="form-check-label" for="flexCheckDefault">
-                                                    Default checkbox
-                                                </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input className="form-check-input" type="checkbox" value=""
-                                                id="flexCheckChecked" checked />
-                                                <label className="form-check-label" for="flexCheckChecked">
-                                                    Checked checkbox
-                                                </label>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="headingThree">
-                                    <button className="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                        aria-expanded="false" aria-controls="collapseThree">
-                                        TAMAÑO
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" className="accordion-collapse collapse"
-                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div className="accordion-body">
-
-                                        <div className="form-check">
-                                            <input className="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault" />
-                                                <label className="form-check-label" for="flexCheckDefault">
-                                                    Pequeño
-                                                </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input className="form-check-input" type="checkbox" value=""
-                                                id="flexCheckChecked" checked />
-                                                <label className="form-check-label" for="flexCheckChecked">
-                                                    Mediano
-                                                </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input className="form-check-input" type="checkbox" value=""
-                                                id="flexCheckChecked" checked />
-                                                <label className="form-check-label" for="flexCheckChecked">
-                                                    Grande
-                                                </label>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <p id="btnAplicarFiltro">
-                    <a className="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
-                        aria-expanded="false" aria-controls="collapseExample">
-                        Aplicar Filtros
-                    </a>
-                </p>
-            </div>

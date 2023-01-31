@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*BOOORR*/
+
+/*Estructura*/
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+aside {
+    flex: 30px;
+    /*background-color: beige;*/
+    padding: 20px;
+}
+
+section {
+    flex: 70%;
+    /*background-color: brown;*/
+    padding: 20px;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #ddd;
+}
+
+/*Aqui termina estructura*/
+
+#cartas {
+    margin: 0px 20px;
+}
+
+#filtro {
+    margin: 2px 10px;
+    /*  text-align: center;*/
+}
+
+.mover {
+    margin-left: 15px;
+    text-align: left;
+
+}
+
+
+
+/*Realización del filter*/
+.price-input {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.price-input .field {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.field input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    font-size: 12px;
+    text-align: center;
+    margin-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    -moz-appearance: textfield;
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    /*the incrementers do not appear*/
+    -webkit-appearance: none;
+}
+
+.price-input .separator {
+    width: 40px;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.slider {
+    height: 5px;
+    border-radius: 5px;
+    background: #ddd;
+    margin-bottom: 20px;
+    position: relative;
+
+}
+
+.slider .progress {
+    height: 5px;
+    left: 25%;
+    right: 25%;
+    position: absolute;
+    border-radius: 5px;
+    background-color: #80a8e4;
+}
+
+
+.range-input {
+    position: relative;
+}
+
+.range-input input {
+    position: absolute;
+    top: -25px;
+    height: 5px;
+    width: 100%;
+    pointer-events: none;
+    background: none;
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    background: #80a8e4;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 17px;
+    width: 17px;
+    border: none;
+    border-radius: 50%;
+    pointer-events: auto;
+    -moz-appearance: none;
+    background: #80a8e4;
+}
+
+#btnAplicarFiltro {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.cardforma{
+        --bs-card-spacer-y: 1rem;
+        --bs-card-spacer-x: 1rem;
+        --bs-card-title-spacer-y: 0.5rem;
+        --bs-card-title-color: ;
+        --bs-card-subtitle-color: ;
+        --bs-card-border-width: var(--bs-border-width);
+        --bs-card-border-color: var(--bs-border-color-translucent);
+        --bs-card-border-radius: var(--bs-border-radius);
+        --bs-card-box-shadow: ;
+        --bs-card-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
+        --bs-card-cap-padding-y: 0.5rem;
+        --bs-card-cap-padding-x: 1rem;
+        --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
+        --bs-card-cap-color: ;
+        --bs-card-height: ;
+        --bs-card-color: ;
+        --bs-card-bg: var(--bs-body-bg);
+        --bs-card-img-overlay-padding: 1rem;
+        --bs-card-group-margin: 0.75rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        height: var(--bs-card-height);
+        word-wrap: break-word;
+        background-color: var(--bs-card-bg);
+        background-clip: border-box;
+        /*border: var(--bs-card-border-width) solid var(--bs-card-border-color);*/
+        border-radius: var(--bs-card-border-radius);
+        
+}
+/* Card Price */
+.card-price {
+    font-size: 25px;
+}
+
+.card-price-secondary{
+    font-size: 16px;
+}
+
+/* Button of card */
+.pie-carta {
+    text-align: center;
+    color: var(--bs-card-cap-color);
+    /*background-color: var(--bs-card-cap-bg);
+    border-top: var(--bs-card-border-width) solid var(--bs-card-border-color);*/
+}
+
+.pie-carta button {
+    padding: 3px 27px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    border: 2px solid #4d4d4d;
+    
+}
+
+.cardforma button:hover {
+    background-color: #4d4d4d;
+    color: white;
+}
+
+.cardformaM div:hover {
+    background-color: #f5f3f3;
+    
+}
+
+@media screen and (max-width: 800px) {
+
+    nav,
+    .row {
+        flex-direction: column;
+    }
+
+    ;
+
+    /*Ocultar los filtros */
+}
