@@ -5,7 +5,7 @@ import logoBackgroundWhite from '@logos/logo-background-white.png'
 
 function Header() {
     return (
-            <header>
+            <section>
                 <nav className="navbar" id="nav-bar">
                     <div className="navbar__logo">
                         <a href=""><img src={logoBackgroundWhite} alt="Logo Ilusion QB" /></a>
@@ -49,7 +49,7 @@ function Header() {
                         <div>18</div>
                     </div>
                 </nav>
-            </header>
+            </section>
         
     );
 }
