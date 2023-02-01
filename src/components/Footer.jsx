@@ -3,33 +3,33 @@ import '../styles/Footer.css';
 
 function Footer() {
     return (
-        <footer class="footer-container">
-            <div class="group-1">
-                <div class="box">
+        <footer className="footer-container">
+            <div className="group-1">
+                <div className="box">
                     <figure>
-                        <img src="../images/logo-white.png" alt="Logo de Ilusion QB" class="logo" />
+                        <img src="../images/logo-white.png" alt="Logo de Ilusion QB" className="logo" />
                     </figure>
                 </div>
-                <div class="box">
+                <div className="box">
                     <h2>SOBRE NOSOTROS</h2>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo cum ullam impedit
                         dolorem cumque magni, dolores, obcaecati pariatur quibusdam fugit libero
                         perspiciatis. Iste suscipit illo quidem aut est quia voluptates.</p>
                 </div>
-                <div class="contacto-red">
-                    <div class="box">
+                <div className="contacto-red">
+                    <div className="box">
                         <h2>¡Síguenos en nuestras redes sociales!</h2>
-                        <a href="#" class="bi bi-facebook"></a>
-                        <a href="#" class="bi bi-instagram"></a>
+                        <a href="#" className="bi bi-facebook"></a>
+                        <a href="#" className="bi bi-instagram"></a>
                     </div>
-                    <div class="box2">
+                    <div className="box2">
                         <h2>Contacto</h2>
-                        <a href="#" class="bi bi-whatsapp"><label>930 820 893</label></a><br />
-                        <a href="#" class="bi bi-envelope-at"><label>miguel_bqb@outlook.es</label></a>
+                        <a href="#" className="bi bi-whatsapp"><label>930 820 893</label></a><br />
+                        <a href="#" className="bi bi-envelope-at"><label>miguel_bqb@outlook.es</label></a>
                     </div>
                 </div>
             </div>
-            <div class="group-2">
+            <div className="group-2">
                 <small>&copy; 2023 <b>ILUSION QB</b> - Todos los Derechos Reservados</small>
             </div>
         </footer>
