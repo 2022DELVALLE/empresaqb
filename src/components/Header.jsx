@@ -14,8 +14,8 @@ const Header = () =>  {
 
     return (
             <section>
-                <nav className="navbar" id="nav-bar">
-                    <div className="navbar__logo">
+                <nav className="navbar-header"   id="nav-bar">
+                    <div className="navbar_logo">
                         <a href=""><img src={logoBackgroundWhite} alt="Logo Ilusion QB" /></a>
                         <a href=""><span>ILUSION QB</span></a>
                     </div>

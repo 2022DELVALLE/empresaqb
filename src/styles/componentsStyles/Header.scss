@@ -10,7 +10,7 @@ header{
     background-color: var(--black);
 }
 
-.navbar{
+.navbar-header{
     background: var(--black);
     color: var(--white);
     display: flex;
@@ -24,20 +24,20 @@ a{
     text-decoration: none;
 }
 
-.navbar__logo{
+.navbar_logo{
     display: flex;
     align-items: center;
     padding: 0 20px;
     justify-content: space-between;
 }
 
-.navbar__logo img{
+.navbar_logo img{
     width: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-.navbar__logo span{
+.navbar_logo span{
     font-size: 23px;
     color: var(--white);
     
@@ -132,14 +132,14 @@ a{
     color: var(--black);
     padding: 10px 15px 9px 15px;
     background-color: var(--very-light-gray);
-    font-size: 18px;
+    font-size: var(--lg);
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
 .navbar__login{
     margin-left: 23px;
-    font-size: 18px;
+    font-size: var(--lg);
     cursor: pointer;
 }
 
