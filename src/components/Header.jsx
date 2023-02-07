@@ -3,12 +3,21 @@ import '../styles/navbar.css';
 import logoBackgroundWhite from '@logos/logo-background-white.png'
 
 
-function Header() {
+const Header = () =>  {
 
+    const [search, setSearch] = React.useState('');
 
-    const onChange = (event)=> {
-        console.log(event);
+    const onSeacrhValueChange = (event)=> {
+        console.log(event.target.value);
+        setSearch(event.target.value);
     }
+
+    const [toggleLogin, setToggleLogin] = React.useState(false);
+
+    const handleToggleLogin = () => {
+        set
+    }    
+
 
     return (
             <section>
@@ -41,7 +50,9 @@ function Header() {
                     </div>
 
                     <div className="navbar__search">
-                        <input type="text" id="search" name="search" placeholder="Buscar productos" />
+                        <input type="text" id="search" name="search" placeholder="Buscar productos" 
+                            value={search} onChange={onSeacrhValueChange}
+                        />
                             <a href="#"><i className="bi bi-search"></i></a>
                     </div>
 
