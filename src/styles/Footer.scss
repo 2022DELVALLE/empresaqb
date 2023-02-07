@@ -1,19 +1,4 @@
-:root{
-    /* colors*/
-    --white: #FFFFFF;
-    --black: #000000;
-    --very-light-gray: #ADA4A4;
-    --text-input-field: #f1f1f1;
-    --logo-red: #c00100;
-
-    /*size*/
-    --sm: 16px;
-    --md: 21px;
-    --lg: 20px;
-
-    /*font*/
-    --font:'Inter', sans-serif;
-}
+@import 'vars';
 
 *{
     font-family: var(--font);
