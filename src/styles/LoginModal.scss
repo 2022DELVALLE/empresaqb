@@ -1,21 +1,4 @@
-:root {
-    /* colors*/
-    --white: #FFFFFF;
-    --black: #000000;
-    --very-light-gray: #ADA4A4;
-    --text-input-field: #f1f1f1;
-    --logo-red: #c00100;
-
-    /*size*/
-    --sm: 16px;
-    --md: 18px;
-    --lg: 24px;
-    --xlg: 30px;
-
-    /*font*/
-    --font: 'Inter', sans-serif;
-}
-
+@import 'vars';
 * {
     margin: 0;
     padding: 0;
@@ -96,7 +79,7 @@ a{
     margin-bottom: 12px;
     padding: 8px;
     border: 2px solid var(--logo-red);
-    background: white;
+    background: var(--white);
     border-radius: 10px;
     color: var(--logo-red);
     font-size: 14px;
