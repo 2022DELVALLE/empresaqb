@@ -1,0 +1,109 @@
+:root {
+    /* colors*/
+    --white: #FFFFFF;
+    --black: #000000;
+    --very-light-gray: #ADA4A4;
+    --text-input-field: #f1f1f1;
+    --logo-red: #c00100;
+
+    /*size*/
+    --sm: 16px;
+    --md: 18px;
+    --lg: 24px;
+    --xlg: 30px;
+
+    /*font*/
+    --font: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+}
+
+.login-container{
+    width: 250px;
+    background: var(--white);
+    border: 2px solid var(--logo-red);
+}
+
+.form{
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form div{
+    display: flex;
+    flex-direction: column;
+}
+
+.form .password{
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid var(--very-light-gray);
+    border-radius: 10px;
+    height: 26px;
+    padding: 5px 10px;
+}
+
+.input-user{
+    height: 26px;
+    margin-bottom: 12px;
+    border: 1px solid var(--very-light-gray);
+    padding: 5px 10px;
+    outline: none;
+    border-radius: 8px;
+}
+
+.input-password{
+    border: none;
+    outline: none;
+    width: 90%;
+}
+
+.password i:hover{
+    cursor: pointer;
+    color: var(--logo-red);
+}
+
+.input-form::placeholder{
+    color: var(--very-light-gray);
+}
+
+a{
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    color: var(--logo-red);
+}
+
+.primary-button{
+    margin-top: 15px;
+    padding: 8px;
+    border: none;
+    background: var(--logo-red);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.secondary-button{
+    margin-top: 20px;
+    margin-bottom: 12px;
+    padding: 8px;
+    border: 2px solid var(--logo-red);
+    background: white;
+    border-radius: 10px;
+    color: var(--logo-red);
+    font-size: 14px;
+}
+
+.secondary-button:hover{
+    background: var(--logo-red);
+    color: var(--white);
+    font-weight: bold;
+}

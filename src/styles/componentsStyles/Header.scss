@@ -1,19 +1,4 @@
-:root {
-    /* colors*/
-    --white: #FFFFFF;
-    --black: #000000;
-    --very-light-gray: #ADA4A4;
-    --text-input-field: #f1f1f1;
-    --logo-red: #c00100;
-
-    /*size*/
-    --sm: 14px;
-    --md: 16px;
-    --lg: 22px;
-
-    /*font*/
-    --font: 'Inter', sans-serif;
-}
+@import '../vars.scss';
 
 *{
     margin: 0;
@@ -54,6 +39,9 @@ a{
 
 .navbar__logo span{
     font-size: 23px;
+    color: var(--white);
+    
+
 }
 
 .navbar__menucategories-name{
@@ -93,7 +81,7 @@ a{
 
 .menu--categ li a{
     display: block;
-    color: white;
+    color:var(--white);
     padding: 15px 15px 15px 20px;
     font-size: 16px;
     transition: all .2s;

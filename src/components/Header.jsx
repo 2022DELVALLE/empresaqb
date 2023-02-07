@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/navbar.css';
+import '../styles/componentsStyles/Header.scss';
 import logoBackgroundWhite from '@logos/logo-background-white.png'
 
 
@@ -11,13 +11,6 @@ const Header = () =>  {
         console.log(event.target.value);
         setSearch(event.target.value);
     }
-
-    const [toggleLogin, setToggleLogin] = React.useState(false);
-
-    const handleToggleLogin = () => {
-        set
-    }    
-
 
     return (
             <section>
@@ -65,6 +58,8 @@ const Header = () =>  {
                         <a href=""><i className="bi bi-cart"></i></a>
                         <div>18</div>
                     </div>
+
+                    
                 </nav>
             </section>
         

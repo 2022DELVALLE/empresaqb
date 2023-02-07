@@ -1,4 +1,6 @@
 import React from 'react';
+import '../styles/LoginModal.css'
+
 
 function Menu() {
     return (
