@@ -3,8 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import { Layout } from '../containers/Layout';
 import Home from '../pages/Home.jsx';
+import Pruebas from '../containers/pruebas';
 
-function App () {
+
+const  App = () => {
     return(
 		<AppContext.Provider  >
 			<BrowserRouter>

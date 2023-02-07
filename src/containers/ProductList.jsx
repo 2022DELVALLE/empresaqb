@@ -15,8 +15,8 @@ function ProductList() {
 
 
     return (
-        <section class="main-container">
-            <div class="cards-container">
+        <section className="main-container">
+            <div className="cards-container">
                 {products.map(product => (
                     <ProductItem product={product} key={product.id} />
                 ))}

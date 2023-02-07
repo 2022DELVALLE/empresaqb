@@ -4,6 +4,12 @@ import logoBackgroundWhite from '@logos/logo-background-white.png'
 
 
 function Header() {
+
+
+    const onChange = (event)=> {
+        console.log(event);
+    }
+
     return (
             <section>
                 <nav className="navbar" id="nav-bar">
