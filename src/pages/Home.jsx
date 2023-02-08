@@ -1,17 +1,17 @@
 import React from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import Slider from '../components/Silder';
 import ProductList from '../containers/ProductList';
+import SliderContainer from '../containers/SliderContainer';
 
 
 const Home = () => {
     return (
         <div>
             <Header/>
-            <Slider/>
+            <SliderContainer/>
             <ProductList /> 
-            <Footer/>           
+            <Footer/>                   
         </div>
     );
 }
