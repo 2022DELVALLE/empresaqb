@@ -6,15 +6,16 @@ import SliderContainer from '../containers/SliderContainer';
 
 
 const Home = () => {
+
     return (
         <div>
-            <Header/>
-            <SliderContainer/>
-            <ProductList /> 
-            <Footer/>                   
+            <Header />
+            <SliderContainer />
+            <ProductList />
+            <Footer />
         </div>
     );
 }
 
-export  default Home;
+export default Home;
 

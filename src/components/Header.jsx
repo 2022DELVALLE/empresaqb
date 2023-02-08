@@ -20,6 +20,14 @@ const Header = () => {
         setToggleMenu(!toggleMenu);
     }
 
+    const [handleDetails, sethandleDetails] = React.useState(true);
+
+    const handleComprarProducto  = () => {
+        sethandleDetails(!handleDetails);
+
+    }
+
+
     return (
         <section>
             <nav className="navbar-header" id="nav-bar">
