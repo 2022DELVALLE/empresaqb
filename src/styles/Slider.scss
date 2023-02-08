@@ -1,0 +1,9 @@
+@import 'vars';
+
+.carousel-indicators button {
+    background-color: var(--white);
+    border-radius: 50%;
+    height: 3px;
+    width: 3px;
+    border: solid var(--very-light-gray) 3px;
+}
