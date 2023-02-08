@@ -18,7 +18,7 @@ function MoginModal() {
                     <a href="" class="ancle">¿Olvidaste tu contraseña?</a>
                     <input type="submit" value="Iniciar sesión" class="primary-button" />
                     <a href="" class="ancle">¿Aún no tienes cuenta con nosotros?</a>
-                    <input type="submit" value="Crea tu cuenta" class="secondary-button" />
+                    <input type="submit" value="Crea tu cuenta" class="secondary-button-login-modal" />
                 </div>
             </form>
         </div>

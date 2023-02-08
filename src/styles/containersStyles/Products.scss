@@ -88,16 +88,27 @@ body {
     color: var(--very-light-gray);
 }
 /*Revisar botones*/
-.secondary-button {
-    background-color: var(--white);
-    border-radius: 25px;
-    border: 1px solid var(--logo-red);
+
+
+.secondary-button-product-item{
+    margin-top: 20px;
+    margin-bottom: 12px;
+    padding: 8px;
+    border: 2px solid var(--logo-red);
+    background: var(--white);
+    border-radius: 10px;
     color: var(--logo-red);
+    font-size: 14px;
     width: 100%;
-    cursor: pointer;
-    font-size: var(--md);
+    text-align: center;
     font-weight: bold;
-    height: 40px;
+
+}
+
+.secondary-button-product-item:hover{
+    background: var(--logo-red);
+    color: var(--white);
+    font-weight: bold;
 }
 
 

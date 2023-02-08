@@ -4,9 +4,7 @@ import { AppContext } from '../context/AppContext';
 import { Layout } from '../containers/Layout';
 import Home from '../pages/Home.jsx';
 import LoginModal from '../components/LoginModal.jsx';
-import Details from '../containers/Details';
-
-
+import Detailsproduct from '../pages/Detailsproduct';
 
 const App = () => {
 	return (
@@ -16,7 +14,7 @@ const App = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/login" element={<LoginModal />} />
-						<Route path="/details" element={<Details />} />
+						<Route path="/Detailsproduct" element={<Detailsproduct />} />
 					</Routes>
 				</Layout>
 			</BrowserRouter>

@@ -3,13 +3,15 @@ import '../styles/containersStyles/Details.scss';
 
 import logoBackgroundWhite from '@logos/logo-background-white.png';
 
-const Details = () => {
+const Details = ({handleonClickComprar}) => {
 
     const [numberCant, setnumbercant] = React.useState(1);
 
+    console.log(handleonClickComprar);
 
     return (
         <div>
+            {handleonClickComprar}
             <div>
                 <div className="row">
                     <div className="col">
@@ -65,21 +67,14 @@ const Details = () => {
                                 </div>
                                 <div className="product-detail">
                                     <h2>About this iteme:</h2>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur dolore fugiat
-                                        exercitationem porro facere delectus commodi dicta, assumenda at blanditiis, doloremque
-                                        perferendis ex laudantium aspernatur officia et ab omnis illum.</p>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia reprehenderit voluptatem
-                                        provident dolorum, exercitationem tempore corrupti mollitia praesentium. .</p>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>                            
                                     <ul>
                                         <li>Color : <span>Black</span> </li>
                                         <li>Avaible : <span> in stock</span> </li>
-                                        <li> Category : <span> shoes</span> </li>
-                                        <li> Shiping area : <span>All over the world</span> </li>
-                                        <li> Shipping fee : <span> Free</span> </li>
+                                        <li> Category : <span> shoes</span> </li>                                        
                                     </ul>
                                 </div>
                                 <div className="purchase-info">
-                                    /*VERIFICAR EL EVENTO ONCHANGE PARA EL CONTADOR */
                                     <input type="number" min="0" defaultValue={numberCant} />
                                     <button type="button" className="btn"> Add to cart <i className="fas fa-shopping-cart"></i></button>
                                     <button type="button" className="btn">Comprar</button>
@@ -135,7 +130,7 @@ const Details = () => {
             </div>
 
 
-            <footer>
+            <footer className="footer-details">
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, dolorum in ad optio voluptatem iste
                     numquam neque unde sequi veritatis vitae voluptas architecto blanditiis a nobis natus rerum provident
