@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import { Layout } from '../containers/Layout';
 import Home from '../pages/Home.jsx';
-import Menu from '../components/Menu';
+import LoginModal from '../components/LoginModal.jsx';
 
 
 
@@ -14,7 +14,7 @@ const  App = () => {
 				<Layout>
 					<Routes>
 						<Route path="/" element={<Home />} />	
-						<Route path="/login" element={<Menu />} />	
+						<Route path="/login" element={<LoginModal />} />	
 					</Routes>
 				</Layout>
 			</BrowserRouter>

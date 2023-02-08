@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../styles/Footer.scss'
 import logoBackgroundWhite from '../assets/logos/logo-background-white.png';
 
 

@@ -1,12 +1,12 @@
 import React from 'react';
-import '../styles/LoginModal.css'
+import '../styles/LoginModal.scss'
 
 
-function Menu() {
+function MoginModal() {
     return (
-        <div class="login-container">
-        <div class="login">
-            <form action="" class="form">
+        <div class="login-modal-container">
+        <div class="login-modal">
+            <form action="" class="form-login-modal">
                 <div>
                     <input type="text" placeholder="Usuario" class="input-user" />
                 </div>
@@ -26,4 +26,4 @@ function Menu() {
     );
 }
 
-export default Menu;
+export default MoginModal;

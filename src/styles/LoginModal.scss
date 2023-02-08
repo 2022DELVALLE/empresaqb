@@ -5,7 +5,7 @@
     font-family: var(--font);
 }
 
-.login-container{
+.login-modal-container{
     width: 250px;
     background: var(--white);
     border: 2px solid var(--logo-red);
@@ -17,12 +17,12 @@
     flex-direction: column;
 }
 
-.form div{
+.form-login-modal div{
     display: flex;
     flex-direction: column;
 }
 
-.form .password{
+.form-login-modal .password{
     flex-direction: row;
     align-items: center;
     border: 1px solid var(--very-light-gray);
@@ -55,8 +55,7 @@
     color: var(--very-light-gray);
 }
 
-a{
-    margin-top: 20px;
+.ancle {
     text-decoration: none;
     font-size: 14px;
     text-align: center;
