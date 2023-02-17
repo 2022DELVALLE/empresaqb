@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 @import '../vars.scss';
+
 * {
     box-sizing: border-box;
 }
+
 
 body {
     font-family: 'Inter', sans-serif;
@@ -130,9 +132,11 @@ body {
 
 .purchase-info {
     margin: 1.5rem 0;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
 }
 
-.purchase-info input,
 .purchase-info .btn {
     border: 1.5px solid #ddd;
     border-radius: 25px;
@@ -143,10 +147,23 @@ body {
     padding: 0.45rem 0.8rem;
 }
 
-.purchase-info input {
-    width: 70px;
-    height: 37px;
+.add-remove {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    height: 40px;
 }
+
+
+.icon-remove,
+.icon-add {
+    background: rgb(235, 235, 235);
+    height: 30px;
+    color: var(--black);
+    padding: 6px 8px;
+    border-radius: 5px;
+}
+
 
 .purchase-info .btn {
     cursor: pointer;
@@ -209,13 +226,13 @@ body {
     border-radius: 5%;
 }
 
-.gallery{
+.gallery {
     width: 100%;
     height: 550px;
     overflow: hidden;
 }
 
-.gallery > img{
+.gallery>img {
     width: 100%;
     height: 100%;
     transition: 0.5s;
@@ -223,13 +240,13 @@ body {
 }
 
 /* ZOOM con seguimiento FALTA */
-.gallery > img:hover{
+.gallery>img:hover {
     transform: scale(1.5);
     transition: 4s;
 }
 
 /* COMENTARIOS */
-.tabs{
+.tabs {
     height: 20rem;
 }
 
@@ -270,23 +287,23 @@ body {
     transition: all 500ms ease-in-out;
 }
 
-.tabs .tab-body{
+.tabs .tab-body {
     position: relative;
     height: calc(100% - 60px);
     padding: 10px 5px;
 }
 
-.tabs .tab-body>div{
+.tabs .tab-body>div {
     position: absolute;
     top: -200%;
     opacity: 0;
     margin-top: 10px;
     transform: scale(0.9);
     transition: opacity 500ms ease-in-out 0ms,
-    transform 500ms ease-in-out 0ms;
+        transform 500ms ease-in-out 0ms;
 }
 
-.tabs .tab-body >div.active{
+.tabs .tab-body>div.active {
     top: 0px;
     opacity: 1;
     transform: scale(1);

@@ -1,17 +1,22 @@
 import React from "react";
 import '../styles/containersStyles/Details.scss';
+import ContextPreview from "../context/ContextPreview";
+import AppContext from "../context/AppContext";
 
-import logoBackgroundWhite from '@logos/logo-background-white.png';
+const Details = () => {
 
-const Details = ({handleonClickComprar}) => {
+    const { stateProductIP } = React.useContext(ContextPreview);
+    const [quantity, setQuantity] = React.useState(0);
 
-    const [numberCant, setnumbercant] = React.useState(1);
+	const { addToCart } = React.useContext(AppContext);
 
-    console.log(handleonClickComprar);
+    const handleClick = item => {
+        stateProductIP.amount = quantity;
+		addToCart(item);
+	}
 
     return (
         <div>
-            {handleonClickComprar}
             <div>
                 <div className="row">
                     <div className="col">
@@ -19,39 +24,36 @@ const Details = ({handleonClickComprar}) => {
                             <div>
                                 <div className="gallery">
                                     <img className="img-fluid w-100 pb-2"
-                                        src={logoBackgroundWhite}
+                                        src={stateProductIP.image}
                                         id="MainImg" alt="" />
                                 </div>
                                 <div className="small-img-group">
                                     <div className="small-img-col">
-                                        <img src={logoBackgroundWhite}
+                                        <img src={stateProductIP.image}
                                             width="100%" className="small-img" alt="" />
                                     </div>
                                     <div className="small-img-col">
-                                        <img src={logoBackgroundWhite}
+                                        <img src={stateProductIP.image}
                                             width="100%" className="small-img" alt="" />
                                     </div>
                                     <div className="small-img-col">
-                                        <img src={logoBackgroundWhite}
+                                        <img src={stateProductIP.image}
                                             width="100%" className="small-img" alt="" />
                                     </div>
                                     <div className="small-img-col">
-                                        <img src={logoBackgroundWhite}
+                                        <img src={stateProductIP.image}
                                             width="100%" className="small-img" alt="" />
                                     </div>
                                 </div>
                             </div>
-
                             <div>
-
                             </div>
                         </div>
                     </div>
-
                     <div className="col">
                         <div className="p-3 ">
                             <div className="product-content">
-                                <h2 className="product-title">Nike Shoes</h2>
+                                <h2 className="product-title">{stateProductIP.title}</h2>
                                 <a href="#" className="product-link">visit nike store</a>
                                 <div className="product-rating">
                                     <i className="fas fa-star"></i>
@@ -62,22 +64,44 @@ const Details = ({handleonClickComprar}) => {
                                     <span>4.7.(21)</span>
                                 </div>
                                 <div className="product-price">
-                                    <p className="last-price">Docena Price: <span>$525.90</span></p>
-                                    <p className="new-price">Unidad Price: <span>$100.90</span></p>
+                                    <p className="last-price">Docena Price: <span>${stateProductIP.priceDozens}</span></p>
+                                    <p className="new-price">Unidad Price: <span>${stateProductIP.priceUnit}</span></p>
                                 </div>
                                 <div className="product-detail">
                                     <h2>About this iteme:</h2>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>                            
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
                                     <ul>
                                         <li>Color : <span>Black</span> </li>
                                         <li>Avaible : <span> in stock</span> </li>
-                                        <li> Category : <span> shoes</span> </li>                                        
+                                        <li> Category : <span> shoes</span> </li>
                                     </ul>
                                 </div>
                                 <div className="purchase-info">
-                                    <input type="number" min="0" defaultValue={numberCant} />
-                                    <button type="button" className="btn"> Add to cart <i className="fas fa-shopping-cart"></i></button>
-                                    <button type="button" className="btn">Comprar</button>
+                                    <div className="add-remove">
+                                        <button className="icon-remove"
+                                            type="button"
+                                            onClick={() => setQuantity(quantity - 1)}
+                                            disabled={quantity <= 0}
+                                        >
+                                            -
+                                        </button>
+                                        {quantity}
+                                        <button
+                                            type="button"
+                                            className="icon-add"
+                                            onClick={() => setQuantity(quantity + 1)}
+                                            disabled={quantity >= 5}
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button type="button" className="btn"
+                                        onClick={()=> handleClick(stateProductIP)}
+                                        > 
+                                        Add to cart <i className="fas fa-shopping-cart"></i></button>
+                                        <button type="button" className="btn">Comprar</button>
+                                    </div>
                                 </div>
                                 <div className="social-links">
                                     <p>Share At:</p>
