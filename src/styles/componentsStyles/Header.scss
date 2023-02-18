@@ -1,16 +1,17 @@
 @import '../vars.scss';
 
-*{
+
+* {
     margin: 0;
     padding: 0;
     font-family: var(--font);
 }
 
-header{
+header {
     background-color: var(--black);
 }
 
-.navbar-header{
+.navbar {
     background: var(--black);
     color: var(--white);
     display: flex;
@@ -19,98 +20,74 @@ header{
     height: 70px;
 }
 
-a{
+a {
     color: var(--white);
     text-decoration: none;
 }
 
-.navbar_logo{
+.navbar__logo {
     display: flex;
     align-items: center;
     padding: 0 20px;
     justify-content: space-between;
+    pointer-events: none;
 }
 
-.navbar_logo img{
+.navbar__logo img {
     width: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-.navbar_logo span{
+.navbar__logo span {
     font-size: 23px;
+}
+
+.navbar__menucategories .navbar-toggler {
+    background-color: var(--logo-red);
+    border-radius: 20%;
+    height: 35px;
+    width: 40px;
+    padding: 0;
+}
+
+.iconmenu {
     color: var(--white);
-    
-
+    font-size: 24px;
 }
 
-.navbar__menucategories-name{
-    padding: 0 60px 0 10px;
-    display: flex;
-    align-items: center;
-}
-
-.navbar__menucategories-name > a, .navbar__menucategories-name span{
+.navbar__menucategory-name {
     font-size: 18px;
+    padding: 5px 5px 5px 1px;
 }
 
-.navbar__menucategories-name i{
-    background: var(--logo-red);
-    padding: 4px 6px;
-    font-size: 22px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.name__menu{
-    display: flex;
-    flex-direction: column;
-}
-
-.menu--categ{
+.offcanvas {
     background-color: var(--black);
-    width: 300px;
-    list-style: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    overflow-y: hidden;
-    transition: 0.5s;
+    color: var(--white);
+    font-size: 1.2rem;
 }
 
-.menu--categ li a{
-    display: block;
-    color:var(--white);
-    padding: 15px 15px 15px 20px;
-    font-size: 16px;
-    transition: all .2s;
+.navbar-nav .nav-link.active,
+.navbar-nav .show>.nav-link {
+    color: var(--white);
+    font-weight: 600;
+    text-align: center;
 }
 
-.menu--categ > li:first-child{
-    padding: 0 10px 10px 0;
+.navbar-nav a {
+    color: var(--white);
 }
 
-.menu--categ > li{
-    padding: 10px 0;
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
 }
 
-.menu--categ li a:hover{
+.navbar__menucategories li a:hover {
     background: var(--logo-red);
+    color: var(--white);
 }
 
-.menu--categ:hover{
-    overflow-y: auto;
-}
-.desplegar{
-    transform: translateX(-100%);
-}
-
-.active{
-    margin-left: 150px;
-}
-
-.navbar__search{
+.navbar__search {
     display: flex;
     width: 40vw;
     background-color: var(--white);
@@ -120,7 +97,7 @@ a{
     border-radius: 8px;
 }
 
-.navbar__search input{
+.navbar__search input {
     border: none;
     outline: none;
     padding: 0 0 0 10px;
@@ -128,53 +105,90 @@ a{
     width: 40vw;
 }
 
-.navbar__search a{
+.navbar__search a {
     color: var(--black);
     padding: 10px 15px 9px 15px;
     background-color: var(--very-light-gray);
-    font-size: var(--lg);
+    font-size: 14px;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
-.navbar__login{
+.navbar__login {
     margin-left: 23px;
-    font-size: var(--lg);
+    font-size: 18px;
     cursor: pointer;
-    color: var(--white);
 }
 
-.navbar__login a{
-    color: var(--white);
-
-}
-
-
-
-.navbar__shop{
+.navbar__shop {
     margin-left: 23px;
     display: flex;
 }
 
-.navbar__shop a{
+.navbar__shop a {
     font-size: 23px;
 }
 
-.navbar__shop div{
+.navbar__shop div {
     background: var(--logo-red);
-    width: 20px;
-    height: 20px;
+    font-size: 18px;
     border-radius: 50%;
-    font-size: var(--sm);
-    font-weight: bold;
-    position: absolute;
-    top: 16px;
-    right: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 2px 6px;
+    position: fixed;
+    top: 6px;
+    margin-left: 14px;
+    text-align: center;
 }
 
-.desplegar{
-    transform: translateX(-100%);
+@media screen and (max-width:700px) {
+    .navbar {
+        align-items: center;
+        height: 130px;
+    }
+
+    .navbar__search {
+        position: absolute;
+        align-items: center;
+        width: 83vw;
+        top: 78px;
+    }
+
+    .navbar__logo {
+        padding: 0 2px;
+        margin-bottom: 44px;
+    }
+
+    .navbar__menucategories {
+        margin-bottom: 44px;
+        text-align: center;
+    }
+
+    .navbar__login {
+        margin-left: 2px;
+        margin-bottom: 44px;
+    }
+
+    .navbar__shop {
+        margin-bottom: 44px;
+    }
+
+    .navbar__shop div {
+        top: 11px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .navbar__menucategory-name {
+        display: none;
+    }
+
+    .navbar__login a {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1220px) {
+    header {
+        max-width: 100%;
+    }
 }

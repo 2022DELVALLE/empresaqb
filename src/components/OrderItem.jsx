@@ -1,0 +1,27 @@
+import React from 'react';
+
+function OrderItem({ product }) {
+    return (
+        <div className="product-basquet">
+            <div className="product-image"><img src={product.image} alt={product.title} /></div>
+            <div className="product-description">
+                <div className="product-name">{product.title}</div>
+                <div className="product-info">{product.description}</div>
+                <div className="product-price">S/{product.priceUnit * product.amount}</div>
+            </div>
+            <div className="shop-quantity">
+                <div className="product-quantity">
+                    <div className="icon-remove"><i className="bi bi-dash-lg"></i></div>
+                    <div className="cont">{product.amount}</div>
+                    <div className="icon-add"><i className="bi bi-plus-lg"></i></div>
+                </div>
+                <div className="product-remove">
+                    <button><i className="bi bi-trash3"></i>Eliminar</button>
+                </div>
+            </div>
+        </div>
+
+    )
+};
+
+export default OrderItem;
