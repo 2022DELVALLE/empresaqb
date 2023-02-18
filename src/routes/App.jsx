@@ -9,17 +9,17 @@ import DetailsCart from '../pages/DetailsCart';
 import  AppContext  from '../context/AppContext';
 import useInitialState from '../hooks/useInicialState';
 //paso app Context preview  product item 
-import  ContextPreview  from '../context/ContextPreview';
+import  ContextPreviewProduct  from '../context/ContextPreviewProduct';
 import useProductPreview from '../hooks/useProductPreview';
 
 const App = () => {
 
-	const initialStatePIP = useProductPreview(); //Este hook retorna state y addToCart
+	const initialStatePodructItemPreview = useProductPreview(); //Este hook retorna state y addToCart
 	const initialState = useInitialState(); //Este hook retorna state y addToCart
 
 	return (
 		<AppContext.Provider  value={initialState } >
-		<ContextPreview.Provider  value={initialStatePIP } >
+		<ContextPreviewProduct.Provider  value={initialStatePodructItemPreview } >
 			<BrowserRouter>
 				<Layout>
 					<Routes>
@@ -31,7 +31,7 @@ const App = () => {
 					</Routes>
 				</Layout>
 			</BrowserRouter>
-		</ContextPreview.Provider>
+		</ContextPreviewProduct.Provider>
 		</AppContext.Provider>
 
 	);

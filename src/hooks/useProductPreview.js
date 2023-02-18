@@ -1,16 +1,16 @@
 import React from 'react';
 
-const productPreview = {
+const itemProductPreview = {
 	productItemP: [],
 };
 
 const useProductPreview = () => {
 
-	const [stateProductIP, setStateProductIP] = React.useState(productPreview);
+	const [productItemPreview, setProductItemPreview] = React.useState(itemProductPreview);
 
 	return {
-		stateProductIP,
-        setStateProductIP
+		productItemPreview,
+        setProductItemPreview
 	}
 };
 

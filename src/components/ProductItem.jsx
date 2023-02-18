@@ -1,20 +1,20 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import ContextPreview from '../context/ContextPreview.js';
+import ContextPreviewProduc from '../context/ContextPreviewProduct.js';
 
 const ProductItem = ({ product }) => {
 
-	const { setStateProductIP } = useContext(ContextPreview);
+	const { setProductItemPreview } = useContext(ContextPreviewProduc);
 
-	const handleOnClickPIP = (payload) => {
-		setStateProductIP(payload);
+	const onProductItemPreview = (payload) => {
+		setProductItemPreview(payload);
 	}
 
 	return (
 		<div className="product-card">
 			<Link
 				to={"/Detailsproduct"}
-				onClick={() => handleOnClickPIP(product)}
+				onClick={() => onProductItemPreview(product)}
 			>
 				<img
 					src={product.image} alt={product.title}

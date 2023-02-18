@@ -1,18 +1,20 @@
 import React from "react";
 import '../styles/containersStyles/Details.scss';
-import ContextPreview from "../context/ContextPreview";
+import ContextPreviewProduct from "../context/ContextPreviewProduct";
 import AppContext from "../context/AppContext";
 
 const Details = () => {
 
-    const { stateProductIP } = React.useContext(ContextPreview);
+    const { productItemPreview } = React.useContext(ContextPreviewProduct);
+
     const [quantity, setQuantity] = React.useState(0);
 
-	const { addToCart } = React.useContext(AppContext);
-
+	const {state, addToCart } = React.useContext(AppContext);
     const handleClick = item => {
-        stateProductIP.amount = quantity;
+        productItemPreview.amount = quantity;
 		addToCart(item);
+        console.log(item);
+        console.log(state);
 	}
 
     return (
@@ -24,24 +26,24 @@ const Details = () => {
                             <div>
                                 <div className="gallery">
                                     <img className="img-fluid w-100 pb-2"
-                                        src={stateProductIP.image}
+                                        src={productItemPreview.image}
                                         id="MainImg" alt="" />
                                 </div>
                                 <div className="small-img-group">
                                     <div className="small-img-col">
-                                        <img src={stateProductIP.image}
+                                        <img src={productItemPreview.image}
                                             width="100%" className="small-img" alt="" />
                                     </div>
                                     <div className="small-img-col">
-                                        <img src={stateProductIP.image}
+                                        <img src={productItemPreview.image}
                                             width="100%" className="small-img" alt="" />
                                     </div>
                                     <div className="small-img-col">
-                                        <img src={stateProductIP.image}
+                                        <img src={productItemPreview.image}
                                             width="100%" className="small-img" alt="" />
                                     </div>
                                     <div className="small-img-col">
-                                        <img src={stateProductIP.image}
+                                        <img src={productItemPreview.image}
                                             width="100%" className="small-img" alt="" />
                                     </div>
                                 </div>
@@ -53,7 +55,7 @@ const Details = () => {
                     <div className="col">
                         <div className="p-3 ">
                             <div className="product-content">
-                                <h2 className="product-title">{stateProductIP.title}</h2>
+                                <h2 className="product-title">{productItemPreview.title}</h2>
                                 <a href="#" className="product-link">visit nike store</a>
                                 <div className="product-rating">
                                     <i className="fas fa-star"></i>
@@ -64,8 +66,8 @@ const Details = () => {
                                     <span>4.7.(21)</span>
                                 </div>
                                 <div className="product-price">
-                                    <p className="last-price">Docena Price: <span>${stateProductIP.priceDozens}</span></p>
-                                    <p className="new-price">Unidad Price: <span>${stateProductIP.priceUnit}</span></p>
+                                    <p className="last-price">Docena Price: <span>${productItemPreview.priceDozens}</span></p>
+                                    <p className="new-price">Unidad Price: <span>${productItemPreview.priceUnit}</span></p>
                                 </div>
                                 <div className="product-detail">
                                     <h2>About this iteme:</h2>
@@ -97,7 +99,7 @@ const Details = () => {
                                     </div>
                                     <div>
                                         <button type="button" className="btn"
-                                        onClick={()=> handleClick(stateProductIP)}
+                                        onClick={()=> handleClick(productItemPreview)}
                                         > 
                                         Add to cart <i className="fas fa-shopping-cart"></i></button>
                                         <button type="button" className="btn">Comprar</button>

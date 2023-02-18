@@ -8,10 +8,9 @@ const API = 'https://api-production-11f8.up.railway.app/api/products';
 import useGetProducts from '../hooks/useGetProducts';
 
 
-const ProductList = () => {
+const   ProductList = () => {
 
     const products = useGetProducts(API);
-
 
     return (
         <section className="main-container">
