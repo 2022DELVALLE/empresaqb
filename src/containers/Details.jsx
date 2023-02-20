@@ -2,20 +2,22 @@ import React from "react";
 import '../styles/containersStyles/Details.scss';
 import ContextPreviewProduct from "../context/ContextPreviewProduct";
 import AppContext from "../context/AppContext";
-
+import ModalAddCart from "../components/ModalAddCart";
 const Details = () => {
 
-    const { productItemPreview } = React.useContext(ContextPreviewProduct);
+    const { productItemPreview, setProductItemPreview } = React.useContext(ContextPreviewProduct);
 
-    const [quantity, setQuantity] = React.useState(0);
+    const {
+        openModalAddCart,
+        setOpenModalAddCart,
+        quantity,
+        setQuantity,
+    } = React.useContext(AppContext);
 
-	const {state, addToCart } = React.useContext(AppContext);
-    const handleClick = item => {
-        productItemPreview.amount = quantity;
-		addToCart(item);
-        console.log(item);
-        console.log(state);
-	}
+    const onClickModalAddCartDetails = (payload) => {
+        setOpenModalAddCart(true);
+        setProductItemPreview(payload);
+    };
 
     return (
         <div>
@@ -92,17 +94,18 @@ const Details = () => {
                                             type="button"
                                             className="icon-add"
                                             onClick={() => setQuantity(quantity + 1)}
-                                            disabled={quantity >= 5}
+                                            disabled={quantity >= 999}
                                         >
                                             +
                                         </button>
                                     </div>
                                     <div>
                                         <button type="button" className="btn"
-                                        onClick={()=> handleClick(productItemPreview)}
-                                        > 
-                                        Add to cart <i className="fas fa-shopping-cart"></i></button>
-                                        <button type="button" className="btn">Comprar</button>
+                                            onClick={() => onClickModalAddCartDetails(productItemPreview)}
+                                        >
+                                            Add to cart
+                                            <i className="fas fa-shopping-cart"></i>
+                                        </button>
                                     </div>
                                 </div>
                                 <div className="social-links">
@@ -168,8 +171,11 @@ const Details = () => {
                 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             ></script>
             <script src="../hooks/Product-details.js"></script>
-
+            {!!openModalAddCart && (
+                <ModalAddCart></ModalAddCart>
+            )}
         </div>
+
     );
 }
 

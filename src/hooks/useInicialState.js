@@ -8,7 +8,7 @@ const useInitialState = () => {
 	const [state, setState] = useState(initialState);
 
 	const addToCart = (payload) => {
-		setState({            
+		setState({
 			...state,
 			cart: [...state.cart, payload]
 		});
@@ -21,10 +21,23 @@ const useInitialState = () => {
 		});
 	}
 
+
+	//Trabajamos con el modal add  cart
+
+	const [openModalAddCart, setOpenModalAddCart] = React.useState(false);
+
+	//Cantidad  a comprar por el cliente
+    const [quantity, setQuantity] = React.useState(0);
+
+
 	return {
 		state,
 		addToCart,
-		removeFromCart
+		removeFromCart,
+		openModalAddCart,
+		setOpenModalAddCart,
+		quantity, 
+		setQuantity,
 	}
 };
 
