@@ -1,0 +1,144 @@
+@import 'vars';
+
+
+
+.create-acount {
+
+    display: grid;
+    place-items: center;
+}
+
+
+.container-create-acount {
+    background-color: var(--white);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    border-radius: 12px;
+    justify-items: center;
+
+}
+
+.container-create-acount .logo-create-acount {
+    margin-top: 16px;
+    width: 150px;
+    border-radius: 50%;
+    justify-self: center;
+}
+
+.container-create-acount .title-create-acount {
+    font-size: var(--lg);
+    margin-bottom: 11px;
+    text-align: center;
+    color: var(--black);
+}
+
+.container-create-acount .subtitle-create-acount {
+    color: var(--very-light-gray);
+    font-size: var(--md);
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+
+}
+
+.container-create-acount .form-create-acount {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.form-create-acount .label-description-create-acount {
+    font-size: var(--sm);
+    font-weight: bold;
+    margin-bottom: 1vw;
+}
+
+.form-create-acount .label-input-create-acount {
+    background-color: var(--text-input-field);
+    border: none;
+    border-radius: 8px;
+    height: 28px;
+    font-size: var(--md);
+    padding: 5px;
+    margin-bottom: 25px;
+    outline: none;
+}
+
+#etiqueta-i {
+    position: relative;
+    font-size: 23px;
+    margin: -59px 0 0 350px;
+    background-color: var(--text-input-field);
+    opacity: 1.3;
+    cursor: pointer;
+}
+
+
+#etiqueta-i :hover {
+    color: var(--logo-red);
+}
+
+.container-check-create-acount {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-create-acount .button-create-create-acount {
+    background-color: var(--logo-red);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 16px;
+    height: 48px;
+    color: var(--white);
+    font-weight: bold;
+    font-size: var(--md);
+    font-family: var(--font);
+}
+
+
+/*responsive*/
+@media (max-width:600px) {
+
+    body .container-create-acount {
+        /*ojo*/
+        box-shadow: none;
+        display: grid;
+        place-content: center;
+        padding: 2vh 0 0 0;
+        width: 300px;
+    }
+
+    .container-create-acount .subtitle-create-acount {
+        margin-bottom: 2vh;
+    }
+
+    .form-create-acount {
+
+        display: grid;
+        justify-content: center;
+        padding-left: 50px;
+    }
+
+    .form-create-acount .label-input-create-acount {
+        padding: 3px;
+        margin-bottom: 3.5vw;
+    }
+
+    i {
+        margin: -44.5px 0 0 60vw;
+        background: none;
+    }
+
+    .container-check-create-acount {
+        margin-top: 2vh;
+        margin-right: 12vw;
+    }
+
+    .form-create-acount .button-create-create-acount {
+        margin-bottom: 2.5rem;
+        margin-top: 1vh;
+    }
+}
