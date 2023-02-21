@@ -5,24 +5,24 @@ import '../styles/LoginModal.scss'
 
 function MoginModal() {
     return (
-        <div class="login-modal-container">
-            <div class="login-modal">
-                <form action="" class="form-login-modal">
+        <div className="login-modal-container">
+            <div className="login-modal">
+                <form action="" className="form-login-modal">
                     <div>
-                        <input type="text" placeholder="Usuario" class="input-user" />
+                        <input type="text" placeholder="Usuario" className="input-user" />
                     </div>
-                    <div class="password">
-                        <input type="password" placeholder="*********" class="input-password" id="password" />
-                        <i class="bi bi-eye" id="show"></i>
+                    <div className="password">
+                        <input type="password" placeholder="*********" className="input-password" id="password" />
+                        <i className="bi bi-eye" id="show"></i>
                     </div>
                     <div>
-                        <a href="" class="ancle">¿Olvidaste tu contraseña?</a>
-                        <input type="submit" value="Iniciar sesión" class="primary-button" />
-                        <a href="" class="ancle">¿Aún no tienes cuenta con nosotros?</a>
+                        <a href="" className="ancle">¿Olvidaste tu contraseña?</a>
+                        <input type="submit" value="Iniciar sesión" className="primary-button" />
+                        <a href="" className="ancle">¿Aún no tienes cuenta con nosotros?</a>
                         <Link
                         to={"/CreateAcount"}
                         >
-                            <input type="submit" value="Crea tu cuenta" class="secondary-button-login-modal" />
+                            <input type="submit" value="Crea tu cuenta" className="secondary-button-login-modal" />
                         </Link>
                     </div>
                 </form>
