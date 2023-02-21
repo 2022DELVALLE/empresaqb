@@ -158,7 +158,6 @@ const Details = () => {
 
             </div>
 
-
             <footer className="footer-details">
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, dolorum in ad optio voluptatem iste
