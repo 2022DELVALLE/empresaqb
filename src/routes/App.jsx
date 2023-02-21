@@ -5,7 +5,6 @@ import Home from '../pages/Home.jsx';
 import LoginModal from '../components/LoginModal.jsx';
 import Detailsproduct from '../pages/Detailsproduct';
 import DetailsCart from '../pages/DetailsCart';
-import CreateAcount from '../pages/CreateAcount';
 
 // Obtenemos los valores necesarios para el app context que agrupa el item product cart
 import  AppContext  from '../context/AppContext';
@@ -29,7 +28,6 @@ const App = () => {
 						<Route path="/login" element={<LoginModal />} />
 						<Route path="/Detailsproduct" element={<Detailsproduct />} />
 						<Route path="/DetailsCart" element={<DetailsCart />} />
-						<Route path="/CreateAcount" element={<CreateAcount />} />
 					</Routes>
 				</Layout>
 			</BrowserRouter>
