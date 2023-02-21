@@ -15,7 +15,10 @@ const useGetProducts = (API) => {
         fetchData();
     }, []);
 
-    return products;
+    return {
+        products,
+        setProducts,
+    };
 };
 
 export default useGetProducts;

@@ -9,6 +9,12 @@
     width: 250px;
     background: var(--white);
     border: 2px solid var(--logo-red);
+	height: auto;
+	border-radius: 6px;
+	padding: 20px 20px 0 20px;
+	position: absolute;
+	top: 70px;
+	right: 2rem;
 }
 
 .form{

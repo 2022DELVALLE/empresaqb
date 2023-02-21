@@ -2,16 +2,23 @@ import React from 'react';
 import '../styles/componentsStyles/Header.scss';
 import logoBackgroundWhite from '@logos/logo-background-white.png';
 import { Link } from 'react-router-dom';
-
+import ContextPreviewProduct from "../context/ContextPreviewProduct";
+import LoginModal from './LoginModal';
 
 
 const Header = () => {
 
-    const [search, setSearch] = React.useState('');
+    const { search, setSearch } = React.useContext(ContextPreviewProduct);
 
     const onSeacrhValueChange = (event) => {
-        console.log(event.target.value);
         setSearch(event.target.value);
+        console.log(search);
+    }
+
+    const [toggle, setToggle] = React.useState(false);
+
+    const onToggle = () => {
+        setToggle(!toggle);
     }
 
     return (
@@ -67,7 +74,9 @@ const Header = () => {
                     />
                     <a href="#"><i className="bi bi-search"></i></a>
                 </div>
-                <div className="navbar__login">
+                <div className="navbar__login"
+                onClick={onToggle}
+                >
                     <i className="bi bi-person-circle"></i>
                     <a href="#">Hola, inicia sesión!</a>
                 </div>
@@ -80,6 +89,7 @@ const Header = () => {
                     </div>
                 </Link>
             </nav>
+            {toggle && <LoginModal />}
         </header>
 
     );
