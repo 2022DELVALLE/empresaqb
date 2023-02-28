@@ -6,7 +6,7 @@ function OrderItem({ product }) {
             <div className="product-image"><img src={product.image} alt={product.title} /></div>
             <div className="product-description">
                 <div className="product-name">{product.title}</div>
-                <div className="product-info">{product.description}</div>
+                <div className="product-info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                 <div className="product-price">S/{product.priceUnit * product.amount}</div>
             </div>
             <div className="shop-quantity">

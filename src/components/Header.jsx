@@ -80,7 +80,7 @@ const Header = () => {
                     <i className="bi bi-person-circle"></i>
                     <a href="#">Hola, inicia sesión!</a>
                 </div>
-                <Link
+                <Link                
                     to={"/DetailsCart"}
                 >
                     <div className="navbar__shop">

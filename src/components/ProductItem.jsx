@@ -5,7 +5,6 @@ import AppContext from "../context/AppContext";
 
 const ProductItem = ({ product }) => {
 
-
 	const onProductItemPreview = (payload) => {
 		setProductItemPreview(payload);
 	}
@@ -23,7 +22,6 @@ const ProductItem = ({ product }) => {
 		setOpenModalAddCart(true);
 		setProductItemPreview(payload);
 	};
-
 
 	return (
 		<div className="product-card">

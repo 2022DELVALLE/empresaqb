@@ -5,8 +5,8 @@ import '../styles/MyOrder.scss';
 
 
 const MyOrder = () => {
-//Revisar el html classes iguales
-	const { state } = React.useContext(AppContext);
+
+    const { state } = React.useContext(AppContext);
 
     return (
         <main>
@@ -14,7 +14,7 @@ const MyOrder = () => {
                 <div className="products-basquet">
                     <h1 className="title-shop">Productos en la bolsa (10)</h1>
                     {state.cart.map(product => (
-					<OrderItem product={product} key={`orderItem-${product.id}`} />
+					<OrderItem product={product} key={`OrderItem-${product.id}`} />
 				))}
                 </div>
 

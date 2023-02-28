@@ -7,11 +7,17 @@ const initialState = {
 const useInitialState = () => {
 	const [state, setState] = useState(initialState);
 
+	//Verificar si el mismo proyecto que se agregue la cantidad que recibe del anterior producto
+
+
 	const addToCart = (payload) => {
-		setState({
-			...state,
-			cart: [...state.cart, payload]
-		});
+		if(!state.cart.includes(payload)){
+			setState({
+				...state,
+				cart: [...state.cart, payload]
+			});
+		console.log(state);
+		}
 	};
 
 	const removeFromCart = (payload) => {

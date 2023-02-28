@@ -20,14 +20,11 @@ function ModalAddCart() {
     //Recupero producto enviado desde el details
     const { productItemPreview, setProductItemPreview } = React.useContext(ContextPreviewProduct);
 
-
     //Agremos un producto a la carta
-
     const onClickAddCart = item => {
         productItemPreview.amount = quantity;
         addToCart(item);
-        console.log(item);
-        console.log(state);
+        setOpenModalAddCart(false);
     }
 
     return ReactDOM.createPortal(
@@ -77,7 +74,7 @@ function ModalAddCart() {
                     <div className="link-continue"><a href="">Seguir comprando</a></div>
                     <div className="primary-button">
                         <button
-                        onClick={() => onClickAddCart(productItemPreview)}
+                            onClick={() => onClickAddCart(productItemPreview)}
                         >Agregar al carrito
                         </button>
                     </div>

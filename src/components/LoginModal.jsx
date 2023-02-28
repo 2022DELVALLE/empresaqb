@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/LoginModal.scss'
 
-
 function MoginModal() {
     return (
         <div className="login-modal-container">

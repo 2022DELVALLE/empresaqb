@@ -11,15 +11,12 @@ import useGetProducts from '../hooks/useGetProducts';
 
 const ProductList = () => {
 
-    const {products,
-        setProducts, }= useGetProducts(API);
+    const {products}= useGetProducts(API);
 
     //llamos al app context para  abrir el modal desde el producto list
     const {
         openModalAddCart,
-        setOpenModalAddCart,
     } = React.useContext(AppContext);
-
 
     //Buscar productos  por texto ingresado
     const { search, setSearch } = React.useContext(ContextPreviewProduct);
@@ -29,12 +26,11 @@ const ProductList = () => {
     if (!search.length >= 1) {
         searchedProducts = products;
     } else {
-        console.log('estoy aaqui');
         searchedProducts = products.filter(todo => {
             const todoText = todo.title.toLowerCase();
             const searchText = search.toLowerCase();
             return todoText.includes(searchText);
-        });;
+        });
     }
 
     return (
