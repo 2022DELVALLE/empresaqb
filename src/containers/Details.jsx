@@ -1,8 +1,8 @@
 import React from "react";
-import '../styles/containersStyles/Details.scss';
+import '../styles/Details.scss';
 import ContextPreviewProduct from "../context/ContextPreviewProduct";
 import AppContext from "../context/AppContext";
-import ModalAddCart from "../components/ModalAddCart";
+import PortalAddCart from "../portals/PortalAddCart";
 const Details = () => {
 
     const { productItemPreview, setProductItemPreview } = React.useContext(ContextPreviewProduct);
@@ -171,7 +171,7 @@ const Details = () => {
             ></script>
             <script src="../hooks/Product-details.js"></script>
             {!!openModalAddCart && (
-                <ModalAddCart></ModalAddCart>
+                <PortalAddCart></PortalAddCart>
             )}
         </div>
 

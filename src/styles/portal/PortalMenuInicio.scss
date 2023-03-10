@@ -1,0 +1,100 @@
+@import '../vars';
+
+* {
+    font-family: var(--font);
+    padding: 0;
+    margin: 0;
+}
+
+.ComponentLoginDesplegable {
+    position: fixed;
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    /*position en desktop*/
+    top: 54px;
+    left: 72%;
+}
+
+.ComponentLoginDesplegable-triangulo {
+    position: fixed;
+    left: 120px;
+    width: 0;
+    height: 0;
+    border-right: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-bottom: 20px solid #fff;
+}
+
+.ComponentLoginDesplegable-container {
+    background: #FFFFFF;
+    border-radius: 30px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+.ComponentLoginDesplegable-box1 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ACAFAE;
+    padding-left: 20px;
+}
+
+.ComponentLoginDesplegable-box2 {
+    margin-left: 20px;
+}
+
+.ComponentLoginDesplegable-box1-label,
+.ComponentLoginDesplegable-box2 {
+    border-left: 4px solid #FFFFFF;
+}
+
+.ComponentLoginDesplegable-box1-label:hover,
+.ComponentLoginDesplegable-box2:hover {
+    border-left: 4px solid #c00100;
+}
+
+.ComponentLoginDesplegable-box1-label a,
+.ComponentLoginDesplegable-box2 a {
+    text-decoration: none;
+    color: #000000;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    margin-left: 10px;
+}
+
+/*responsive design*/
+@media screen and (max-width:800px) {
+
+    .ComponentLoginDesplegable-container {
+        width: 200px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .ComponentLoginDesplegable-triangulo {
+        display: none;
+    }
+
+}
+
+.backgroundmobiledesktop {
+    background: rgba(32, 35, 41, .8);
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+}

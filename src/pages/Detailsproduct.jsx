@@ -1,16 +1,13 @@
 import React from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Details from "../containers/Details";
+import S6_Footer from '../containers/S6_Footer';
 
-
-
-function Detailsproduct  ()  {
+function Detailsproduct() {
     return (
         <div>
-            <Header />
+            {/* <Header />*/}
             <Details />
-            <Footer />
+            <S6_Footer />
         </div>
 
     );
