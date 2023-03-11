@@ -10,7 +10,7 @@ const useInitialState = () => {
 	const [leakedProducts, setLeakedproduct] = React.useState();
 
 
-	
+
 	// Filtramos los productos psando un objeto de categoria y guardamos en la
 
 	const filterProductsByCategory = (category) => {
@@ -39,7 +39,9 @@ const useInitialState = () => {
 
 	const [portalLogin, setPortalLogin] = React.useState(false);
 
+	//Señal para abrir  y cerrar el portal add cart
 
+	const [portalAddCart, setPortalAddCart] = React.useState(false);
 
 
 
@@ -97,7 +99,9 @@ const useInitialState = () => {
 		portalLogin,
 		setPortalLogin,
 
-
+		//Parametros para el control de portal add cart
+		portalAddCart,
+		setPortalAddCart,
 
 		/*
 				state,

@@ -25,7 +25,7 @@ const CreateAccountComponent = () => {
 
     const form = useRef(null);
 
-    const {responseUser, saveCustomer} = useSaveCustomer();
+    const { responseUser, saveCustomer } = useSaveCustomer();
     console.log(responseUser);
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -38,6 +38,18 @@ const CreateAccountComponent = () => {
         }
         saveCustomer(user);
     }
+
+
+
+    //Ver contraseña y ocultar
+
+    const [showPassword, setShowPassword] = React.useState(false);
+
+    const handleShowPassword = (event) => {
+        event.preventDefault();
+        setShowPassword(!showPassword);
+    }
+
 
     return (
         <section className="SectionCreateAccount">
@@ -188,12 +200,17 @@ const CreateAccountComponent = () => {
                         <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Contraseña</label>
                         <div className="passwordSignUpInput">
                             <div className="passwordSignUp">
-                                <input className="inputSignUp" type="text" placeholder="Ingresa una contraseña" name='password' />
+                                <input className="inputSignUp" type={showPassword ? 'text' : 'password'}
+                                    placeholder="Ingresa una contraseña" name='password' />
                             </div>
-                            <div className="iconShow-hideSignUp"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
-                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                            </svg></div>
+                            <div className="iconShow-hideSignUp"
+                                onClick={() => handleShowPassword(event)}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
+                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                </svg>
+                            </div>
                         </div>
                         <div className="passwordSecurityRecomendations">
                             <div className="passwordSecurityRecomendations__box1">Debes usar al menos:</div>
@@ -226,7 +243,7 @@ const CreateAccountComponent = () => {
                         <button
                             type="submit"
                             className="SignUp-button"
-                            onClick={()=> handleSubmit(event)}
+                            onClick={() => handleSubmit(event)}
                         >
                             Registrarme
                         </button>

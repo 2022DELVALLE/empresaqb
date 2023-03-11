@@ -1,11 +1,23 @@
 import React, { useContext } from "react";
-import ContextPreviewProduc from '../context/ContextPreviewProduct.js';
+
+//import product preview context
+import ProductPreviewContext from "../context/ProductPreviewContext.js";
+
 import AppContext from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
 
 const ProductItem = ({ itemproduct }) => {
 
+	const navigate = useNavigate();
 
+	// Guardo un producto preview para ver sus details mas claro
+	const { productItemPreview, setProductItemPreview } = React.useContext(ProductPreviewContext);
 
+	const handleDetailsProduct = (payload) => {
+		console.log(payload);
+		setProductItemPreview(payload);
+		navigate('/details');
+	};
 
 	/*
 	const onProductItemPreview = (payload) => {
@@ -53,10 +65,15 @@ const ProductItem = ({ itemproduct }) => {
 
 	return (
 		<div className="ProductCardsSection__container-cards-Product">
-			<div className="ProductCardsSection-container-cards-Product-Image">
+			<div className="ProductCardsSection-container-cards-Product-Image"
+			onClick={()=> handleDetailsProduct(itemproduct)}
+			>
 				<img
-					src={itemproduct.image} alt={itemproduct.title} width="150"
-					height="150" />
+					src={itemproduct.image}
+					alt={itemproduct.title}
+					width="150"
+					height="150"
+				/>
 			</div>
 			<div className="ProductCardsSection__container-cards-Product-Description">
 				<span className="ProductCardsSection__container-cards-Product-Description title">{itemproduct.title}</span>
@@ -101,7 +118,9 @@ const ProductItem = ({ itemproduct }) => {
 					</svg>
 				</div>
 			</div>
-			<div className="ProductCardsSection__container-cards-Product-ButtonAddShop"><span>Agregar al carrito</span>
+			<div className="ProductCardsSection__container-cards-Product-ButtonAddShop"
+			>
+				<span>Agregar al carrito</span>
 			</div>
 		</div>
 	);
