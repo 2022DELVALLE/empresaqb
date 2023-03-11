@@ -19,6 +19,9 @@ const ProductItem = ({ itemproduct }) => {
 		navigate('/details');
 	};
 
+	
+
+
 	/*
 	const onProductItemPreview = (payload) => {
 		setProductItemPreview(payload);

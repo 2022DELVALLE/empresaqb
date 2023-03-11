@@ -21,14 +21,16 @@ const Details = () => {
 
     const portalRefAddCart = React.useRef(null);
 
-    function handleOpenAddCart() {
+    function handleOpenAddCart(item) {
+        setProductItemPreview(item);
         setPortalAddCart(!portalAddCart);
+
     }
 
     function handleCloseAddCart(event) {
         if (portalAddCart && portalRefAddCart.current &&
             !portalRefAddCart.current.contains(event.target)) {
-                setPortalAddCart(false);
+            setPortalAddCart(false);
         }
     }
 
@@ -43,6 +45,10 @@ const Details = () => {
         }
     });
 
+
+    //Verificamos la cantidad ingresas
+
+    const { amount, setAmount } = React.useContext(ProductPreviewContext);
 
     return (
         <section className="section_component_Product_info">
@@ -117,13 +123,23 @@ const Details = () => {
                         <div className="content-items-product-info">
                             <div className="price">S/{productItemPreview.priceUnit}</div>
                             <div className="quanty">
-                                <div className="elipse-btn"><i className="fa-solid fa-plus"></i></div>
-                                <div className="number-quanty">2</div>
-                                <div className="elipse-btn"><i className="fa-solid fa-minus"></i></div>
+                                <div className="elipse-btn"
+                                    onClick={() => setAmount(amount + 1)}
+                                    disabled={amount <= 999}
+                                >
+                                    <i className="fa-solid fa-plus"></i>
+                                </div>
+                                <div className="number-quanty">{amount}</div>
+                                <div className="elipse-btn"
+                                    onClick={() => setAmount(amount - 1)}
+                                    disabled={amount >= 0}
+                                >
+                                    <i className="fa-solid fa-minus"></i>
+                                </div>
                             </div>
                         </div>
                         <div className="btn_Add_car"
-                        onClick={()=> handleOpenAddCart()}
+                            onClick={() => handleOpenAddCart(productItemPreview)}
                         >
                             <a href="#">Agregar al Carro</a>
                         </div>
@@ -135,7 +151,7 @@ const Details = () => {
                 </div>
             </div>
             {portalAddCart && (
-                <PortalAddCart portalRefAddCart={portalRefAddCart} setPortalAddCart={setPortalAddCart}/>
+                <PortalAddCart portalRefAddCart={portalRefAddCart} setPortalAddCart={setPortalAddCart} />
             )}
         </section>
     );

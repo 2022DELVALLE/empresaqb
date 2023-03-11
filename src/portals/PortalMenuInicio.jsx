@@ -32,7 +32,38 @@ const PortalMenuInicio = ({ portalRef }) => {
         setShowPortal(false);
     }
 
+    //recibo señal de inico de usuario
+    const { user, setUser } = React.useContext(AppContext);
 
+    //cerrar seseión
+
+    const hanldeCloseSesion = () => {
+        setUser(null);
+    }
+
+
+    if (user) {
+        return ReactDOM.createPortal(
+            <div className="backgroundmobiledesktop">
+                <div className="ComponentLoginDesplegable">
+                    <div className="ComponentLoginDesplegable-triangulo">
+                        <div className="triangulo"></div>
+                    </div>
+                    <div className="ComponentLoginDesplegable-container">
+                        <div className="ComponentLoginDesplegable-box1">
+                            <div className="ComponentLoginDesplegable-box1-label"><a href="">Mi cuenta</a></div>
+                            <div className="ComponentLoginDesplegable-box1-label"><a href="">Mis compras</a></div>
+                        </div>
+                        <div className="ComponentLoginDesplegable-box2"
+                        onClick={()=>hanldeCloseSesion()}
+                        ><a href="">Cerrar Sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </div>,
+            document.getElementById('idopenmenu')
+        )
+    }
 
     return ReactDOM.createPortal(
         <div className="backgroundmobiledesktop">

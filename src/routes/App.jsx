@@ -6,6 +6,7 @@ import ProductsCategory from '../pages/ProductsCategory';
 import CreateAccount from '../pages/CreateAccount';
 import RecoveringPassword from '../pages/RecoveringPassword';
 import DetailsProduct from '../pages/DetailsProduct';
+import Cart from '../pages/Cart';
 
 // Obtenemos los valores necesarios para el app context que agrupa el item product cart
 import AppContext from '../context/AppContext';
@@ -31,6 +32,7 @@ const App = () => {
 							<Route path="/createaccount" element={<CreateAccount />} />
 							<Route path="/recoveringpassword" element={<RecoveringPassword />} />
 							<Route path="/details" element={<DetailsProduct />} />
+							<Route path="/cart" element={<Cart />} />
 						</Routes>
 					</Layout>
 				</BrowserRouter>

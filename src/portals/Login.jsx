@@ -50,7 +50,7 @@ const Login = ({ portalRefLogin }) => {
 
     const formLogin = useRef(null);
 
-    const [user, setUser] = React.useState(null);
+    const {user, setUser} = React.useContext(AppContext);
 
     const hanldeSubmitLogin = (event) => {
         event.preventDefault();

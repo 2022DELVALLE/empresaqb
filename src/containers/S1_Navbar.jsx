@@ -142,6 +142,18 @@ const S1_Navbar = () => {
         }
     });
 
+    //Ir a la ruta
+    const hanldeToCart = () => {
+        navigate('/cart');
+    }
+
+    //Control del nombre inicio sesion por el nombre de usuario
+
+    const { user, setUser } = React.useContext(AppContext);
+
+    //Control de numerico encima del carrito
+    const { stateCart } = React.useContext(AppContext);
+
 
     return (
         <>
@@ -213,17 +225,20 @@ const S1_Navbar = () => {
                         </div>
                     </div>
 
-
                     <div className="navbar__login"
                         onClick={() => handleButtonClick()}
-                        onKeyPress={() => searchProductsbyWordSearchasd(event)}
                     >
                         <i className="bi bi-person-circle login-icon"></i>
-                        <div className="text-login"><a href="#">Hola,<br />inicia sesión!</a></div>
+                        <div className="text-login">
+                            <a href="#" value="" >Hola,<br />{user ? user.name + '!' : 'inicia sesión!'}</a>
+                        </div>
                     </div>
-                    <div className="navbar__shop">
+                    <div className="navbar__shop"
+                        onClick={hanldeToCart}
+                    >
                         <a href="#"><i className="bi bi-cart"></i></a>
-                        <div>18</div>
+                        {stateCart.cart.length > 0 ? <div>{stateCart.cart.length}</div> : null}
+
                     </div>
 
 

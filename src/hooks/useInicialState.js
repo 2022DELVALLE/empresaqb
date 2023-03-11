@@ -1,7 +1,7 @@
 import React from 'react';
 import productsdata from '../hooks/data/productsdata';
 
-const initialStatea = {
+const initialStateCart = {
 	cart: [],
 };
 
@@ -44,43 +44,47 @@ const useInitialState = () => {
 	const [portalAddCart, setPortalAddCart] = React.useState(false);
 
 
-
-
-
-
-
-
-
-
 	//Verificar si el mismo proyecto que se agregue la cantidad que recibe del anterior producto
-	/*
-	const [state, setState] = useState(initialStatea);
+
+	const [stateCart, setStateCart] = React.useState(initialStateCart);
+
+	//intermediio
+
+	// hallamos la cantidad de objetos de cart
+	const [quantityCart, setQuantityCart] = React.useState(0);
+
+
+	//fin intermedio
+
 
 	const addToCart = (payload) => {
-		if (!state.cart.includes(payload)) {
-			setState({
-				...state,
-				cart: [...state.cart, payload]
+
+		if (!stateCart.cart.includes(payload)) {
+			setStateCart({
+				...stateCart,
+				cart: [...stateCart.cart, payload]
 			});
-			console.log(state);
+			console.log(stateCart);
+			setQuantityCart(stateCart.cart.length + 1);
 		}
+
 	};
 
+
+	//eliminar un objeto de cart
 	const removeFromCart = (payload) => {
-		setState({
-			...state,
-			cart: state.cart.filter(items => items.id !== payload.id),
+		setStateCart({
+			...stateCart,
+			cart: stateCart.cart.filter(items => items.id !== payload.id),
 		});
+		setQuantityCart(stateCart.cart.length - 1);
 	}
 
-	//Trabajamos con el modal add  cart
 
-	const [openModalAddCart, setOpenModalAddCart] = React.useState(false);
+	//variables para controlodar user 
+	const [user, setUser] = React.useState(null);
 
-	//Cantidad  a comprar por el cliente
-	const [quantity, setQuantity] = React.useState(0);
 
-*/
 	return {
 		//Parametros de filtro de productos por categoria
 		leakedProducts,
@@ -98,19 +102,25 @@ const useInitialState = () => {
 		//Parametros para el control de portal login
 		portalLogin,
 		setPortalLogin,
+		//Intemrdio user
+		user, setUser,
+
 
 		//Parametros para el control de portal add cart
 		portalAddCart,
 		setPortalAddCart,
 
-		/*
-				state,
-				addToCart,
-				removeFromCart,
-				openModalAddCart,
-				setOpenModalAddCart,
-				quantity,
-				setQuantity,*/
+
+		//Metodos de agregar productos  a la carta
+		addToCart,
+		stateCart,
+		setStateCart,
+
+		//variable para la cantidad de objetos de cart
+		quantityCart, setQuantityCart,
+
+		//Metodo para eliminar objeto de cart
+		removeFromCart
 	}
 };
 
