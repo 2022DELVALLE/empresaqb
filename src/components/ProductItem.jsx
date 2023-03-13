@@ -19,57 +19,20 @@ const ProductItem = ({ itemproduct }) => {
 		navigate('/details');
 	};
 
-	
 
 
-	/*
-	const onProductItemPreview = (payload) => {
-		setProductItemPreview(payload);
-	}
+	//Recuperamos la señal del portal add cart
+	const { portalAddCart, setPortalAddCart, } = React.useContext(AppContext);
 
-	//Llamamos al appcontext para abrir el modal add cart con el buttton
-	const {
-		openModalAddCart,
-		setOpenModalAddCart,
-	} = React.useContext(AppContext);
-
-	//Lamamos al appcontextpreviewproduct para actulizar el producto 
-	const { productItemPreview, setProductItemPreview } = useContext(ContextPreviewProduc);
-	
-	const onClickModalAddCart = (payload) => {
-		setOpenModalAddCart(true);
-		setProductItemPreview(payload);
-	};
-
-	return (
-		<div className="product-card">
-			<Link
-				to={"/Detailsproduct"}
-				onClick={() => onProductItemPreview(product)}
-			>
-				<img
-					src={product.image} alt={product.title}
-				/>
-			</Link>
-			<div className="product-info">
-				<div>
-					<p>{product.title}</p>
-					<p>Descripción del producto a comprar por el cliente</p>
-					<p>S/{product.priceUnit} x Unidad</p>
-					<p>S/{product.priceDozens} x Docena</p>
-					<button
-						className="secondary-button-product-item" type="button"
-						onClick={()=> onClickModalAddCart(product)}
-					>Agregar al carrito</button>
-				</div>
-			</div>
-		</div>
-	);*/
+    function handleOpenAddCart(item) {
+        setProductItemPreview(item);
+        setPortalAddCart(!portalAddCart);
+    }
 
 	return (
 		<div className="ProductCardsSection__container-cards-Product">
 			<div className="ProductCardsSection-container-cards-Product-Image"
-			onClick={()=> handleDetailsProduct(itemproduct)}
+				onClick={() => handleDetailsProduct(itemproduct)}
 			>
 				<img
 					src={itemproduct.image}
@@ -78,13 +41,15 @@ const ProductItem = ({ itemproduct }) => {
 					height="150"
 				/>
 			</div>
-			<div className="ProductCardsSection__container-cards-Product-Description">
+			<div className="ProductCardsSection__container-cards-Product-Description"
+			>
 				<span className="ProductCardsSection__container-cards-Product-Description title">{itemproduct.title}</span>
 				<span className="ProductCardsSection__container-cards-Product-Description price">S/. {itemproduct.priceUnit}</span>
 				<span className="ProductCardsSection__container-cards-Product-Description price-2">Precio por docena: S/.
 					{itemproduct.priceDozens} unid.</span>
 			</div>
-			<div className="ProductCardsSection__container-cards-Product-Stars">
+			<div className="ProductCardsSection__container-cards-Product-Stars"
+			>
 				<div className="star" id="active">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 						fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
@@ -122,6 +87,7 @@ const ProductItem = ({ itemproduct }) => {
 				</div>
 			</div>
 			<div className="ProductCardsSection__container-cards-Product-ButtonAddShop"
+				onClick={() => handleOpenAddCart(itemproduct)}
 			>
 				<span>Agregar al carrito</span>
 			</div>

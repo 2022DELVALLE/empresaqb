@@ -94,9 +94,9 @@
 
 .OptionDropDownListOrder {
     position: absolute;
-    top: 140px;
-    display: none;
+    top: 210px;
     /*flex*/
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     gap: 10px;
@@ -124,7 +124,7 @@
 }
 
 .show {
-    display: flex;
+    display: block;
 }
 
 

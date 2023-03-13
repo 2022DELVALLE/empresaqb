@@ -1,42 +1,109 @@
 import React from 'react';
+
+//import sccs
 import '../styles/Containers/ProductsList.scss'
+
+//import componets
 import ProductItem from '../components/ProductItem';
+
+//iumport appp context
 import AppContext from '../context/AppContext';
 
-
-/*
-import ModalAddCart from "../components/ModalAddCart";
-import AppContext from "../context/AppContext";
-import ContextPreviewProduct from "../context/ContextPreviewProduct";
-
-const API = 'https://api-production-11f8.up.railway.app/api/products';
-import useGetProducts from '../hooks/useGetProducts';
-*/
+//improt portal
+import PortalAddCart from '../portals/PortalAddCart';
 
 const ProductList = () => {
+    //Variable general 
+
 
     //Recupero la lista de productos filtrados
 
-    const { leakedProducts } = React.useContext(AppContext);
-    console.log(leakedProducts);
-    /*
-    //llamos al app context para  abrir el modal desde el producto list
-    const {
-        openModalAddCart,
-    } = React.useContext(AppContext);
+    const { leakedProducts, setLeakedproduct } = React.useContext(AppContext);
 
-    return (
-        <section className="main-container">
-            <div className="cards-container">
-                {searchedProducts.map(product => (
-                    <ProductItem product={product} key={product.id} />
-                ))}
-            </div>
-            {!!openModalAddCart && (
-                <ModalAddCart></ModalAddCart>
-            )}
-        </section>
-    );*/
+    //mostrar combo box
+
+    const [showCombo, setShowCombo] = React.useState(false);
+
+
+    const refMayorMenorPrecio = React.useRef(null);
+
+
+    const hanldeShowCombo = () => {
+        setShowCombo(!showCombo);
+    }
+
+    function handleCloseShowCombo(event) {
+        if (showCombo && refMayorMenorPrecio.current &&
+            !refMayorMenorPrecio.current.contains(event.target)) {
+            setShowCombo(false);
+        }
+    }
+
+    React.useEffect(() => {
+
+        const event = window.innerWidth < 768 ? 'touchstart' : 'mousedown';
+
+        document.addEventListener(event, handleCloseShowCombo);
+
+        return () => {
+            document.removeEventListener(event, handleCloseShowCombo);
+        }
+    });
+
+    //filtro de  menor a mayor por precio de producto
+    console.log('estuve afuera');
+
+    const hanldeMenorToMayor = (event) => {
+        /*       event.preventDefault();
+                const sortedArray = leakedProducts.sort((a, b) =>
+                    parseFloat(a.priceUnit) - parseFloat(b.priceUnit));
+                setLeakedproduct([...sortedArray]);
+            */
+        console.log('estoy dentro');
+    }
+
+    const hanldeMayorToMenor = () => {
+        const sortedArray = leakedProducts.sort((a, b) =>
+            parseFloat(b.priceUnit) - parseFloat(a.priceUnit));
+        setLeakedproduct([...sortedArray]);
+    }
+
+    //Filtro por precio 
+
+    const [minPrice, setMinPrice] = React.useState(0);
+    const [maxPrice, setMaxPrice] = React.useState(1000);
+
+    const handleMinPriceChange = (event) => {
+        setMinPrice(parseInt(event.target.value));
+    }
+
+    const handleMaxPriceChange = (event) => {
+        setMaxPrice(parseInt(event.target.value));
+    }
+
+	//Recuperamos la señal del portal add cart
+	const { portalAddCart, setPortalAddCart, } = React.useContext(AppContext);
+
+    const portalRefAddCart = React.useRef(null);
+
+
+    function handleCloseAddCart(event) {
+        if (portalAddCart && portalRefAddCart.current &&
+            !portalRefAddCart.current.contains(event.target)) {
+            setPortalAddCart(false);
+        }
+    }
+
+    React.useEffect(() => {
+
+        const event = window.innerWidth < 768 ? 'touchstart' : 'mousedown';
+
+        document.addEventListener(event, handleCloseAddCart);
+
+        return () => {
+            document.removeEventListener(event, handleCloseAddCart);
+        }
+    });
 
 
     return (
@@ -50,32 +117,43 @@ const ProductList = () => {
                         </div>
                         <div className="ProductsCardsSection__header-order">
                             <div className="ProductsCardsSection__header-order-label">Ordenar por:</div>
-                            <div className="ProductsCardsSection__header-order-drop" id="mostrar" >
+                            <div className="ProductsCardsSection__header-order-drop"
+                                id="mostrar"
+                                onClick={hanldeShowCombo}
+                            >
                                 <span className="DropLabelHeader">Selecciona</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
                                     <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                                 </svg>
-
-                                <div className="OptionDropDownListOrder" id="hide-drop">
-                                    <div>Precio menor a mayor</div>
+                                <div className={showCombo ? 'OptionDropDownListOrder show' : 'OptionDropDownListOrder'}
+                                    id="hide-drop"
+                                    ref={refMayorMenorPrecio}
+                                >
+                                    <div>
+                                        <button
+                                            onClick={() => hanldeMenorToMayor()}
+                                        >Precio menor a mayor</button>
+                                    </div>
                                     <div>Precio mayor a menor</div>
                                 </div>
                             </div>
                         </div>
-
                         <div className="ProductCardsSection_header-order-filterMobile">
                             <div className="ProductsCardsSection__header-order-drop" id="mostrar" >
                                 <span className="DropLabelHeader">Selecciona</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
                                     <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                                 </svg>
-
-                                <div className="OptionDropDownListOrder" id="hide-drop">
-                                    <div>Precio menor a mayor</div>
+                                <div
+                                    ref={refMayorMenorPrecio}
+                                    className={showCombo ? 'OptionDropDownListOrder show' : 'OptionDropDownListOrder'}
+                                    id="hide-drop">
+                                    <div
+                                        onClick={() => hanldeMenorToMayor(event)}
+                                    >Precio menor a mayor</div>
                                     <div>Precio mayor a menor</div>
                                 </div>
                             </div>
-
                             <div className="ProductCardsSection_header-order-filter">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-filter" viewBox="0 0 16 16">
                                     <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
@@ -83,21 +161,19 @@ const ProductList = () => {
                             </div>
                         </div>
                     </div>
-
                     <div className="ProductCardsSection__container">
                         <div className="ProductCardsSection__container-filter">
                             <div className="FilterTitle"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-filter" viewBox="0 0 16 16">
                                 <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
                             </svg><span>FILTROS</span></div>
-
                             <div className="FilterPrice">
-                                <div className="FilterPrice-title"><span>Precio</span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                                </svg>
+                                <div className="FilterPrice-title"
+                                ><span>Precio</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg>
                                 </div>
-
                                 <div className="FilterPrice-textDescription">Selecciona un rango de precio para filtrar tu búsqueda.</div>
-
                                 <div className="FilterPrice-Range">
                                     <div className="FilterPrice-QuantityRange">
                                         <div className="FilterPrice-QuantityRange_progress"></div>
@@ -106,42 +182,61 @@ const ProductList = () => {
                                         <div className="FilterPrice-QuantityBox">
                                             <span>Mínimo</span>
                                             <div className="FilterPrice-QuantityBox-NumberPrice">S/.
-                                                <input type="number" className="input-min" disabled />
+                                                <input
+                                                    type="number"
+                                                    className="input-min"
+                                                    value={minPrice}
+                                                    onChange={handleMinPriceChange}
+                                                />
                                             </div>
                                         </div>
                                         <div className="FilterPrice-QuantityBox">
                                             <span>Máximo</span>
                                             <div className="FilterPrice-QuantityBox-NumberPrice">S/.
-                                                <input type="number" className="input-max"  disabled />
-
+                                                <input type="number"
+                                                    className="input-max"
+                                                    value={maxPrice}
+                                                    onChange={handleMaxPriceChange}
+                                                />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="FilterPrice-QuantityRange_Input">
-                                        <input type="range" className="range-min" min="0" max="10000"  step="10" />
-                                        <input type="range" className="range-max" min="0" max="10000" step="10" />
+                                        <input type="range"
+                                            className="range-min"
+                                            min="0"
+                                            max="1000"
+                                            step="10"
+                                            value={minPrice}
+                                            onChange={handleMinPriceChange}
+                                        />
+                                        <input
+                                            type="range"
+                                            className="range-max"
+                                            min="0" max="1000"
+                                            step="10"
+                                            value={maxPrice}
+                                            onChange={handleMaxPriceChange}
+                                        />
                                     </div>
                                 </div>
-
-                                <div className="FilterPrice-ButtonConfirm"><span>Aplicar Filtro</span></div>
+                                <div className="FilterPrice-ButtonConfirm"
+                                    onClick={() => hanldeMenorToMayor(event)}
+                                >
+                                    <span>Aplicar Filtro</span></div>
                             </div>
                         </div>
-
                         <div className="ProductCardsSection__container-cards">
-
                             {leakedProducts.map((itemproduct) => (
                                 <ProductItem itemproduct={itemproduct} key={itemproduct.id} />
                             ))}
-
                         </div>
                     </div>
                 </div>
+                {portalAddCart && (
+                <PortalAddCart portalRefAddCart={portalRefAddCart} setPortalAddCart={setPortalAddCart} />
+            )}
             </section>
-
-
-
-
-
         </>
     );
 }

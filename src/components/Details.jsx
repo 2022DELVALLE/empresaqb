@@ -24,7 +24,6 @@ const Details = () => {
     function handleOpenAddCart(item) {
         setProductItemPreview(item);
         setPortalAddCart(!portalAddCart);
-
     }
 
     function handleCloseAddCart(event) {

@@ -51,6 +51,20 @@ const CreateAccountComponent = () => {
     }
 
 
+    // Checked terminos y promociones
+
+    const [termsChecked, setTermsChecked] = React.useState(false);
+    const [promotionsChecked, setPromotionsChecked] = React.useState(false);
+
+    const hanldeTermsChange = (event) => {
+        setTermsChecked(event.target.checked);
+    }
+
+    const handlePromotionsChange = () => {
+        setPromotionsChecked(!promotionsChecked);
+    }
+
+
     return (
         <section className="SectionCreateAccount">
             <div className="SectionCreateAccount-container">
@@ -192,11 +206,11 @@ const CreateAccountComponent = () => {
                     <div className="SectionCreateAccount-form-subtitle">Completa el siguiente formulario</div>
                     <form action="/" className="SectionCreateAccount-Form-contain" ref={form}>
                         <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Nombres</label>
-                        <input type="text" name="name" id="" placeholder="Ingresa tu nombre" className="SectionCreateAccount-Form-contain-input" />
+                        <input type="text" name="name" placeholder="Ingresa tu nombre" className="SectionCreateAccount-Form-contain-input" />
                         <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Apellidos</label>
-                        <input type="text" name="lastName" id="" placeholder="Ingresa tu apellido" className="SectionCreateAccount-Form-contain-input" />
+                        <input type="text" name="lastName" placeholder="Ingresa tu apellido" className="SectionCreateAccount-Form-contain-input" />
                         <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Correo electrónico</label>
-                        <input type="text" name="email" id="" placeholder="Ingresa un correo electrónico" className="SectionCreateAccount-Form-contain-input" />
+                        <input type="text" name="email" placeholder="Ingresa un correo electrónico" className="SectionCreateAccount-Form-contain-input" />
                         <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Contraseña</label>
                         <div className="passwordSignUpInput">
                             <div className="passwordSignUp">
@@ -229,17 +243,27 @@ const CreateAccountComponent = () => {
                             </div>
                         </div>
                         <div className="termsConditionsPromotions">
-                            <label htmlFor="" className="TemsConditions">
-                                <input type="checkbox" name="" id="" className="termsConditionsPromotions-checkbox" />
+                            <label htmlFor="termsConditions" className="TemsConditions">
+                                <input
+                                    type="checkbox"
+                                    className={termsChecked ? 'termsConditionsPromotions-checkbox fondo' :
+                                        'termsConditionsPromotions-checkbox'}
+                                    onChange={() => hanldeTermsChange(event)}
+                                />
                                 <span>Acepto los <a href="#">Terminos y Condiciones.</a></span>
                             </label>
-                            <label htmlFor="" className="TemsConditions">
-                                <input type="checkbox" name="" id="checkboxPromotions" className="termsConditionsPromotions-checkbox" />
+                            <label htmlFor="promotions" className="TemsConditions">
+                                <input
+                                    type="checkbox"
+                                    id="promotions"
+                                    className={promotionsChecked ? 'termsConditionsPromotions-checkbox fondo' :
+                                        'termsConditionsPromotions-checkbox'}
+                                    checked={promotionsChecked}
+                                    onChange={handlePromotionsChange}
+                                />
                                 <span>Acepto recibir información sobre ofertas y promociones.</span>
-
                             </label>
                         </div>
-
                         <button
                             type="submit"
                             className="SignUp-button"
