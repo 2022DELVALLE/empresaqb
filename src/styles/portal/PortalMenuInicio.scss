@@ -14,7 +14,7 @@
     justify-content: center;
     align-self: center;
     /*position en desktop*/
-    top: 54px;
+    top: 70px;
     left: 72%;
 }
 
@@ -27,11 +27,14 @@
     border-top: 4px solid transparent;
     border-left: 4px solid transparent;
     border-bottom: 20px solid #fff;
+    /*position en desktop*/
+    top: 55px;
+    left: 93%;
 }
 
 .ComponentLoginDesplegable-container {
     background: #FFFFFF;
-    border-radius: 30px;
+    border-radius: 10px;
     height: 180px;
     display: flex;
     flex-direction: column;

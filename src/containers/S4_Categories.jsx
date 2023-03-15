@@ -56,7 +56,7 @@ const S4_Categories = () => {
                     </div>
                     <div className="button-more"
                         onClick={toogleShowCategorys}
-                    >{showCategorys ? 'Ver menos ...' : 'Ver más ..'}</div>
+                    >{showCategorys ? 'Ver menos ...' : 'Ver más ...'}</div>
                 </div>
 
                 <div className="section__products-mobile">

@@ -3,7 +3,33 @@ import React from 'react';
 //import scss
 import '../styles/Components/RecoveringPassword.scss'
 
+//improt librearia is email
+import { isEmail } from 'validator';
+
+
+//import 
+
+
 const RecoveringPasswordComponent = () => {
+
+    //control de validacion del email
+    const [error, setError] = React.useState('');
+
+    //Recuperamos el gmail
+    const [email, setEmail] = React.useState('');
+
+    const hanldeResetPassword = (event) => {
+        event.preventDefault();
+        setEmail(event.target.value);
+        console.log(email);
+
+        //Validacion
+        if (!isEmail(email)) {
+            setError('Correo inválido');
+            return;
+        }
+    }
+
 
     return (
         <section className="recovering-password-container">
@@ -158,8 +184,14 @@ const RecoveringPasswordComponent = () => {
                         <label className="recoverin-password-text-label-correo">
                             Correo electrónico
                         </label>
-                        <input type="text" name="" id="" placeholder="Ingresa tu nombre"
-                            className="recoverin-password-text-input" />
+                        <input
+                            type="text"
+                            id="email"
+                            placeholder="Ingresa tu nombre"
+                            className="recoverin-password-text-input"
+                            value={email}
+                            onChange={() => hanldeResetPassword(event)}
+                        />
                         <input type="submit" value="Confirmar" className="recoverin-password-button" />
                         <div className="recovering-password-link">
                             <a href="#">Ya tengo mi código de verificación</a>

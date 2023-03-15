@@ -34,6 +34,9 @@ const useInitialState = () => {
 	//Señal para abrir el portal menu inicio
 	const [showPortal, setShowPortal] = React.useState(false);
 
+	//Señal para abrir el portal menu principal
+    const [portalMenuP, setPortalMenuP] = React.useState(false);
+
 
 	//Señal para abrir el portal Login
 
@@ -95,9 +98,11 @@ const useInitialState = () => {
 		filterProductsBySearch,
 
 
-		//Parametros para el control de portal login
+		//Parametros para el control de portal menu inicio
 		showPortal,
 		setShowPortal,
+		//Parametos para el control del portal principal
+		portalMenuP, setPortalMenuP,
 
 		//Parametros para el control de portal login
 		portalLogin,

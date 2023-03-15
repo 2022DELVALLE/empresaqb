@@ -12,9 +12,12 @@
     height: 100vh;
     //agregar 
     position: fixed;
-    margin-top: 70px;
-    //z-index: 1;
 }
+
+.semiprioridad {
+    z-index: 1;
+}
+
 
 .menuLateralCategorias__header {
     display: flex;
@@ -63,7 +66,6 @@
 @media screen and (max-width:800px) {
     .menuLateralCategorias {
         width: 60vw;
-        margin-top: 60px;
     }
 }
 

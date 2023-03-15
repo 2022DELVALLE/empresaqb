@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 //import scss
 import '../styles/Components/CreateAcountComponent.scss';
@@ -57,7 +56,7 @@ const CreateAccountComponent = () => {
     const [promotionsChecked, setPromotionsChecked] = React.useState(false);
 
     const hanldeTermsChange = (event) => {
-        setTermsChecked(event.target.checked);
+        setTermsChecked(!termsChecked);
     }
 
     const handlePromotionsChange = () => {
@@ -246,9 +245,14 @@ const CreateAccountComponent = () => {
                             <label htmlFor="termsConditions" className="TemsConditions">
                                 <input
                                     type="checkbox"
-                                    className={termsChecked ? 'termsConditionsPromotions-checkbox fondo' :
-                                        'termsConditionsPromotions-checkbox'}
+                                    checked={termsChecked}
+                                    className="termsConditionsPromotions-checkbox"
                                     onChange={() => hanldeTermsChange(event)}
+                                    style={{
+                                        backgroundImage: termsChecked ?  'none' : `url('../assets/icons/check.svg')`,
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundPosition: 'center',
+                                    }}
                                 />
                                 <span>Acepto los <a href="#">Terminos y Condiciones.</a></span>
                             </label>
@@ -275,7 +279,7 @@ const CreateAccountComponent = () => {
                         <label htmlFor="" className="LoginQuestion">¿Ya tienes una cuenta?
                             <a
                                 onClick={hanldeToLogin}
-                                href="#">Inicia sesión</a>
+                                href="#">Inicia sesión{termsChecked ? 'false' : 'true'}</a>
                         </label>
                     </form>
                 </div>

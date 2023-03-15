@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Containers/S1_Navbar.scss';
 
 //Imports portales
-import PortalMenuInicio from '@portals/PortalMenuInicio.jsx';
+import PortalMenuInicio from '../portals/PortalMenuInicio.jsx';
 import PortalMenuPrincipal from '../portals/PortalMenuPrincipal';
 
 //Import Imagenes
@@ -55,7 +55,7 @@ const S1_Navbar = () => {
 
     //Portal menu principal
 
-    const [portalMenuP, setPortalMenuP] = React.useState(false);
+    const {portalMenuP, setPortalMenuP   } = React.useContext(AppContext);
 
     const portalRefMenuP = React.useRef(null);
 
@@ -158,7 +158,7 @@ const S1_Navbar = () => {
     return (
         <>
             <header>
-                <nav className="navbar" id="nav-bar">
+                <nav className={portalMenuP ? 'navbar ' : 'navbar prioridad'} id="nav-bar">
                     <div className="navbar__logo"
                         onClick={() => hanldeToHome()}
                     >

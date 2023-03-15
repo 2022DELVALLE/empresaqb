@@ -9,8 +9,10 @@ import useGetCategories from '../hooks/useGetCategories';
 //Import components
 import CategoryItemMenu from '@components/CategoryItemMenu';
 
+//import app context
+import AppContext from '../context/AppContext';
 
-const PortalMenuPrincipal = ({ portalRefMenuP, setPortalMenuP }) => {
+const PortalMenuPrincipal = ({ portalRefMenuP }) => {
 
 
     //Traemos la data de sliders
@@ -24,10 +26,14 @@ const PortalMenuPrincipal = ({ portalRefMenuP, setPortalMenuP }) => {
     const closePortalMenuP = () => {
         setPortalMenuP(false);
     }
+    
+    //Recupero señal del portal menu principal 
+    const {portalMenuP, setPortalMenuP   } = React.useContext(AppContext);
+
 
     return ReactDOM.createPortal(
         <div className='portal-menu-principal'>
-            <div className="menuLateralCategorias" ref={portalRefMenuP}>
+            <div className={portalMenuP ? 'menuLateralCategorias semiprioridad': 'menuLateralCategorias '}   ref={portalRefMenuP}>
                 <div className="menuLateralCategorias__header">
                     <div className="menuLateralCategorias__title">CATEGORIAS</div>
                     <div className="menuLateralCategorias__close"
