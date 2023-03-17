@@ -4,7 +4,7 @@ import AppContext from '../context/AppContext';
 
 const CategoryItemModal = ({ categoryitemmodal }) => {
 
-    // Invoco a la funciond e navigate para renderiza productos filtrtados
+    // Invoco a la funcion de navigate para renderiza productos filtrados
     const navigate = useNavigate();
 
     //Envio un objeto de categoria para hacer el filtro

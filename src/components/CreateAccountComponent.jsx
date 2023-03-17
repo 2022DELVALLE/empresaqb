@@ -21,7 +21,6 @@ const CreateAccountComponent = () => {
 
     //Recuperando informacion para agregar un user
 
-
     const form = useRef(null);
 
     const { responseUser, saveCustomer } = useSaveCustomer();
@@ -37,8 +36,6 @@ const CreateAccountComponent = () => {
         }
         saveCustomer(user);
     }
-
-
 
     //Ver contraseña y ocultar
 

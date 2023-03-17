@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 
 const CategoryItemMenu = ({ categoryitem }) => {
-    // Invoco a la funciond e navigate para renderiza productos filtrtados
+    // Invoco a la funcion de navigate para renderiza productos filtrados
     const navigate = useNavigate();
 
     //Envio un objeto de categoria para hacer el filtro

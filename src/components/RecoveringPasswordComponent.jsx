@@ -6,10 +6,6 @@ import '../styles/Components/RecoveringPassword.scss'
 //improt librearia is email
 import { isEmail } from 'validator';
 
-
-//import 
-
-
 const RecoveringPasswordComponent = () => {
 
     //control de validacion del email
