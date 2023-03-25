@@ -7,7 +7,7 @@ const useSaveCustomer = (user) => {
 
     const saveCustomer = async (user) => {
         try {
-            const response = await axios.post('https://api-empresaqb-production.up.railway.app/api/customers', user);
+            const response = await axios.post('https://api-empresaqb-version1-production.up.railway.app/api/customers', user);
             setReponseUser(response.data);
         } catch (error) {
             console.error('error', error);

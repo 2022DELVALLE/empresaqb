@@ -41,21 +41,29 @@ const PortalMenuInicio = ({ portalRef }) => {
         setUser(null);
     }
 
+    //Ir a la my cuenta
+    const hanldeToMyAcount = (event) => {
+        event.preventDefault();
+        navigate('/myaccount');
+    }
 
     if (user) {
         return ReactDOM.createPortal(
             <div className="backgroundmobiledesktop">
-                <div className="ComponentLoginDesplegable">
-                    <div className="ComponentLoginDesplegable-triangulo">
-                        <div className="triangulo"></div>
-                    </div>
+                <div className="ComponentLoginDesplegable" 
+                ref={portalRef}                
+                >
                     <div className="ComponentLoginDesplegable-container">
                         <div className="ComponentLoginDesplegable-box1">
-                            <div className="ComponentLoginDesplegable-box1-label"><a href="">Mi cuenta</a></div>
-                            <div className="ComponentLoginDesplegable-box1-label"><a href="">Mis compras</a></div>
+                            <div className="ComponentLoginDesplegable-box1-label"
+                                onClick={() => hanldeToMyAcount(event)}
+                            >
+                                <a href="#">Mi cuenta</a>
+                            </div>
+                            <div className="ComponentLoginDesplegable-box1-label"><a href="#">Mis compras</a></div>
                         </div>
                         <div className="ComponentLoginDesplegable-box2"
-                        onClick={()=>hanldeCloseSesion()}
+                            onClick={() => hanldeCloseSesion()}
                         ><a href="">Cerrar Sesión</a>
                         </div>
                     </div>
@@ -70,9 +78,6 @@ const PortalMenuInicio = ({ portalRef }) => {
             <div className="ComponentLoginDesplegable"
                 ref={portalRef}
             >
-                <div className="ComponentLoginDesplegable-triangulo">
-                    <div className="triangulo"></div>
-                </div>
                 <div className="ComponentLoginDesplegable-container">
                     <div className="ComponentLoginDesplegable-box1">
                         <div className="ComponentLoginDesplegable-box1-label"
@@ -80,7 +85,9 @@ const PortalMenuInicio = ({ portalRef }) => {
                         >
                             <a href="#">Iniciar Sesión</a>
                         </div>
-                        <div className="ComponentLoginDesplegable-box1-label">
+                        <div className="ComponentLoginDesplegable-box1-label"
+                            onClick={() => hanldeToMyAcount(event)}
+                        >
                             <a href="#">Mi cuenta</a>
                         </div>
                     </div>

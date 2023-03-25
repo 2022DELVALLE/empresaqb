@@ -42,7 +42,7 @@ const Login = ({ portalRefLogin }) => {
 
     //Traemos la data de customers
 
-    const APICustomers = 'https://api-empresaqb-production.up.railway.app/api/customers';
+    const APICustomers = 'https://api-empresaqb-version1-production.up.railway.app/api/customers';
 
     const customersdata = useGetCustomers(APICustomers);
 

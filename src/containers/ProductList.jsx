@@ -54,11 +54,11 @@ const ProductList = () => {
     console.log('estuve afuera');
 
     const hanldeMenorToMayor = (event) => {
-        /*       event.preventDefault();
-                const sortedArray = leakedProducts.sort((a, b) =>
-                    parseFloat(a.priceUnit) - parseFloat(b.priceUnit));
-                setLeakedproduct([...sortedArray]);
-            */
+        event.preventDefault();
+        const sortedArray = leakedProducts.sort((a, b) =>
+            parseFloat(a.priceUnit) - parseFloat(b.priceUnit));
+        setLeakedproduct([...sortedArray]);
+
         console.log('estoy dentro');
     }
 
@@ -81,8 +81,8 @@ const ProductList = () => {
         setMaxPrice(parseInt(event.target.value));
     }
 
-	//Recuperamos la señal del portal add cart
-	const { portalAddCart, setPortalAddCart, } = React.useContext(AppContext);
+    //Recuperamos la señal del portal add cart
+    const { portalAddCart, setPortalAddCart, } = React.useContext(AppContext);
 
     const portalRefAddCart = React.useRef(null);
 
@@ -234,8 +234,8 @@ const ProductList = () => {
                     </div>
                 </div>
                 {portalAddCart && (
-                <PortalAddCart portalRefAddCart={portalRefAddCart} setPortalAddCart={setPortalAddCart} />
-            )}
+                    <PortalAddCart portalRefAddCart={portalRefAddCart} setPortalAddCart={setPortalAddCart} />
+                )}
             </section>
         </>
     );

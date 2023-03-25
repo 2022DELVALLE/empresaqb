@@ -10,8 +10,6 @@ import S4_Categories from '@containers/S4_Categories';
 import S5_DataEnterprice from '@containers/S5_DataEnterprice';
 import S6_Footer from '@containers/S6_Footer';
 
-//import ProductList from '../containers/ProductList';
-/* <ProductList />*/
 
 const Home = () => {
 

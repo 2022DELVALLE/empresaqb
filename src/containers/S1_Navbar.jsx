@@ -55,7 +55,7 @@ const S1_Navbar = () => {
 
     //Portal menu principal
 
-    const {portalMenuP, setPortalMenuP   } = React.useContext(AppContext);
+    const { portalMenuP, setPortalMenuP } = React.useContext(AppContext);
 
     const portalRefMenuP = React.useRef(null);
 
@@ -142,7 +142,7 @@ const S1_Navbar = () => {
         }
     });
 
-    //Ir a la ruta
+    //Ir a la cart
     const hanldeToCart = () => {
         navigate('/cart');
     }
@@ -153,6 +153,7 @@ const S1_Navbar = () => {
 
     //Control de numerico encima del carrito
     const { stateCart } = React.useContext(AppContext);
+
 
 
     return (
