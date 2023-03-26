@@ -19,7 +19,7 @@ const PortalAddCart = ({ portalRefAddCart }) => {
         amount,
         setAmount,
     } = React.useContext(ProductPreviewContext);
-
+console.log("carta: " + productItemPreview);
     const {
         addToCart,
         portalAddCart,
@@ -55,7 +55,7 @@ const PortalAddCart = ({ portalRefAddCart }) => {
 
                 <div className="container-carrito">
                     <div className="descripcion">
-                        <img src={productItemPreview.image} className="image-container" />
+                        <img src={productItemPreview.image[0]} className="image-container" />
                         <div className="descripcion_teo">
                             <div className="categoria">{productItemPreview.category.name}</div>
                             <div className="nombre">{productItemPreview.title}</div>

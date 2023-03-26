@@ -15,7 +15,7 @@ function OrderItem({ product }) {
     return (
         <div className="product-basquet">
             <div className="product-image">
-                <img src={product.image} alt={product.title} />
+                <img src={product.image[0]} alt={product.title} />
             </div>
             <div className="product-description">
                 <div className="product-name">{product.title}</div>

@@ -5,15 +5,16 @@ import '@styles/Containers/Section2_Slider.scss';
 //Import data
 
 //Import Containers y components
-import SliderItemFirst from '@components/SliderItemFirst';
-import SliderItem from '@components/SliderItem';
+import SliderItemFirst from '../components/SliderItemFirst';
+import SliderItem from '../components/SliderItem';
 
 //Import 
 import useGetSliders from '../hooks/useGetSliders';
+import { useNavigate } from 'react-router-dom';
 
 const S2_Slider = () => {
 
-    
+
     //Traemos la data de sliders
 
     const APISlider = 'https://api-empresaqb-version1-production.up.railway.app/api/sliders';
@@ -38,6 +39,8 @@ const S2_Slider = () => {
     const handleRadioChange = (event) => {
         setCounter(Number(event.target.value));
     }
+
+
 
     return (
         <section className="slider">

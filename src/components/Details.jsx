@@ -94,24 +94,24 @@ const Details = () => {
                     <div className="Container_cards">
                         <div className="Image_Product">
                             <div className="image-big" id="container_image_big">
-                                <img src={productItemPreview.image}
+                                <img src={productItemPreview.image[0]}
                                     id="MainImg" alt="img-big" />
                             </div>
                             <div className="minigallery">
                                 <div href="">
-                                    <img src={productItemPreview.image}
+                                    <img src={productItemPreview.image[0]}
                                         className="small-img" alt="" />
                                 </div>
                                 <div href="">
-                                    <img src={productItemPreview.image}
+                                    <img src={productItemPreview.image[1]}
                                         className="small-img" alt="" />
                                 </div>
                                 <div href="">
-                                    <img src={productItemPreview.image}
+                                    <img src={productItemPreview.image[2]}
                                         className="small-img" alt="" />
                                 </div>
                                 <div href="">
-                                    <img src={productItemPreview.image}
+                                    <img src={productItemPreview.image[3]}
                                         className="small-img" alt="" />
                                 </div>
                             </div>

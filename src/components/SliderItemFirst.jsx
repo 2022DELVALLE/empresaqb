@@ -1,9 +1,28 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const SliderItemFirst = ({slider}) => {
+//import app context 
+import AppContext from '../context/AppContext';
+
+
+const SliderItemFirst = ({ slider }) => {
+
+    const navigate = useNavigate();
+
+    const {
+        handleFilerCategorybySlider
+    } = React.useContext(AppContext);
+
+    const hanldeClickFilter = (item) => {
+        handleFilerCategorybySlider(item);
+        navigate('/products');        
+    }
+
 
     return (
-        <div className="slide  firts">
+        <div className="slide  firts"
+        onClick={()=>hanldeClickFilter(slider)}
+        >
             <img src={slider.image} alt={slider.name} />
         </div>
     );

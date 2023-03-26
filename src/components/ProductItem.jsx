@@ -25,7 +25,7 @@ const ProductItem = ({ itemproduct }) => {
 	const { portalAddCart, setPortalAddCart, } = React.useContext(AppContext);
 
     function handleOpenAddCart(item) {
-        setProductItemPreview(item);
+		setProductItemPreview(item)
         setPortalAddCart(!portalAddCart);
     }
 
@@ -35,7 +35,7 @@ const ProductItem = ({ itemproduct }) => {
 				onClick={() => handleDetailsProduct(itemproduct)}
 			>
 				<img
-					src={itemproduct.image}
+					src={itemproduct.image[0]}
 					alt={itemproduct.title}
 					width="150"
 					height="150"

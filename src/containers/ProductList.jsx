@@ -13,8 +13,6 @@ import AppContext from '../context/AppContext';
 import PortalAddCart from '../portals/PortalAddCart';
 
 const ProductList = () => {
-    //Variable general 
-
 
     //Recupero la lista de productos filtrados
 
@@ -51,15 +49,11 @@ const ProductList = () => {
     });
 
     //filtro de  menor a mayor por precio de producto
-    console.log('estuve afuera');
-
     const hanldeMenorToMayor = (event) => {
         event.preventDefault();
         const sortedArray = leakedProducts.sort((a, b) =>
             parseFloat(a.priceUnit) - parseFloat(b.priceUnit));
         setLeakedproduct([...sortedArray]);
-
-        console.log('estoy dentro');
     }
 
     const hanldeMayorToMenor = () => {

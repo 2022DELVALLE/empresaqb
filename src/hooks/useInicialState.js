@@ -1,5 +1,5 @@
 import React from 'react';
-import productsdata from '../hooks/data/productsdata';
+import useGetProducts from './useGetProducts';
 
 const initialStateCart = {
 	cart: [],
@@ -7,9 +7,13 @@ const initialStateCart = {
 
 const useInitialState = () => {
 
+    //Traemos la data de sliders
+
+    const APIProducts = 'https://api-empresaqb-version1-production.up.railway.app/api/products';
+
+    const productsdata = useGetProducts(APIProducts);
+
 	const [leakedProducts, setLeakedproduct] = React.useState();
-
-
 
 	// Filtramos los productos psando un objeto de categoria y guardamos en la
 
@@ -35,7 +39,7 @@ const useInitialState = () => {
 	const [showPortal, setShowPortal] = React.useState(false);
 
 	//Señal para abrir el portal menu principal
-    const [portalMenuP, setPortalMenuP] = React.useState(false);
+	const [portalMenuP, setPortalMenuP] = React.useState(false);
 
 
 	//Señal para abrir el portal Login
@@ -88,6 +92,14 @@ const useInitialState = () => {
 	const [user, setUser] = React.useState(null);
 
 
+	//Metodo para filrar los prouctos segun las cartegorias del slider
+
+	const handleFilerCategorybySlider = (slider) => {
+		const categoryIds = slider.categories.map(category => category.id);
+		const productosFiltrados = productsdata.filter(producto => categoryIds.includes(producto.category.id));
+		setLeakedproduct(productosFiltrados)
+	}
+
 	return {
 		//Parametros de filtro de productos por categoria
 		leakedProducts,
@@ -125,7 +137,11 @@ const useInitialState = () => {
 		quantityCart, setQuantityCart,
 
 		//Metodo para eliminar objeto de cart
-		removeFromCart
+		removeFromCart,
+
+
+		//Metodo para filrar los prouctos segun las cartegorias del slider
+		handleFilerCategorybySlider,
 	}
 };
 

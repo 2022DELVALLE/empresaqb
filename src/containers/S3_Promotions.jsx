@@ -6,7 +6,8 @@ import '@styles/Containers/Section3_Home.scss'
 import useGetPromotions from '../hooks/useGetPromotions';
 
 //Import components o containers
-import PromotionItem from '@components/PromotionsItem';
+import PromotionItem from '../components/PromotionsItem';
+
 
 const S3_Promotions = () => {
 
@@ -15,6 +16,8 @@ const S3_Promotions = () => {
     const APIPromtions = 'https://api-empresaqb-version1-production.up.railway.app/api/promotions';
 
     const promotionsdata = useGetPromotions(APIPromtions);
+
+
 
     return (
         <section className="section__news-offers">
