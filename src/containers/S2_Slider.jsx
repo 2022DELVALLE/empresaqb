@@ -17,7 +17,7 @@ const S2_Slider = () => {
 
     //Traemos la data de sliders
 
-    const APISlider = 'https://api-empresaqb-version1-production.up.railway.app/api/sliders';
+    const APISlider = 'https://api-empresaqb-version3-production.up.railway.app/api/sliders';
 
     const sliderdata = useGetSliders(APISlider);
 

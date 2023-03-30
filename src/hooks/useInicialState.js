@@ -9,7 +9,7 @@ const useInitialState = () => {
 
     //Traemos la data de sliders
 
-    const APIProducts = 'https://api-empresaqb-version1-production.up.railway.app/api/products';
+    const APIProducts = 'https://api-empresaqb-version3-production.up.railway.app/api/products';
 
     const productsdata = useGetProducts(APIProducts);
 

@@ -13,7 +13,7 @@ const S3_Promotions = () => {
 
     //Recuperamos datos de las promociones
 
-    const APIPromtions = 'https://api-empresaqb-version1-production.up.railway.app/api/promotions';
+    const APIPromtions = 'https://api-empresaqb-version3-production.up.railway.app/api/promotions';
 
     const promotionsdata = useGetPromotions(APIPromtions);
 
