@@ -19,7 +19,7 @@ const PortalAddCart = ({ portalRefAddCart }) => {
         amount,
         setAmount,
     } = React.useContext(ProductPreviewContext);
-console.log("carta: " + productItemPreview);
+    console.log("carta: " + productItemPreview);
     const {
         addToCart,
         portalAddCart,
@@ -68,19 +68,20 @@ console.log("carta: " + productItemPreview);
                     </div>
 
                     <div className="add-remove">
-                        <div className="icon-remove"
-                            onClick={() => setAmount(amount - 1)}
-                            disabled={amount <= 0}
-                        >
-                            <i className="bi bi-dash-lg"></i>
-                        </div>
-                        <div className="cont">{amount}</div>
-                        <div className="icon-add"
+                        <button className="icon-add"
                             onClick={() => setAmount(amount + 1)}
                             disabled={amount >= 999}
                         >
                             <i className="bi bi-plus-lg"></i>
-                        </div>
+                        </button>
+
+                        <div className="cont">{amount}</div>
+                        <button className="icon-remove"
+                            onClick={() => setAmount(amount - 1)}
+                            disabled={amount <= 0}
+                        >
+                            <i className="bi bi-dash-lg"></i>
+                        </button>
                     </div>
                 </div>
 

@@ -1,32 +1,22 @@
 import React from 'react';
-
+import axios from 'axios';
 //import scss
 import '../styles/Components/RecoveringPassword.scss'
 
-//improt librearia is email
-import { isEmail } from 'validator';
 
 const RecoveringPasswordComponent = () => {
+    const [email, setEmail] = React.useState("");
 
-    //control de validacion del email
-    const [error, setError] = React.useState('');
-
-    //Recuperamos el gmail
-    const [email, setEmail] = React.useState('');
-
-    const hanldeResetPassword = (event) => {
+    const handleFormSubmit = (event) => {
         event.preventDefault();
-        setEmail(event.target.value);
-        console.log(email);
-
-        //Validacion
-        if (!isEmail(email)) {
-            setError('Correo inválido');
-            return;
-        }
-    }
-
-
+        axios.post("http://localhost:8000/api/forgot-password", { email })
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
     return (
         <section className="recovering-password-container">
             <div className="recoverin-password-container-of-container">
@@ -142,21 +132,19 @@ const RecoveringPasswordComponent = () => {
                                 d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                         </svg>
                     </div>
-                    <form action="/" class="recoverin-password-form">
+                    <form onSubmit={handleFormSubmit} class="recoverin-password-form">
                         <p className="recoverin-password-info">
                             Ingrese su correo electrónico y le enveriamos los pasos para restablecer tu contraseña.
                         </p>
                         <label className="recoverin-password-text-label-correo">
                             Correo electrónico
                         </label>
-                        <input
-                            type="text"
-                            id="email"
-                            placeholder="Ingresa tu nombre"
-                            className="recoverin-password-text-input"
+                        <input type="text"
+                            name="email"
                             value={email}
-                            onChange={() => hanldeResetPassword(event)}
-                        />
+                            onChange={(event) => setEmail(event.target.value)}
+                            placeholder="Ingresa tu correo electrónico"
+                            className="recoverin-password-text-input" />
                         <input type="submit" value="Confirmar" className="recoverin-password-button" />
                         <div className="recovering-password-link">
                             <a href="#">Ya tengo mi código de verificación</a>

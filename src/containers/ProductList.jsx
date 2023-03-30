@@ -13,53 +13,36 @@ import AppContext from '../context/AppContext';
 import PortalAddCart from '../portals/PortalAddCart';
 
 const ProductList = () => {
+        //mostrar combo box
+
+        const [isOpenBox, setIsOpenBox] = React.useState(false);
+
+        function toggleDropDown() {
+            setIsOpenBox(!isOpenBox);
+        }
 
     //Recupero la lista de productos filtrados
 
     const { leakedProducts, setLeakedproduct } = React.useContext(AppContext);
 
-    //mostrar combo box
-
-    const [showCombo, setShowCombo] = React.useState(false);
-
-
-    const refMayorMenorPrecio = React.useRef(null);
-
-
-    const hanldeShowCombo = () => {
-        setShowCombo(!showCombo);
-    }
-
-    function handleCloseShowCombo(event) {
-        if (showCombo && refMayorMenorPrecio.current &&
-            !refMayorMenorPrecio.current.contains(event.target)) {
-            setShowCombo(false);
-        }
-    }
-
-    React.useEffect(() => {
-
-        const event = window.innerWidth < 768 ? 'touchstart' : 'mousedown';
-
-        document.addEventListener(event, handleCloseShowCombo);
-
-        return () => {
-            document.removeEventListener(event, handleCloseShowCombo);
-        }
-    });
 
     //filtro de  menor a mayor por precio de producto
     const hanldeMenorToMayor = (event) => {
+        console.log("1")
         event.preventDefault();
         const sortedArray = leakedProducts.sort((a, b) =>
             parseFloat(a.priceUnit) - parseFloat(b.priceUnit));
         setLeakedproduct([...sortedArray]);
+        setIsOpenBox(!isOpenBox);
     }
 
-    const hanldeMayorToMenor = () => {
+    const hanldeMayorToMenor = (event) => {
+        console.log("2")
+        event.preventDefault();
         const sortedArray = leakedProducts.sort((a, b) =>
             parseFloat(b.priceUnit) - parseFloat(a.priceUnit));
         setLeakedproduct([...sortedArray]);
+        setIsOpenBox(!isOpenBox);
     }
 
     //Filtro por precio 
@@ -100,6 +83,8 @@ const ProductList = () => {
     });
 
 
+
+
     return (
         <>
             <section className="ProductCardsSection">
@@ -111,42 +96,44 @@ const ProductList = () => {
                         </div>
                         <div className="ProductsCardsSection__header-order">
                             <div className="ProductsCardsSection__header-order-label">Ordenar por:</div>
-                            <div className="ProductsCardsSection__header-order-drop"
-                                id="mostrar"
-                                onClick={hanldeShowCombo}
-                            >
-                                <span className="DropLabelHeader">Selecciona</span>
+                            <div className="ProductsCardsSection__header-order-drop" id="mostrar">
+                                <span className="DropLabelHeader"
+                                    onClick={toggleDropDown}
+                                >Selecciona</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
                                     <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                                 </svg>
-                                <div className={showCombo ? 'OptionDropDownListOrder show1' : 'OptionDropDownListOrder'}
-                                    id="hide-drop"
-                                    ref={refMayorMenorPrecio}
-                                >
-                                    <div>
-                                        <button
-                                            onClick={() => hanldeMenorToMayor()}
-                                        >Precio menor a mayor</button>
+                                {isOpenBox && (
+                                    <div className="OptionDropDownListOrder" id="hide-drop" >
+                                        <div
+                                            onClick={(event) => hanldeMenorToMayor(event)}
+                                        >Precio menor a mayor</div>
+                                        <div
+                                            onClick={(event) => hanldeMayorToMenor(event)}
+                                        >Precio mayor a menor</div>
                                     </div>
-                                    <div>Precio mayor a menor</div>
-                                </div>
+                                )}
+
                             </div>
                         </div>
                         <div className="ProductCardsSection_header-order-filterMobile">
                             <div className="ProductsCardsSection__header-order-drop" id="mostrar" >
-                                <span className="DropLabelHeader">Selecciona</span>
+                                <span className="DropLabelHeader"
+                                    onClick={toggleDropDown}
+                                >Selecciona</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
                                     <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                                 </svg>
-                                <div
-                                    ref={refMayorMenorPrecio}
-                                    className={showCombo ? 'OptionDropDownListOrder show1' : 'OptionDropDownListOrder'}
-                                    id="hide-drop">
-                                    <div
-                                        onClick={() => hanldeMenorToMayor(event)}
-                                    >Precio menor a mayor</div>
-                                    <div>Precio mayor a menor</div>
-                                </div>
+                                {isOpenBox && (
+                                    <div className="OptionDropDownListOrder" id="hide-drop" >
+                                        <div
+                                            onClick={() => hanldeMenorToMayor(event)}
+                                        >Precio menor a mayor</div>
+                                        <div
+                                            onClick={() => hanldeMayorToMenor(event)}
+                                        >Precio mayor a menor</div>
+                                    </div>
+                                )}
                             </div>
                             <div className="ProductCardsSection_header-order-filter">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-filter" viewBox="0 0 16 16">

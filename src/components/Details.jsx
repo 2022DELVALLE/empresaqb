@@ -49,6 +49,45 @@ const Details = () => {
 
     const { amount, setAmount } = React.useContext(ProductPreviewContext);
 
+
+    //control de imagenes
+    const [mainImgSrc, setMainImgSrc] = React.useState(productItemPreview.image[0]);
+    const [mainImgAlt, setMainImgAlt] = React.useState("");
+    const imgRef = React.useRef(null);
+    const containerRef = React.useRef(null);
+
+    const handleThumbnailClick = (imgSrc, imgAlt) => {
+        setMainImgSrc(imgSrc);
+        setMainImgAlt(imgAlt);
+    };
+
+    React.useEffect(() => {
+        const container = containerRef.current;
+        const img = imgRef.current;
+
+        const handleMouseMove = (e) => {
+            const x = e.clientX - e.target.offsetLeft;
+            const y = e.clientY - e.target.offsetTop;
+
+            img.style.transformOrigin = `${x}px ${y}px`;
+            img.style.transform = "scale(2)";
+        };
+
+        const handleMouseLeave = () => {
+            img.style.transformOrigin = "center";
+            img.style.transform = "scale(1)";
+        };
+
+        container.addEventListener("mousemove", handleMouseMove);
+        container.addEventListener("mouseleave", handleMouseLeave);
+
+        return () => {
+            container.removeEventListener("mousemove", handleMouseMove);
+            container.removeEventListener("mouseleave", handleMouseLeave);
+        };
+    }, []);
+
+
     return (
         <>
             <section className="section_component_Product_info">
@@ -93,29 +132,23 @@ const Details = () => {
 
                     <div className="Container_cards">
                         <div className="Image_Product">
-                            <div className="image-big" id="container_image_big">
-                                <img src={productItemPreview.image[0]}
-                                    id="MainImg" alt="img-big" />
+                            <div className="image-big" id="container_image_big" ref={containerRef}>
+                                <img src={mainImgSrc} id="MainImg" alt={mainImgAlt} ref={imgRef} />
                             </div>
                             <div className="minigallery">
-                                <div href="">
-                                    <img src={productItemPreview.image[0]}
-                                        className="small-img" alt="" />
-                                </div>
-                                <div href="">
-                                    <img src={productItemPreview.image[1]}
-                                        className="small-img" alt="" />
-                                </div>
-                                <div href="">
-                                    <img src={productItemPreview.image[2]}
-                                        className="small-img" alt="" />
-                                </div>
-                                <div href="">
-                                    <img src={productItemPreview.image[3]}
-                                        className="small-img" alt="" />
-                                </div>
+                                {productItemPreview.image.map((imgSrc, index) => (
+                                    <div href="" key={index}>
+                                        <img
+                                            src={imgSrc}
+                                            className="small-img"
+                                            alt=""
+                                            onClick={() => handleThumbnailClick(imgSrc, `img-${index}`)}
+                                        />
+                                    </div>
+                                ))}
                             </div>
                         </div>
+
                         <div className="Description_product">
                             <h1>{productItemPreview.title}</h1>
                             <h2>Descripción</h2>
@@ -123,19 +156,19 @@ const Details = () => {
                             <div className="content-items-product-info">
                                 <div className="price">S/{productItemPreview.priceUnit}</div>
                                 <div className="quanty">
-                                    <div className="elipse-btn"
+                                    <button className="elipse-btn"
                                         onClick={() => setAmount(amount + 1)}
-                                        disabled={amount <= 999}
+                                        disabled={amount >= 999}
                                     >
                                         <i className="fa-solid fa-plus"></i>
-                                    </div>
+                                    </button>
                                     <div className="number-quanty">{amount}</div>
-                                    <div className="elipse-btn"
+                                    <button className="elipse-btn"
                                         onClick={() => setAmount(amount - 1)}
-                                        disabled={amount >= 0}
+                                        disabled={amount <= 0}
                                     >
                                         <i className="fa-solid fa-minus"></i>
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                             <div className="btn_Add_car"
@@ -154,7 +187,6 @@ const Details = () => {
                     <PortalAddCart portalRefAddCart={portalRefAddCart} setPortalAddCart={setPortalAddCart} />
                 )}
             </section>
-            <script src="../hooks/ComponentProductInformationSection.js"></script>
         </>
     );
 }
