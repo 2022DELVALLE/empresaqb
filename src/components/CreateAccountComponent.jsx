@@ -30,13 +30,14 @@ const CreateAccountComponent = () => {
         const formData = new FormData(form.current);
         const user = {
             name: formData.get('name'),
-            lastnameDad: formData.get('lastNameDad'),
-            lastnameMother: formData.get('lastNameMother'),
-            dni: formData.get('dni'),
-            telephone: formData.get('telefono'),
+            lastnamedad: formData.get('lastNameDad'),
+            lastnamemother: formData.get('lastNameMother'),
             email: formData.get('email'),
             password: formData.get('password'),
+            dni: formData.get('dni'),
+            telephone: formData.get('telefono'),
         }
+        console.log(user);
         saveCustomer(user);
     }
 

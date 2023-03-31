@@ -8,6 +8,11 @@ import '../styles/portal/PortalMenuInicio.scss';
 //import appcontext
 import AppContext from '../context/AppContext';
 
+//import hook cerrar sesion
+import useLogoutCustomer from '../hooks/useLogoutCustomer';
+
+
+
 const PortalMenuInicio = ({ portalRef }) => {
 
     const navigate = useNavigate();
@@ -34,11 +39,16 @@ const PortalMenuInicio = ({ portalRef }) => {
 
     //recibo señal de inico de usuario
     const { user, setUser } = React.useContext(AppContext);
-
+    console.log("User");
+    console.log(user);
     //cerrar seseión
+    const {responseLogout, logoutCustomer } = useLogoutCustomer();
+    console.log("logout:");
+    console.log(responseLogout);
 
-    const hanldeCloseSesion = () => {
-        setUser(null);
+    const hanldeCloseSesion = (event) => {
+        event.preventDefault();
+        logoutCustomer();
     }
 
     //Ir a la my cuenta
@@ -50,8 +60,8 @@ const PortalMenuInicio = ({ portalRef }) => {
     if (user) {
         return ReactDOM.createPortal(
             <div className="backgroundmobiledesktop">
-                <div className="ComponentLoginDesplegable" 
-                ref={portalRef}                
+                <div className="ComponentLoginDesplegable"
+                    ref={portalRef}
                 >
                     <div className="ComponentLoginDesplegable-container">
                         <div className="ComponentLoginDesplegable-box1">
@@ -63,7 +73,7 @@ const PortalMenuInicio = ({ portalRef }) => {
                             <div className="ComponentLoginDesplegable-box1-label"><a href="#">Mis compras</a></div>
                         </div>
                         <div className="ComponentLoginDesplegable-box2"
-                            onClick={() => hanldeCloseSesion()}
+                            onClick={() => hanldeCloseSesion(event)}
                         ><a href="">Cerrar Sesión</a>
                         </div>
                     </div>

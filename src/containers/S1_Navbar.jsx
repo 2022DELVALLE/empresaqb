@@ -154,8 +154,6 @@ const S1_Navbar = () => {
     //Control de numerico encima del carrito
     const { stateCart } = React.useContext(AppContext);
 
-
-
     return (
         <>
             <header>
@@ -231,7 +229,7 @@ const S1_Navbar = () => {
                     >
                         <i className="bi bi-person-circle login-icon"></i>
                         <div className="text-login">
-                            <a href="#" value="" >Hola,<br />{user ? user.name + '!' : 'inicia sesión!'}</a>
+                            <a href="#" value="" >Hola,<br />{user ? user.data.user.name + '!' : 'inicia sesión!'}</a>
                         </div>
                     </div>
                     <div className="navbar__shop"

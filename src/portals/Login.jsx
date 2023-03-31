@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 
 //import get customer
-import useGetCustomers from '../hooks/useGetCustomers';
+import useLoginCustomer from '../hooks/useLoginCustomer';
 
 const Login = ({ portalRefLogin }) => {
 
@@ -41,16 +41,16 @@ const Login = ({ portalRefLogin }) => {
 
 
     //Traemos la data de customers
-
-    const APICustomers = 'https://api-empresaqb-version1-production.up.railway.app/api/customers';
-
-    const customersdata = useGetCustomers(APICustomers);
-
+    /*
+        const APICustomers = 'https://api-empresaqb-version1-production.up.railway.app/api/customers';
+    
+        const customersdata = useGetCustomers(APICustomers);
+    */
     //recuperamos datos para compararlos
 
     const formLogin = useRef(null);
 
-    const {user, setUser} = React.useContext(AppContext);
+    const { user, loginCustomer } = useLoginCustomer();
 
     const hanldeSubmitLogin = (event) => {
         event.preventDefault();
@@ -59,15 +59,13 @@ const Login = ({ portalRefLogin }) => {
             email: formData.get('email'),
             password: formData.get('password'),
         }
-        const searchuser = customersdata.find((u)=> u.email===userrecovering.email
-        && u.password === userrecovering.password);
-        setUser(searchuser);
+        console.log(userrecovering);
+        loginCustomer(userrecovering);
     }
-    console.log(user);
 
     //Ver contraseña y ocultar
 
-    const [ showPassword, setShowPassword] = React.useState(false);
+    const [showPassword, setShowPassword] = React.useState(false);
 
     const handleShowPassword = (event) => {
         event.preventDefault();
@@ -111,19 +109,19 @@ const Login = ({ portalRefLogin }) => {
                             <input
                                 className="inputFormLogin"
                                 type={showPassword ? 'text' : 'password'}
-                                placeholder="Ingresa tu contraseña" 
+                                placeholder="Ingresa tu contraseña"
                                 name='password'
-                                />
+                            />
                         </div>
                         <div className="iconShow-hideLogin"
-                        onClick={()=>handleShowPassword(event)}
+                            onClick={() => handleShowPassword(event)}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            className="bi bi-eye-fill" viewBox="0 0 16 16">
-                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                            <path
-                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                        </svg>
+                                className="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                <path
+                                    d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                            </svg>
                         </div>
                     </div>
 
