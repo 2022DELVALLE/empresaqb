@@ -1,22 +1,31 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useRef } from 'react';
+
 //import scss
 import '../styles/Components/RecoveringPassword.scss'
 
+//import hook forgot password
+import useForgotPassword from '..//hooks/useForgotPassword';
 
-const RecoveringPasswordComponent = () => {
-    const [email, setEmail] = React.useState("");
+const ForgotPasswordComponent = () => {
+
+    const {responseForgoutPassword, forgotPassword} = useForgotPassword();
+    console.log(responseForgoutPassword);
+
+    const form = useRef(null);
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        axios.post("http://localhost:8000/api/forgot-password", { email })
-            .then((response) => {
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
+        const formData = new FormData(form.current);
+        const email = {
+            email: formData.get('email'),
+        }
+        console.log(email);
+        forgotPassword(email);
+    }
+
+
+
+
     return (
         <section className="recovering-password-container">
             <div className="recoverin-password-container-of-container">
@@ -118,10 +127,18 @@ const RecoveringPasswordComponent = () => {
                 </div>
                 <div className="recoverin-password-container-content">
                     <div className="recovering-password-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" className="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                            ></path>
                         </svg>
                         <p>¿Olvidaste tu contraseña?</p>
                     </div>
@@ -132,7 +149,7 @@ const RecoveringPasswordComponent = () => {
                                 d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                         </svg>
                     </div>
-                    <form onSubmit={handleFormSubmit} class="recoverin-password-form">
+                    <form onSubmit={handleFormSubmit} className="recoverin-password-form" ref={form}>
                         <p className="recoverin-password-info">
                             Ingrese su correo electrónico y le enveriamos los pasos para restablecer tu contraseña.
                         </p>
@@ -141,8 +158,6 @@ const RecoveringPasswordComponent = () => {
                         </label>
                         <input type="text"
                             name="email"
-                            value={email}
-                            onChange={(event) => setEmail(event.target.value)}
                             placeholder="Ingresa tu correo electrónico"
                             className="recoverin-password-text-input" />
                         <input type="submit" value="Confirmar" className="recoverin-password-button" />
@@ -156,4 +171,4 @@ const RecoveringPasswordComponent = () => {
     );
 }
 
-export default RecoveringPasswordComponent;
+export default ForgotPasswordComponent;

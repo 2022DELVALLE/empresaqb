@@ -30,7 +30,7 @@ const Login = ({ portalRefLogin }) => {
 
     const hanldeToRecoveringPassword = () => {
         setPortalLogin(false);
-        navigate('/recoveringpassword');
+        navigate('/forgot-password');
     }
 
     //Recupero señal del portal login para cerrar al dar clin en x

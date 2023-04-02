@@ -4,7 +4,7 @@ import { Layout } from '../containers/Layout';
 import Home from '../pages/Home.jsx';
 import ProductsCategory from '../pages/ProductsCategory';
 import CreateAccount from '../pages/CreateAccount';
-import RecoveringPassword from '../pages/RecoveringPassword';
+import ForgotPassword from '../pages/ForgotPassword';
 import DetailsProduct from '../pages/DetailsProduct';
 import Cart from '../pages/Cart';
 import MyAccount from '../pages/MyAccount';
@@ -16,6 +16,7 @@ import useInitialState from '../hooks/useInicialState';
 //paso app Context preview  product item 
 import ProductPreviewContext from '../context/ProductPreviewContext';
 import useProductPreview from '../hooks/useProductPreview';
+import ResetPassword from '../pages/ResetPassword';
 
 const App = () => {
 
@@ -31,10 +32,12 @@ const App = () => {
 							<Route path="/" element={<Home />} />
 							<Route path="/products" element={<ProductsCategory />} />
 							<Route path="/createaccount" element={<CreateAccount />} />
-							<Route path="/recoveringpassword" element={<RecoveringPassword />} />
+							<Route path="/forgot-password" element={<ForgotPassword />} />
 							<Route path="/details" element={<DetailsProduct />} />
 							<Route path="/cart" element={<Cart />} />
-							<Route path="/myaccount" element={<MyAccount />} />						
+							<Route path="/myaccount" element={<MyAccount />} />		
+							<Route path="/reset-password" element={<ResetPassword />} />						
+
 						</Routes>
 					</Layout>
 				</BrowserRouter>
