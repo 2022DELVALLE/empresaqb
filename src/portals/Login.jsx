@@ -50,7 +50,25 @@ const Login = ({ portalRefLogin }) => {
 
     const formLogin = useRef(null);
 
-    const { user, loginCustomer } = useLoginCustomer();
+    const { user, loginCustomer, error } = useLoginCustomer();
+
+    React.useEffect(() => {
+        if (error) {
+            console.log(error);
+            alert(error.message);
+        }
+    }, [error]);
+    React.useEffect(() => {
+        console.log("user")
+        console.log(user);
+        if (user) {
+            if (user.res = true) {
+                alert(user.message);
+                setPortalLogin(!portalLogin);
+            }
+        }
+
+    }, [user]);
 
     const hanldeSubmitLogin = (event) => {
         event.preventDefault();
@@ -61,7 +79,7 @@ const Login = ({ portalRefLogin }) => {
         }
         console.log(userrecovering);
         loginCustomer(userrecovering);
-        setPortalLogin(!portalLogin);
+
     }
 
     //Ver contraseña y ocultar

@@ -8,10 +8,23 @@ import useForgotPassword from '..//hooks/useForgotPassword';
 
 const ForgotPasswordComponent = () => {
 
-    const {responseForgoutPassword, forgotPassword} = useForgotPassword();
+    const { responseForgoutPassword, forgotPassword, error } = useForgotPassword();
     console.log(responseForgoutPassword);
 
     const form = useRef(null);
+
+    React.useEffect(() => {
+        if (error) {
+            alert(error.message);
+        }
+    }, [error]);
+    React.useEffect(() => {
+        if (responseForgoutPassword) {
+            alert(responseForgoutPassword.status);
+        }
+
+    }, [responseForgoutPassword]);
+
 
     const handleFormSubmit = (event) => {
         event.preventDefault();

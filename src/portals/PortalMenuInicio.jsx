@@ -40,10 +40,20 @@ const PortalMenuInicio = ({ portalRef }) => {
 
     //cerrar seseión
     const { responseLogout, logoutCustomer } = useLogoutCustomer();
+    console.log(responseLogout);
+
+    React.useEffect(() => {
+        if (responseLogout) {
+            if (responseLogout.res = true) {
+                alert(responseLogout.message);
+                setShowPortal(false);
+            }
+        }
+
+    }, [responseLogout]);
 
     const hanldeCloseSesion = (event) => {
         event.preventDefault();
-        setShowPortal(false);
         logoutCustomer();
     }
 

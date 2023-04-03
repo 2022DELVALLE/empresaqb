@@ -17,8 +17,22 @@ const ResetPasswordComponent = () => {
     const form = useRef(null);
 
 
-    const { responseResetPassword, resetPassword } = useResetPasssword();
+    const { responseResetPassword, resetPassword, error } = useResetPasssword();
     console.log(responseResetPassword);
+
+    React.useEffect(() => {
+        if (error) {
+            alert(error.message);
+        }
+    }, [error]);
+
+    React.useEffect(() => {
+        if (responseResetPassword) {
+            alert(responseResetPassword.message);
+        }
+
+    }, [responseResetPassword]);
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(form.current);

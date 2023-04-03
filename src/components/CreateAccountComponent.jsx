@@ -10,6 +10,9 @@ import AppContext from '../context/AppContext';
 //import save customer
 import useSaveCustomer from '../hooks/useSaveCustomer';
 
+//impport componente alert
+import Alerta from './Alerta';
+
 const CreateAccountComponent = () => {
 
     //Traemos la señal para cerrar el portla login
@@ -23,8 +26,24 @@ const CreateAccountComponent = () => {
 
     const form = useRef(null);
 
-    const { responseUser, saveCustomer } = useSaveCustomer();
-    console.log(responseUser);
+    const { responseRegister, error, loading, saveCustomer } = useSaveCustomer();
+    console.log(responseRegister);
+
+    React.useEffect(() => {
+        if (responseRegister) {
+            if (responseRegister.res = true) {
+                alert(responseRegister.msg);
+            }
+        }
+
+    }, [responseRegister]);
+    
+    React.useEffect(() => {
+        if (error) {
+            alert(error.message);
+        }
+    }, [error]);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(form.current);
@@ -256,7 +275,7 @@ const CreateAccountComponent = () => {
                                     className="termsConditionsPromotions-checkbox"
                                     onChange={() => hanldeTermsChange(event)}
                                     style={{
-                                        backgroundImage: termsChecked ?  'none' : `url('../assets/icons/check.svg')`,
+                                        backgroundImage: termsChecked ? 'none' : `url('../assets/icons/check.svg')`,
                                         backgroundRepeat: 'no-repeat',
                                         backgroundPosition: 'center',
                                     }}

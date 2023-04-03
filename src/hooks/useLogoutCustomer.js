@@ -19,7 +19,7 @@ const useLogoutCustomer = () => {
             setUser(null);
             setResponseLogout(response.data); // Almacenamos la respuesta en el estado
         } catch (error) {
-            console.error('error', error);
+            console.error('error', error.response.data);
         }
     };
 
