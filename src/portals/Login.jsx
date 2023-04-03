@@ -19,7 +19,7 @@ const Login = ({ portalRefLogin }) => {
     const navigate = useNavigate();
 
     // Recupero señal para cerrar portal login 
-    const { setPortalLogin } = React.useContext(AppContext);
+    const { portalLogin, setPortalLogin } = React.useContext(AppContext);
 
     const handleToRegistration = () => {
         setPortalLogin(false);
@@ -61,6 +61,7 @@ const Login = ({ portalRefLogin }) => {
         }
         console.log(userrecovering);
         loginCustomer(userrecovering);
+        setPortalLogin(!portalLogin);
     }
 
     //Ver contraseña y ocultar

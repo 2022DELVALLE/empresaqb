@@ -33,9 +33,14 @@ const PortalAddCart = ({ portalRefAddCart }) => {
     const onClickAddCart = (item) => {
         productItemPreview.quantity = amount;
         addToCart(item);
-        setPortalAddCart(false);
-        navigate('/cart')
+        setH1Text("Agregaste el siguiente producto al carrito");
+        setTimeout(() => setPortalAddCart(false), 1000);        
+        setTimeout(() => navigate('/cart'), 1000);
     }
+
+    //control del mensaje
+    const [h1Text, setH1Text] = React.useState("Haga clic en ir al carrito para añadirlo");
+
 
     return ReactDOM.createPortal(
         <div className='portal-add-cart'>
@@ -45,7 +50,7 @@ const PortalAddCart = ({ portalRefAddCart }) => {
                     >
                         <i className="bi bi-check-circle"></i>
                     </div>
-                    <label className="title1">Agregaste el siguiente producto al carrito</label>
+                    <label className="title1">{h1Text}</label>
                     <div className="icon-close"
                         onClick={hanldeClosePortalAddCart}
                     >

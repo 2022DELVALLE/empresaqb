@@ -7,7 +7,7 @@ import '../styles/portal/PortalMenuPrincipal.scss';
 import useGetCategories from '../hooks/useGetCategories';
 
 //Import components
-import CategoryItemMenu from '@components/CategoryItemMenu';
+import CategoryItemMenu from '../components/CategoryItemMenu';
 
 //import app context
 import AppContext from '../context/AppContext';

@@ -8,12 +8,17 @@ const CategoryItemMenu = ({ categoryitem }) => {
     // Invoco a la funcion de navigate para renderiza productos filtrados
     const navigate = useNavigate();
 
+    //recupero señal de portal menu principal
+    const {portalMenuP, setPortalMenuP   } = React.useContext(AppContext);
+
+
     //Envio un objeto de categoria para hacer el filtro
 
     const { filterProductsByCategory } = React.useContext(AppContext);
 
     const handleProductsByCategory = (category) => {
         filterProductsByCategory(category);
+        setPortalMenuP(!portalMenuP);
         navigate('/products');
     }
 

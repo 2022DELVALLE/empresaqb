@@ -11,8 +11,6 @@ import AppContext from '../context/AppContext';
 //import hook cerrar sesion
 import useLogoutCustomer from '../hooks/useLogoutCustomer';
 
-
-
 const PortalMenuInicio = ({ portalRef }) => {
 
     const navigate = useNavigate();
@@ -39,21 +37,20 @@ const PortalMenuInicio = ({ portalRef }) => {
 
     //recibo señal de inico de usuario
     const { user, setUser } = React.useContext(AppContext);
-    console.log("User");
-    console.log(user);
+
     //cerrar seseión
-    const {responseLogout, logoutCustomer } = useLogoutCustomer();
-    console.log("logout:");
-    console.log(responseLogout);
+    const { responseLogout, logoutCustomer } = useLogoutCustomer();
 
     const hanldeCloseSesion = (event) => {
         event.preventDefault();
+        setShowPortal(false);
         logoutCustomer();
     }
 
     //Ir a la my cuenta
     const hanldeToMyAcount = (event) => {
         event.preventDefault();
+        setShowPortal(false);
         navigate('/myaccount');
     }
 
