@@ -14,7 +14,6 @@ const useSaveCustomer = () => {
             setReponseRegister(response.data);
             setLoading(false);
         } catch (error) {
-            console.log(error.response.data)
             setError(error.response.data);
             setLoading(false);
         }

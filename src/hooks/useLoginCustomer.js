@@ -4,7 +4,7 @@ import axios from 'axios';
 //import appcontext
 import AppContext from '../context/AppContext';
 
-const useLoginCustomer = (credenciales) => {
+const useLoginCustomer = () => {
     const [error, setError] = React.useState(null);
     const { user, setUser } = React.useContext(AppContext);
     const loginCustomer = async (credenciales) => {

@@ -58,6 +58,7 @@ const Login = ({ portalRefLogin }) => {
             alert(error.message);
         }
     }, [error]);
+
     React.useEffect(() => {
         console.log("user")
         console.log(user);
