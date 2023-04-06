@@ -9,9 +9,10 @@ const PromotionItem = ({promtionitem}) => {
     const navigate = useNavigate();
 
 	// Guardo un producto preview para ver sus details mas claro
-	const { productItemPreview, setProductItemPreview } = React.useContext(ProductPreviewContext);
+	const { amount, setAmount, productItemPreview, setProductItemPreview } = React.useContext(ProductPreviewContext);
 
     const handleProductSavePreview = (item) => {
+        setAmount(0);
         setProductItemPreview(item);
         navigate('/details')
     }

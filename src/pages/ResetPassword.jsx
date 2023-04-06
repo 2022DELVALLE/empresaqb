@@ -10,6 +10,11 @@ import S6_Footer from '@containers/S6_Footer';
 import ResetPasswordComponent from '../components/ResetPasswordComponent.jsx';
 
 const ResetPassword = () => {
+
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <>
             <S1_Navbar />

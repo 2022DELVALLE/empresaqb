@@ -4,6 +4,12 @@ const itemProductPreview = {
 	productItemP: [],
 };
 
+
+const itemProductPedido = {
+	productItemPedido: [],
+};
+
+
 const useProductPreview = () => {
 
 	//Previes product
@@ -14,10 +20,16 @@ const useProductPreview = () => {
 
 	const [amount, setAmount] = React.useState(0);
 
+	//Previes product
+
+	const [productItemPedido, setProductItemPedido] = React.useState(itemProductPedido);
+
+
 	return {
 		productItemPreview,
         setProductItemPreview,
 		amount, setAmount,
+		productItemPedido, setProductItemPedido
 	}
 };
 

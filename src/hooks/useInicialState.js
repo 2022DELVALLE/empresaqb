@@ -4,6 +4,9 @@ import useGetProducts from './useGetProducts';
 const initialStateCart = {
 	cart: [],
 };
+const initialStateCartPedido = {
+	cartPedido: [],
+};
 
 const useInitialState = () => {
 
@@ -88,6 +91,40 @@ const useInitialState = () => {
 	}
 
 
+
+	//Verificar si el mismo proyecto que se agregue la cantidad que recibe del anterior producto
+
+	const [stateCartPedido, setStateCartPedido] = React.useState(initialStateCartPedido);
+
+	// hallamos la cantidad de objetos de cart
+	const [quantityCartPedido, setQuantityCartPedido] = React.useState(0);
+
+
+	const addToCartPedido = (payload) => {
+
+		if (!stateCartPedido.cartPedido.includes(payload)) {
+			setStateCartPedido({
+				...stateCartPedido,
+				cartPedido: [...stateCartPedido.cartPedido, payload]
+			});
+			console.log(stateCartPedido);
+			setQuantityCartPedido(stateCartPedido.cartPedido.length + 1);
+		}
+
+	};
+
+
+	//eliminar un objeto de cart
+	const removeFromCartPedido = (payload) => {
+		setStateCartPedido({
+			...stateCartPedido,
+			cartPedido: stateCartPedido.cartPedido.filter(items => items.id !== payload.id),
+		});
+		setQuantityCartPedido(stateCartPedido.cartPedido.length - 1);
+	}
+
+
+
 	//variables para controlodar user 
 	const [user, setUser] = React.useState(null);
 
@@ -142,6 +179,15 @@ const useInitialState = () => {
 
 		//Metodo para filrar los prouctos segun las cartegorias del slider
 		handleFilerCategorybySlider,
+
+
+		//variables del pedido
+		stateCartPedido, setStateCartPedido,
+
+		// hallamos la cantidad de objetos de cart
+		quantityCartPedido, setQuantityCartPedido,
+		addToCartPedido, removeFromCartPedido
+	
 	}
 };
 

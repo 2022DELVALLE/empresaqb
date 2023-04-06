@@ -5,10 +5,14 @@ import AppContext from '../context/AppContext';
 
 function OrderItem({ product }) {
 
-
-    const { removeFromCart } = React.useContext(AppContext);
+    const { removeFromCart, removeFromCartPedido, stateCartPedido} = React.useContext(AppContext);
 
     const handleRemove = product => {
+
+        const objePedido = stateCartPedido.cartPedido.find(item => item.id === product.id);
+        console.log("Objeto de pedido encontrado");
+        console.log(objePedido);
+        removeFromCartPedido(objePedido);
         removeFromCart(product);
     }
 

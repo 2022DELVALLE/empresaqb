@@ -14,6 +14,7 @@ const ProductItem = ({ itemproduct }) => {
 	const { productItemPreview, setProductItemPreview } = React.useContext(ProductPreviewContext);
 
 	const handleDetailsProduct = (payload) => {
+		setAmount(0);
 		console.log(payload);
 		setProductItemPreview(payload);
 		navigate('/details');
@@ -25,9 +26,14 @@ const ProductItem = ({ itemproduct }) => {
 	const { portalAddCart, setPortalAddCart, } = React.useContext(AppContext);
 
     function handleOpenAddCart(item) {
+		setAmount(0);
 		setProductItemPreview(item)
         setPortalAddCart(!portalAddCart);
     }
+
+    //Verificamos la cantidad ingresas
+
+    const { amount, setAmount } = React.useContext(ProductPreviewContext);
 
 	return (
 		<div className="ProductCardsSection__container-cards-Product">

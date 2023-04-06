@@ -14,15 +14,19 @@ const PortalAddCart = ({ portalRefAddCart }) => {
     const navigate = useNavigate();
 
     const {
+        productItemPedido, setProductItemPedido,
         productItemPreview,
         setProductItemPreview,
         amount,
         setAmount,
     } = React.useContext(ProductPreviewContext);
-    console.log("carta: " + productItemPreview);
+    console.log("carta: ");
+    console.log(productItemPreview)
+    console.log("carta pedido: ");
+    console.log(productItemPedido)
     const {
         addToCart,
-        portalAddCart,
+        addToCartPedido,
         setPortalAddCart,
     } = React.useContext(AppContext);
 
@@ -30,11 +34,14 @@ const PortalAddCart = ({ portalRefAddCart }) => {
         setPortalAddCart(false);
     }
 
-    const onClickAddCart = (item) => {
+    const onClickAddCart = (item,itemPedido) => {
         productItemPreview.quantity = amount;
+        itemPedido.cantidad = amount;
+        itemPedido.precio_total = itemPedido.cantidad * productItemPreview.priceUnit;
+        addToCartPedido(itemPedido);
         addToCart(item);
         setH1Text("Agregaste el siguiente producto al carrito");
-        setTimeout(() => setPortalAddCart(false), 1000);        
+        setTimeout(() => setPortalAddCart(false), 1000);
         setTimeout(() => navigate('/cart'), 1000);
     }
 
@@ -102,7 +109,7 @@ const PortalAddCart = ({ portalRefAddCart }) => {
                         <a href="">Seguir comprando</a>
                     </div>
                     <div className="primary-button"
-                        onClick={() => onClickAddCart(productItemPreview)}
+                        onClick={() => onClickAddCart(productItemPreview, productItemPedido)}
                     >
                         <button>Ir al Carrito</button>
                     </div>

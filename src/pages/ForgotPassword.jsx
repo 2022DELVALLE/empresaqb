@@ -9,6 +9,11 @@ import S5_DataEnterprice from '@containers/S5_DataEnterprice';
 import S6_Footer from '@containers/S6_Footer';
 
 const ForgotPassword = () => {
+
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <>
             <S1_Navbar />

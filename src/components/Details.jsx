@@ -21,7 +21,23 @@ const Details = () => {
 
     const portalRefAddCart = React.useRef(null);
 
+    const { stateCartPedido, setStateCartPedido,
+        quantityCartPedido, setQuantityCartPedido,
+        objetoPedido } = React.useContext(AppContext);
+
+    const { productItemPedido, setProductItemPedido } = React.useContext(ProductPreviewContext);
+
+
+
     function handleOpenAddCart(item) {
+        const PedidoObjeto = {
+            id: item.id,
+            cantidad: amount,
+            precio_unitario: item.priceUnit,
+            precio_total: amount * item.priceUnit
+        }
+        setProductItemPedido(PedidoObjeto);
+        console.log(PedidoObjeto);
         setProductItemPreview(item);
         setPortalAddCart(!portalAddCart);
     }
@@ -86,7 +102,6 @@ const Details = () => {
             container.removeEventListener("mouseleave", handleMouseLeave);
         };
     }, []);
-
 
     return (
         <>
@@ -162,7 +177,7 @@ const Details = () => {
                                     >
                                         <i className="fa-solid fa-plus"></i>
                                     </button>
-                                    <div className="number-quanty">{amount}</div>
+                                    <div className="number-quanty" >{amount}</div>
                                     <button className="elipse-btn"
                                         onClick={() => setAmount(amount - 1)}
                                         disabled={amount <= 0}

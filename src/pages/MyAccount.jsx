@@ -10,6 +10,11 @@ import S6_Footer from '@containers/S6_Footer';
 import '../styles/Page/MyAccount.scss'
 
 const MyAccount = () => {
+
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <>
             <S1_Navbar />
