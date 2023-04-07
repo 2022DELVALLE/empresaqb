@@ -12,42 +12,49 @@ import AppContext from '../context/AppContext';
 //improt use save pedido
 import useSavePedido from '../hooks/useSavePedido';
 
-
 const MyOrder = () => {
-
-
 
     //Control del nombre inicio sesion por el nombre de usuario
 
     const { user, setUser } = React.useContext(AppContext);
 
     //Hacemos calculos
-    const { stateCart, quantityCart } = React.useContext(AppContext);
+    const { stateCart, quantityCart, setStateCart, total, setTotal } = React.useContext(AppContext);
     console.log("carta de orden")
     console.log(stateCart);
 
-    const sumTotal = () => {
-        const reducer = (accumalator, currentValue) => accumalator + (currentValue.priceUnit * currentValue.quantity);
-        const sum = stateCart.cart.reduce(reducer, 0);
-        return sum;
-    }
-
-
     //Pedidos
-    const { stateCartPedido } = React.useContext(AppContext);
+    const { stateCartPedido, setStateCartPedido } = React.useContext(AppContext);
 
     //invoco al metodo guardar pedido
-    const {responseSavePedido, SavePedido} = useSavePedido();
+    const { responseSavePedido, SavePedido, error } = useSavePedido();
 
     console.log("carta pedido")
     console.log(stateCartPedido)
 
+    React.useEffect(() => {
+        if (responseSavePedido) {
+            if (responseSavePedido.res = true) {
+                setStateCartPedido({ cartPedido: [] });
+                setStateCart({ cart: [] });
+                alert(responseSavePedido.message);
+            }
+        }
+ 
+    }, [responseSavePedido]);
+
+    React.useEffect(() => {
+        if (error) {
+            alert(error.message);
+        }
+    }, [error]);
+
     const createdModeloPedido = () => {
-        if(user){
+        if (user) {
             const objetoPedidoFinal = {
                 'user_id': user.data.user.id,
                 'productos': stateCartPedido.cartPedido,
-                'total_amount': sumTotal()
+                'total_amount': total
             }
             console.log(objetoPedidoFinal);
             SavePedido(objetoPedidoFinal);
@@ -75,10 +82,10 @@ const MyOrder = () => {
                         </div>
                         <div className="total-price">
                             <div>Precio Total:</div>
-                            <div>S/{sumTotal()}</div>
+                            <div>S/{total}</div>
                         </div>
                         <div className="button-continue-shop"
-                        onClick={()=>createdModeloPedido()}
+                            onClick={() => createdModeloPedido()}
                         >
                             <button>Continuar Compra</button>
                         </div>

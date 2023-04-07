@@ -6,6 +6,7 @@ import AppContext from '../context/AppContext';
 
 const useSavePedido = () => {
 
+    const [error, setError] = React.useState(null);
     const { user, setUser } = React.useContext(AppContext);
     const [responseSavePedido, setResponseSavePedido] = React.useState(null); // Nuevo estado para almacenar la respuesta
 
@@ -18,11 +19,11 @@ const useSavePedido = () => {
             );
             setResponseSavePedido(response.data); // Almacenamos la respuesta en el estado
         } catch (error) {
-            console.error('error', error.response.data);
+            setError(error.response.data);
         }
     };
 
-    return {user, responseSavePedido, SavePedido }; // Retornamos el estado de la respuesta
+    return { user, responseSavePedido, SavePedido , error}; // Retornamos el estado de la respuesta
 };
 
 

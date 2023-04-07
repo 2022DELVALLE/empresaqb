@@ -10,11 +10,11 @@ const initialStateCartPedido = {
 
 const useInitialState = () => {
 
-    //Traemos la data de sliders
+	//Traemos la data de sliders
 
-    const APIProducts = 'https://api-empresaqb-version3-production.up.railway.app/api/products';
+	const APIProducts = 'https://api-empresaqb-version3-production.up.railway.app/api/products';
 
-    const productsdata = useGetProducts(APIProducts);
+	const productsdata = useGetProducts(APIProducts);
 
 	const [leakedProducts, setLeakedproduct] = React.useState();
 
@@ -137,6 +137,11 @@ const useInitialState = () => {
 		setLeakedproduct(productosFiltrados)
 	}
 
+	//Control del total de carrito
+	const [total, setTotal] = React.useState(0);
+
+
+
 	return {
 		//Parametros de filtro de productos por categoria
 		leakedProducts,
@@ -186,8 +191,8 @@ const useInitialState = () => {
 
 		// hallamos la cantidad de objetos de cart
 		quantityCartPedido, setQuantityCartPedido,
-		addToCartPedido, removeFromCartPedido
-	
+		addToCartPedido, removeFromCartPedido,
+		total, setTotal
 	}
 };
 
