@@ -12,23 +12,9 @@ import PortalAddCart from '../portals/PortalAddCart';
 const Details = () => {
 
     //Recuperamos el product preview item
+    const { productItemPreview, setProductItemPreview, setProductItemPedido } = React.useContext(ProductPreviewContext);
 
-    const { productItemPreview, setProductItemPreview } = React.useContext(ProductPreviewContext);
-
-    //Recuperamos la señal del portal add cart
-    const { portalAddCart, setPortalAddCart, } = React.useContext(AppContext);
-
-
-    const portalRefAddCart = React.useRef(null);
-
-    const { stateCartPedido, setStateCartPedido,
-        quantityCartPedido, setQuantityCartPedido,
-        objetoPedido } = React.useContext(AppContext);
-
-    const { productItemPedido, setProductItemPedido } = React.useContext(ProductPreviewContext);
-
-
-
+    //Añado productos al carrito
     function handleOpenAddCart(item) {
         const PedidoObjeto = {
             id: item.id,
@@ -42,6 +28,13 @@ const Details = () => {
         setPortalAddCart(!portalAddCart);
     }
 
+
+    //Codigo para cerrar  y abrir portal add cart
+    //Recuperamos la señal del portal add cart
+    const { portalAddCart, setPortalAddCart, } = React.useContext(AppContext);
+
+    const portalRefAddCart = React.useRef(null);
+
     function handleCloseAddCart(event) {
         if (portalAddCart && portalRefAddCart.current &&
             !portalRefAddCart.current.contains(event.target)) {
@@ -50,11 +43,8 @@ const Details = () => {
     }
 
     React.useEffect(() => {
-
         const event = window.innerWidth < 768 ? 'touchstart' : 'mousedown';
-
         document.addEventListener(event, handleCloseAddCart);
-
         return () => {
             document.removeEventListener(event, handleCloseAddCart);
         }
@@ -62,7 +52,6 @@ const Details = () => {
 
 
     //Verificamos la cantidad ingresas
-
     const { amount, setAmount } = React.useContext(ProductPreviewContext);
 
 

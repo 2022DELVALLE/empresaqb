@@ -5,15 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 
 const CategoryItemMenu = ({ categoryitem }) => {
-    // Invoco a la funcion de navigate para renderiza productos filtrados
+
+    // Invoco a la funcion de navigate
     const navigate = useNavigate();
 
     //recupero señal de portal menu principal
-    const {portalMenuP, setPortalMenuP   } = React.useContext(AppContext);
-
+    const { portalMenuP, setPortalMenuP } = React.useContext(AppContext);
 
     //Envio un objeto de categoria para hacer el filtro
-
     const { filterProductsByCategory } = React.useContext(AppContext);
 
     const handleProductsByCategory = (category) => {
@@ -24,7 +23,7 @@ const CategoryItemMenu = ({ categoryitem }) => {
 
     return (
         <li className="menuLateralCategorias__container-categ"
-        onClick={()=> handleProductsByCategory(categoryitem)}
+            onClick={() => handleProductsByCategory(categoryitem)}
         >
             <a href="#">{categoryitem.name}</a>
         </li>

@@ -18,14 +18,12 @@ const PortalMenuInicio = ({ portalRef }) => {
     // Recupero señal para abrir portal login y la señal para cerrar el portal meni inicio
     const { portalLogin, setPortalLogin, setShowPortal } = React.useContext(AppContext);
 
-
     //Function para ir a la pagina de registarse
 
     const handletoRegistration = () => {
         navigate('/createaccount')
         setShowPortal(false);
     }
-
 
     //Portal de login
 
@@ -49,7 +47,6 @@ const PortalMenuInicio = ({ portalRef }) => {
                 setShowPortal(false);
             }
         }
-
     }, [responseLogout]);
 
     const hanldeCloseSesion = (event) => {

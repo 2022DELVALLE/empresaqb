@@ -33,6 +33,8 @@ const MyAccountComponent = () => {
         );
     }
 
+    //Variables para mostrar datos del usuario
+
     const [name, setName] = React.useState(user.data.user.name);
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -62,7 +64,7 @@ const MyAccountComponent = () => {
     const handleemailChange = (event) => {
         setemail(event.target.value);
     }
-    
+
     return (
         <section className="container_my_account">
             <div className="Name_user_my_account">
@@ -71,7 +73,7 @@ const MyAccountComponent = () => {
                 </div>
                 <div className="Name_my_account">
                     <p>HOLA</p>
-                    <b>{name+ ' ' + lastNameDad + ' ' + lastNameMother}</b>
+                    <b>{name + ' ' + lastNameDad + ' ' + lastNameMother}</b>
                 </div>
             </div>
             <div className="Datos_personales_my_account">
@@ -79,20 +81,20 @@ const MyAccountComponent = () => {
                 <div className="items_datos_personales_my_account">
                     <div className="item_my_account_dato">
                         <label htmlFor="">Nombre :</label>
-                        <input type="text" value={name} 
-                        onChange={handleNameChange}
+                        <input type="text" value={name}
+                            onChange={handleNameChange}
                         />
                     </div>
                     <div className="item_my_account_dato">
                         <label htmlFor="">Apellido Paterno :</label>
                         <input type="text" value={lastNameDad}
-                        onChange={handleLastNameDadChange}
+                            onChange={handleLastNameDadChange}
                         />
                     </div>
                     <div className="item_my_account_dato">
                         <label htmlFor="">Apellido Materno :</label>
                         <input type="text" value={lastNameMother}
-                        onChange={handleLastNameMotherChange}
+                            onChange={handleLastNameMotherChange}
                         />
                     </div>
                     <div className="item_my_account_dato no_editable_item_my_account_dato">
@@ -100,8 +102,8 @@ const MyAccountComponent = () => {
                         <div className="select_options_my_account">
                             <span>DNI:</span>
                             <input type="" value={dni}
-                        onChange={handledniChange}
-                        />
+                                onChange={handledniChange}
+                            />
                         </div>
 
                     </div>
@@ -110,16 +112,16 @@ const MyAccountComponent = () => {
                         <div className="select_options_my_account">
                             <span> +51</span>
                             <input type="number" value={telephone}
-                        onChange={handletelephoneChange}
-                        />
+                                onChange={handletelephoneChange}
+                            />
                         </div>
 
                     </div>
                     <div className="item_my_account_dato no_editable_item_my_account_dato">
                         <label htmlFor="">Correo:</label>
                         <input type="email"
-                        onChange={handleemailChange}
-                        value={email} />
+                            onChange={handleemailChange}
+                            value={email} />
                     </div>
                 </div>
                 <div className="container_btn_edit_my_account">

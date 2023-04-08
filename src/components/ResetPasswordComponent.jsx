@@ -10,29 +10,17 @@ import useResetPasssword from '../hooks/useResetPasssword.js';
 
 const ResetPasswordComponent = () => {
 
+    //Recuperamos el token
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const token = searchParams.get('token');
 
     const form = useRef(null);
 
-
     const { responseResetPassword, resetPassword, error } = useResetPasssword();
     console.log(responseResetPassword);
 
-    React.useEffect(() => {
-        if (error) {
-            alert(error.message);
-        }
-    }, [error]);
-
-    React.useEffect(() => {
-        if (responseResetPassword) {
-            alert(responseResetPassword.message);
-        }
-
-    }, [responseResetPassword]);
-
+    //Utilizamos el reset password
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(form.current);
@@ -45,6 +33,20 @@ const ResetPasswordComponent = () => {
         console.log(credencialesPassword);
         resetPassword(credencialesPassword);
     }
+
+    //Mensajes
+    React.useEffect(() => {
+        if (error) {
+            alert(error.message);
+        }
+    }, [error]);
+
+    React.useEffect(() => {
+        if (responseResetPassword) {
+            alert(responseResetPassword.message);
+        }
+
+    }, [responseResetPassword]);
 
     return (
         <section className="recovering-password-container">

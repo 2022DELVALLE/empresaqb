@@ -20,20 +20,18 @@ const ProductItem = ({ itemproduct }) => {
 		navigate('/details');
 	};
 
-
-
 	//Recuperamos la señal del portal add cart
 	const { portalAddCart, setPortalAddCart, } = React.useContext(AppContext);
 
-    function handleOpenAddCart(item) {
+	function handleOpenAddCart(item) {
 		setAmount(0);
 		setProductItemPreview(item)
-        setPortalAddCart(!portalAddCart);
-    }
+		setPortalAddCart(!portalAddCart);
+	}
 
-    //Verificamos la cantidad ingresas
+	//Verificamos la cantidad ingresas
 
-    const { amount, setAmount } = React.useContext(ProductPreviewContext);
+	const { amount, setAmount } = React.useContext(ProductPreviewContext);
 
 	return (
 		<div className="ProductCardsSection__container-cards-Product">

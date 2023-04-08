@@ -9,7 +9,6 @@ import BagHome from '@icons/iconBagHome.svg';
 import SignUpHome from '@icons/iconSignUpHome.svg';
 import CallHome from '@icons/iconCallHome.svg';
 
-
 const S5_DataEnterprice = () => {
     return (
         <section className="section__beforeFooter">

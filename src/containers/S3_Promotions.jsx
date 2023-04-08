@@ -17,13 +17,11 @@ const S3_Promotions = () => {
 
     const promotionsdata = useGetPromotions(APIPromtions);
 
-
-
     return (
         <section className="section__news-offers">
             <div className="section__news-offers-title">Nuestras promociones</div>
             <div className="section__news-offers-images">
-
+                
             {promotionsdata.map(promotionItem => (
                 <PromotionItem promtionitem={promotionItem} key={promotionItem.id} />
             )).slice(0,3)}

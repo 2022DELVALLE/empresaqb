@@ -35,9 +35,8 @@ const CreateAccountComponent = () => {
                 alert(responseRegister.msg);
             }
         }
-
     }, [responseRegister]);
-    
+
     React.useEffect(() => {
         if (error) {
             alert(error.message);
@@ -61,14 +60,12 @@ const CreateAccountComponent = () => {
     }
 
     //Ver contraseña y ocultar
-
     const [showPassword, setShowPassword] = React.useState(false);
 
     const handleShowPassword = (event) => {
         event.preventDefault();
         setShowPassword(!showPassword);
     }
-
 
     // Checked terminos y promociones
 
@@ -82,7 +79,6 @@ const CreateAccountComponent = () => {
     const handlePromotionsChange = () => {
         setPromotionsChecked(!promotionsChecked);
     }
-
 
     return (
         <section className="SectionCreateAccount">

@@ -17,7 +17,7 @@ const useForgotPassword = () => {
         }
     };
 
-    return {responseForgoutPassword, forgotPassword,error }; 
+    return { responseForgoutPassword, forgotPassword, error };
 };
 
 

@@ -14,22 +14,18 @@ import AppContext from '../context/AppContext';
 
 const PortalMenuPrincipal = ({ portalRefMenuP }) => {
 
-
     //Traemos la data de sliders
-
     const APICategories = 'https://api-empresaqb-version3-production.up.railway.app/api/categories';
 
     const categoriesdata = useGetCategories(APICategories);
 
     // Control del portal  menu principal
-
     const closePortalMenuP = () => {
         setPortalMenuP(false);
     }
     
     //Recupero señal del portal menu principal 
     const {portalMenuP, setPortalMenuP   } = React.useContext(AppContext);
-
 
     return ReactDOM.createPortal(
         <div className='portal-menu-principal'>

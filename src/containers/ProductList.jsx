@@ -13,22 +13,19 @@ import AppContext from '../context/AppContext';
 import PortalAddCart from '../portals/PortalAddCart';
 
 const ProductList = () => {
-        //mostrar combo box
+    
+    //mostrar combo box
+    const [isOpenBox, setIsOpenBox] = React.useState(false);
 
-        const [isOpenBox, setIsOpenBox] = React.useState(false);
-
-        function toggleDropDown() {
-            setIsOpenBox(!isOpenBox);
-        }
+    function toggleDropDown() {
+        setIsOpenBox(!isOpenBox);
+    }
 
     //Recupero la lista de productos filtrados
-
     const { leakedProducts, setLeakedproduct } = React.useContext(AppContext);
-
 
     //filtro de  menor a mayor por precio de producto
     const hanldeMenorToMayor = (event) => {
-        console.log("1")
         event.preventDefault();
         const sortedArray = leakedProducts.sort((a, b) =>
             parseFloat(a.priceUnit) - parseFloat(b.priceUnit));
@@ -37,7 +34,6 @@ const ProductList = () => {
     }
 
     const hanldeMayorToMenor = (event) => {
-        console.log("2")
         event.preventDefault();
         const sortedArray = leakedProducts.sort((a, b) =>
             parseFloat(b.priceUnit) - parseFloat(a.priceUnit));

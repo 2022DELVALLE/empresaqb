@@ -37,13 +37,11 @@ const App = () => {
 							<Route path="/cart" element={<Cart />} />
 							<Route path="/myaccount" element={<MyAccount />} />		
 							<Route path="/reset-password" element={<ResetPassword />} />						
-
 						</Routes>
 					</Layout>
 				</BrowserRouter>
 			</ProductPreviewContext.Provider>
 		</AppContext.Provider>
-
 	);
 }
 

@@ -8,24 +8,11 @@ import useForgotPassword from '..//hooks/useForgotPassword';
 
 const ForgotPasswordComponent = () => {
 
+    //Variables  para forgout password
     const { responseForgoutPassword, forgotPassword, error } = useForgotPassword();
     console.log(responseForgoutPassword);
 
     const form = useRef(null);
-
-    React.useEffect(() => {
-        if (error) {
-            alert(error.message);
-        }
-    }, [error]);
-    React.useEffect(() => {
-        if (responseForgoutPassword) {
-            alert(responseForgoutPassword.status);
-        }
-
-    }, [responseForgoutPassword]);
-
-
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(form.current);
@@ -36,8 +23,20 @@ const ForgotPasswordComponent = () => {
         forgotPassword(email);
     }
 
+    //Mensajes de forgout password
 
+    React.useEffect(() => {
+        if (error) {
+            alert(error.message);
+        }
+    }, [error]);
 
+    React.useEffect(() => {
+        if (responseForgoutPassword) {
+            alert(responseForgoutPassword.status);
+        }
+
+    }, [responseForgoutPassword]);
 
     return (
         <section className="recovering-password-container">

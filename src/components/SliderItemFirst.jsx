@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 //import app context 
 import AppContext from '../context/AppContext';
 
-
 const SliderItemFirst = ({ slider }) => {
 
     const navigate = useNavigate();

@@ -15,11 +15,10 @@ import useSavePedido from '../hooks/useSavePedido';
 const MyOrder = () => {
 
     //Control del nombre inicio sesion por el nombre de usuario
-
-    const { user, setUser } = React.useContext(AppContext);
+    const { user } = React.useContext(AppContext);
 
     //Hacemos calculos
-    const { stateCart, quantityCart, setStateCart, total, setTotal } = React.useContext(AppContext);
+    const { stateCart, quantityCart, setStateCart, total } = React.useContext(AppContext);
     console.log("carta de orden")
     console.log(stateCart);
 
@@ -31,23 +30,6 @@ const MyOrder = () => {
 
     console.log("carta pedido")
     console.log(stateCartPedido)
-
-    React.useEffect(() => {
-        if (responseSavePedido) {
-            if (responseSavePedido.res = true) {
-                setStateCartPedido({ cartPedido: [] });
-                setStateCart({ cart: [] });
-                alert(responseSavePedido.message);
-            }
-        }
- 
-    }, [responseSavePedido]);
-
-    React.useEffect(() => {
-        if (error) {
-            alert(error.message);
-        }
-    }, [error]);
 
     const createdModeloPedido = () => {
         if (user) {
@@ -62,6 +44,24 @@ const MyOrder = () => {
             alert("Inicia sesión para realizar la compra");
         }
     }
+
+    //Mensajes
+    React.useEffect(() => {
+        if (responseSavePedido) {
+            if (responseSavePedido.res = true) {
+                setStateCartPedido({ cartPedido: [] });
+                setStateCart({ cart: [] });
+                alert(responseSavePedido.message);
+            }
+        }
+
+    }, [responseSavePedido]);
+
+    React.useEffect(() => {
+        if (error) {
+            alert(error.message);
+        }
+    }, [error]);
 
     return (
         <main>

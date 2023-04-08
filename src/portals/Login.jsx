@@ -39,15 +39,6 @@ const Login = ({ portalRefLogin }) => {
         setPortalLogin(false);
     }
 
-
-    //Traemos la data de customers
-    /*
-        const APICustomers = 'https://api-empresaqb-version1-production.up.railway.app/api/customers';
-    
-        const customersdata = useGetCustomers(APICustomers);
-    */
-    //recuperamos datos para compararlos
-
     const formLogin = useRef(null);
 
     const { user, loginCustomer, error } = useLoginCustomer();
@@ -84,15 +75,12 @@ const Login = ({ portalRefLogin }) => {
     }
 
     //Ver contraseña y ocultar
-
     const [showPassword, setShowPassword] = React.useState(false);
 
     const handleShowPassword = (event) => {
         event.preventDefault();
         setShowPassword(!showPassword);
     }
-
-
 
     return ReactDOM.createPortal(
         <div className='portal-login-background'>

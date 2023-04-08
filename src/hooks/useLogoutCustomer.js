@@ -23,7 +23,7 @@ const useLogoutCustomer = () => {
         }
     };
 
-    return {user, responseLogout, logoutCustomer }; // Retornamos el estado de la respuesta
+    return { user, responseLogout, logoutCustomer }; // Retornamos el estado de la respuesta
 };
 
 

@@ -10,7 +10,6 @@ import useGetCategories from '../hooks/useGetCategories';
 import CategoryItemModal from '../components/CategoryItemModal';
 import CategoryItemDesktop from '../components/CategoryItemDesktop';
 
-
 const S4_Categories = () => {
 
     //Traemos la data de sliders
@@ -27,7 +26,6 @@ const S4_Categories = () => {
     const toogleShowCategorys = () => {
         setShowCategorys(!showCategorys);
     }
-
 
     return (
         <>

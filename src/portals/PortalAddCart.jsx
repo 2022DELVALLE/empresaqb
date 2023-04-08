@@ -14,9 +14,8 @@ const PortalAddCart = ({ portalRefAddCart }) => {
     const navigate = useNavigate();
 
     const {
-        productItemPedido, setProductItemPedido,
+        productItemPedido,
         productItemPreview,
-        setProductItemPreview,
         amount,
         setAmount,
     } = React.useContext(ProductPreviewContext);
@@ -47,7 +46,6 @@ const PortalAddCart = ({ portalRefAddCart }) => {
 
     //control del mensaje
     const [h1Text, setH1Text] = React.useState("Haga clic en ir al carrito para añadirlo");
-
 
     return ReactDOM.createPortal(
         <div className='portal-add-cart'>

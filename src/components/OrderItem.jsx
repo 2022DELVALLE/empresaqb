@@ -2,11 +2,10 @@ import React from 'react';
 
 //import app context
 import AppContext from '../context/AppContext';
-import ProductPreviewContext from '../context/ProductPreviewContext';
 
 function OrderItem({ product }) {
 
-    const { removeFromCart, removeFromCartPedido, stateCartPedido, total, setTotal} = React.useContext(AppContext);
+    const { removeFromCart, removeFromCartPedido, stateCartPedido, setTotal} = React.useContext(AppContext);
 
     const handleRemove = product => {
         const objePedido = stateCartPedido.cartPedido.find(item => item.id === product.id);
@@ -16,8 +15,7 @@ function OrderItem({ product }) {
         removeFromCart(product);
     }
 
-    //Control de la cantidad
-
+    //Control de la cantidad 
     const [productQuantity, setProductQuantity] = React.useState(product.quantity);
 
     const handleAddQuantity = () => {
@@ -32,6 +30,7 @@ function OrderItem({ product }) {
         }
     }
 
+    //Metodo para calcular el monto total de productos en el carrito
     React.useEffect(() => {
         const objePedido = stateCartPedido.cartPedido.find(item => item.id === product.id);
         objePedido.cantidad = productQuantity;
@@ -39,14 +38,10 @@ function OrderItem({ product }) {
         console.log(objePedido);
         console.log("pedidosssssssss");
         console.log(stateCartPedido.cartPedido);
-
         const reducer = (accumalator, currentValue) => accumalator + (currentValue.precio_unitario * currentValue.cantidad);
         const sum = stateCartPedido.cartPedido.reduce(reducer, 0);
         setTotal(sum);
-
-
     }, [productQuantity]);
-
 
     return (
         <div className="product-basquet">
