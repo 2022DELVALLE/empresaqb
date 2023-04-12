@@ -19,8 +19,8 @@ const MyOrder = () => {
 
     //Hacemos calculos
     const { stateCart, quantityCart, setStateCart, total } = React.useContext(AppContext);
-    console.log("carta de orden")
-    console.log(stateCart);
+    //console.log("carta de orden")
+    //console.log(stateCart);
 
     //Pedidos
     const { stateCartPedido, setStateCartPedido } = React.useContext(AppContext);
@@ -28,8 +28,8 @@ const MyOrder = () => {
     //invoco al metodo guardar pedido
     const { responseSavePedido, SavePedido, error } = useSavePedido();
 
-    console.log("carta pedido")
-    console.log(stateCartPedido)
+    //console.log("carta pedido")
+    //console.log(stateCartPedido)
 
     const createdModeloPedido = () => {
         if (user) {

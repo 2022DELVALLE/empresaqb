@@ -20,8 +20,10 @@ const S2_Slider = () => {
     const APISlider = 'https://api-empresaqb-version3-production.up.railway.app/api/sliders';
 
     const sliderdata = useGetSliders(APISlider);
+    console.log("data sliders:");
+    console.log(sliderdata);
 
-    //
+    //Proceso de transalación de sliders
 
     const [counter, setCounter] = React.useState(1);
 

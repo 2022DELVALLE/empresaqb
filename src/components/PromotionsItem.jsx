@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 //import context 
 import ProductPreviewContext from "../context/ProductPreviewContext.js";
 
-const PromotionItem = ({ promtionitem }) => {
+const PromotionItem = ({ promotionitem }) => {
 
     const navigate = useNavigate();
 
@@ -19,9 +19,9 @@ const PromotionItem = ({ promtionitem }) => {
 
     return (
         <div className="box-news box1"
-            onClick={() => handleProductSavePreview(promtionitem.product)}
+            onClick={() => handleProductSavePreview(promotionitem.product)}
         >
-            <img src={promtionitem.image} alt={promtionitem.name} />
+            <img src={promotionitem.image} alt={promotionitem.name} />
         </div>
     );
 }

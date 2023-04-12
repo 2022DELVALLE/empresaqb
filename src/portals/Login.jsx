@@ -19,7 +19,7 @@ const Login = ({ portalRefLogin }) => {
     const navigate = useNavigate();
 
     // Recupero señal para cerrar portal login 
-    const { portalLogin, setPortalLogin } = React.useContext(AppContext);
+    const { portalLogin, setPortalLogin, saveUserLocalStorage } = React.useContext(AppContext);
 
     const handleToRegistration = () => {
         setPortalLogin(false);
@@ -39,10 +39,11 @@ const Login = ({ portalRefLogin }) => {
         setPortalLogin(false);
     }
 
-    const formLogin = useRef(null);
 
     const { user, loginCustomer, error } = useLoginCustomer();
 
+    console.log("user");
+    console.log(user);
     React.useEffect(() => {
         if (error) {
             console.log(error);
@@ -56,11 +57,14 @@ const Login = ({ portalRefLogin }) => {
         if (user) {
             if (user.res = true) {
                 alert(user.message);
+                saveUserLocalStorage(user);
                 setPortalLogin(!portalLogin);
             }
         }
 
     }, [user]);
+
+    const formLogin = useRef(null);
 
     const hanldeSubmitLogin = (event) => {
         event.preventDefault();

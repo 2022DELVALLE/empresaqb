@@ -1,6 +1,9 @@
 import React from 'react';
 import useGetProducts from './useGetProducts';
 
+//Import local storage
+import { useLocalStorage } from './useLocalStorage';
+
 const initialStateCart = {
 	cart: [],
 };
@@ -122,6 +125,13 @@ const useInitialState = () => {
 
 	const [user, setUser] = React.useState(null);
 
+	/*Guardar usuario en locakl storage*/
+	const { item, saveItem, } = useLocalStorage('User_V1', []);
+
+	const saveUserLocalStorage = (itemuser) => {
+		saveItem(itemuser);
+	}
+
 	//Variables para controlar el total del carrito
 	const [total, setTotal] = React.useState(0);
 
@@ -178,13 +188,16 @@ const useInitialState = () => {
 		quantityCartPedido, setQuantityCartPedido,
 
 		//Metodos de agregar pedidos
-		addToCartPedido, 
-		
+		addToCartPedido,
+
 		//Metodo para eliminar objeto de pedido
 		removeFromCartPedido,
 
 		//Variables del total
-		total, setTotal
+		total, setTotal,
+
+		//Guardar usuario en local storage
+		saveUserLocalStorage
 	}
 };
 
