@@ -14,7 +14,6 @@ import logoBackgroundWhite from '@logos/logo-background-white.png';
 //import AppContenxt
 import AppContext from '@context/AppContext';
 import Login from '../portals/Login';
-import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const S1_Navbar = () => {
 
@@ -151,8 +150,7 @@ const S1_Navbar = () => {
     const { stateCart } = React.useContext(AppContext);
 
     //Control del nombre inicio sesion por el nombre de usuario
-    const { user, setUser } = React.useContext(AppContext); //pendiente
-	const { item, saveItem, } = useLocalStorage('User_V1', []);//pendiente
+    const { user } = React.useContext(AppContext); //pendiente
 
     return (
         <>

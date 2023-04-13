@@ -2,26 +2,20 @@ import React from 'react';
 //Archivo scs
 import '@styles/Containers/Section2_Slider.scss';
 
-//Import data
-
 //Import Containers y components
 import SliderItemFirst from '../components/SliderItemFirst';
 import SliderItem from '../components/SliderItem';
 
 //Import 
 import useGetSliders from '../hooks/useGetSliders';
-import { useNavigate } from 'react-router-dom';
 
 const S2_Slider = () => {
-
 
     //Traemos la data de sliders
 
     const APISlider = 'https://api-empresaqb-version3-production.up.railway.app/api/sliders';
 
     const sliderdata = useGetSliders(APISlider);
-    console.log("data sliders:");
-    console.log(sliderdata);
 
     //Proceso de transalación de sliders
 

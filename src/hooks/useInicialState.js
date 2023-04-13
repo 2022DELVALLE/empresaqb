@@ -126,11 +126,26 @@ const useInitialState = () => {
 	const [user, setUser] = React.useState(null);
 
 	/*Guardar usuario en locakl storage*/
-	const { item, saveItem, } = useLocalStorage('User_V1', []);
+	const { saveItem } = useLocalStorage('User_V1', []);
 
 	const saveUserLocalStorage = (itemuser) => {
 		saveItem(itemuser);
 	}
+
+	const deleteUserLocalStorage = () => {
+		saveItem(null);
+	}
+
+	//Recupero user de local storage
+	const { item } = useLocalStorage('User_V1');//pendiente
+	React.useEffect(() => {
+		if (item) {
+			setUser(item);
+		} else {
+			setUser(null);
+		}
+	}, [item]);
+
 
 	//Variables para controlar el total del carrito
 	const [total, setTotal] = React.useState(0);
@@ -197,7 +212,10 @@ const useInitialState = () => {
 		total, setTotal,
 
 		//Guardar usuario en local storage
-		saveUserLocalStorage
+		saveUserLocalStorage,
+		
+		//Eliminar usuario en local storage
+		deleteUserLocalStorage
 	}
 };
 
