@@ -7,13 +7,13 @@ import '../styles/Containers/S1_Navbar.scss';
 //Imports portales
 import PortalMenuInicio from '../portals/PortalMenuInicio.jsx';
 import PortalMenuPrincipal from '../portals/PortalMenuPrincipal';
+import Login from '../portals/Login';
 
 //Import Imagenes
 import logoBackgroundWhite from '@logos/logo-background-white.png';
 
 //import AppContenxt
 import AppContext from '@context/AppContext';
-import Login from '../portals/Login';
 
 const S1_Navbar = () => {
 
@@ -150,7 +150,7 @@ const S1_Navbar = () => {
     const { stateCart } = React.useContext(AppContext);
 
     //Control del nombre inicio sesion por el nombre de usuario
-    const { user } = React.useContext(AppContext); //pendiente
+    const { user } = React.useContext(AppContext); 
 
     return (
         <>
@@ -227,7 +227,7 @@ const S1_Navbar = () => {
                     >
                         <i className="bi bi-person-circle login-icon"></i>
                         <div className="text-login">
-                            <a href="#" value="" >Hola,<br />{user ? user.data.user.name + '!' : 'inicia sesión!'}</a>
+                            <a href="#" value="" >Hola,<br />{user ? user.data.user.name.split(" ").slice(0,2).join(" ") + '!' : 'inicia sesión!'}</a>
                         </div>
                     </div>
                     <div className="navbar__shop"

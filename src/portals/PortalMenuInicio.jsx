@@ -53,6 +53,7 @@ const PortalMenuInicio = ({ portalRef }) => {
         event.preventDefault();
         logoutCustomer();
         deleteUserLocalStorage();
+        navigate('/')
     }
 
     //Ir a la my cuenta
