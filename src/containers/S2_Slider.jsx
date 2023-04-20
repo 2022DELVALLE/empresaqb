@@ -2,18 +2,14 @@ import React from 'react';
 //Archivo scs
 import '@styles/Containers/Section2_Slider.scss';
 
-//Import data
-
 //Import Containers y components
 import SliderItemFirst from '../components/SliderItemFirst';
 import SliderItem from '../components/SliderItem';
 
 //Import 
 import useGetSliders from '../hooks/useGetSliders';
-import { useNavigate } from 'react-router-dom';
 
 const S2_Slider = () => {
-
 
     //Traemos la data de sliders
 
@@ -21,7 +17,7 @@ const S2_Slider = () => {
 
     const sliderdata = useGetSliders(APISlider);
 
-    //
+    //Proceso de transalación de sliders
 
     const [counter, setCounter] = React.useState(1);
 

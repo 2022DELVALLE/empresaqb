@@ -23,7 +23,7 @@ const S3_Promotions = () => {
             <div className="section__news-offers-images">
                 
             {promotionsdata.map(promotionItem => (
-                <PromotionItem promtionitem={promotionItem} key={promotionItem.id} />
+                <PromotionItem promotionitem={promotionItem} key={promotionItem.id} />
             )).slice(0,3)}
             
             </div>

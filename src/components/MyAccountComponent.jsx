@@ -40,17 +40,7 @@ const MyAccountComponent = () => {
         setName(event.target.value);
     }
 
-    const [lastNameDad, setLastNameDad] = React.useState(user.data.user.lastnamedad);
-    const handleLastNameDadChange = (event) => {
-        setLastNameDad(event.target.value);
-    }
-
-    const [lastNameMother, setLastNameMother] = React.useState(user.data.user.lastnamemother);
-    const handleLastNameMotherChange = (event) => {
-        setLastNameMother(event.target.value);
-    }
-
-    const [dni, setdni] = React.useState(user.data.user.dni);
+    const [dni, setdni] = React.useState(user.data.user.dni_ruc);
     const handledniChange = (event) => {
         setdni(event.target.value);
     }
@@ -65,6 +55,10 @@ const MyAccountComponent = () => {
         setemail(event.target.value);
     }
 
+    const [address, setaddress] = React.useState(user.data.user.address);
+    const handleaddressChange = (event) => {
+        setaddress(event.target.value);
+    }
     return (
         <section className="container_my_account">
             <div className="Name_user_my_account">
@@ -73,7 +67,7 @@ const MyAccountComponent = () => {
                 </div>
                 <div className="Name_my_account">
                     <p>HOLA</p>
-                    <b>{name + ' ' + lastNameDad + ' ' + lastNameMother}</b>
+                    <b>{name}</b>
                 </div>
             </div>
             <div className="Datos_personales_my_account">
@@ -85,18 +79,6 @@ const MyAccountComponent = () => {
                             onChange={handleNameChange}
                         />
                     </div>
-                    <div className="item_my_account_dato">
-                        <label htmlFor="">Apellido Paterno :</label>
-                        <input type="text" value={lastNameDad}
-                            onChange={handleLastNameDadChange}
-                        />
-                    </div>
-                    <div className="item_my_account_dato">
-                        <label htmlFor="">Apellido Materno :</label>
-                        <input type="text" value={lastNameMother}
-                            onChange={handleLastNameMotherChange}
-                        />
-                    </div>
                     <div className="item_my_account_dato no_editable_item_my_account_dato">
                         <label htmlFor="">Tipo de documento:</label>
                         <div className="select_options_my_account">
@@ -105,23 +87,27 @@ const MyAccountComponent = () => {
                                 onChange={handledniChange}
                             />
                         </div>
-
-                    </div>
-                    <div className="item_my_account_dato">
-                        <label htmlFor="">Celular:</label>
-                        <div className="select_options_my_account">
-                            <span> +51</span>
-                            <input type="number" value={telephone}
-                                onChange={handletelephoneChange}
-                            />
-                        </div>
-
                     </div>
                     <div className="item_my_account_dato no_editable_item_my_account_dato">
                         <label htmlFor="">Correo:</label>
                         <input type="email"
                             onChange={handleemailChange}
                             value={email} />
+                    </div>
+                    <div className="item_my_account_dato">
+                        <label htmlFor="">Teléfono:</label>
+                        <div className="select_options_my_account">
+                            <span> +51</span>
+                            <input type="number" value={telephone}
+                                onChange={handletelephoneChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="item_my_account_dato">
+                        <label htmlFor="">Apellido Paterno :</label>
+                        <input type="text" value={address}
+                            onChange={handleaddressChange}
+                        />
                     </div>
                 </div>
                 <div className="container_btn_edit_my_account">

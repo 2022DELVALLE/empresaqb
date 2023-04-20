@@ -16,7 +16,7 @@ const PortalMenuInicio = ({ portalRef }) => {
     const navigate = useNavigate();
 
     // Recupero señal para abrir portal login y la señal para cerrar el portal meni inicio
-    const { portalLogin, setPortalLogin, setShowPortal } = React.useContext(AppContext);
+    const { portalLogin, setPortalLogin, setShowPortal,deleteUserLocalStorage } = React.useContext(AppContext);
 
     //Function para ir a la pagina de registarse
 
@@ -52,6 +52,8 @@ const PortalMenuInicio = ({ portalRef }) => {
     const hanldeCloseSesion = (event) => {
         event.preventDefault();
         logoutCustomer();
+        deleteUserLocalStorage();
+        navigate('/')
     }
 
     //Ir a la my cuenta

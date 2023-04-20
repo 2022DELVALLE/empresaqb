@@ -10,9 +10,6 @@ import AppContext from '../context/AppContext';
 //import save customer
 import useSaveCustomer from '../hooks/useSaveCustomer';
 
-//impport componente alert
-import Alerta from './Alerta';
-
 const CreateAccountComponent = () => {
 
     //Traemos la señal para cerrar el portla login
@@ -48,11 +45,10 @@ const CreateAccountComponent = () => {
         const formData = new FormData(form.current);
         const user = {
             name: formData.get('name'),
-            lastnamedad: formData.get('lastNameDad'),
-            lastnamemother: formData.get('lastNameMother'),
+            dni_ruc: formData.get('dni_ruc'),
             email: formData.get('email'),
             password: formData.get('password'),
-            dni: formData.get('dni'),
+            address: formData.get('address'),
             telephone: formData.get('telefono'),
         }
         console.log(user);
@@ -220,16 +216,16 @@ const CreateAccountComponent = () => {
                     <div className="SectionCreateAccount-form-title">REGÍSTRATE</div>
                     <div className="SectionCreateAccount-form-subtitle">Completa el siguiente formulario</div>
                     <form action="/" className="SectionCreateAccount-Form-contain" ref={form}>
-                        <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Nombres</label>
-                        <input type="text" name="name" placeholder="Ingresa tu nombre" className="SectionCreateAccount-Form-contain-input" />
-                        <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Apellido Paterno</label>
-                        <input type="text" name="lastNameDad" placeholder="Ingresa tu apellido paterno" className="SectionCreateAccount-Form-contain-input" />
-                        <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Apellido Materno</label>
-                        <input type="text" name="lastNameMother" placeholder="Ingresa tu apellido materno" className="SectionCreateAccount-Form-contain-input" />
-                        <label htmlFor="" className="SectionCreateAccount-Form-contain-label">DNI</label>
-                        <input type="text" name="dni" placeholder="Ingresa tu N° DNI" className="SectionCreateAccount-Form-contain-input" />
-                        <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Telefono</label>
-                        <input type="text" name="telefono" placeholder="Ingresa un telefono" className="SectionCreateAccount-Form-contain-input" />
+                        <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Nombre/Empresa</label>
+                        <input type="text" name="name" placeholder="Ingresa tu nombre completo o empresa" className="SectionCreateAccount-Form-contain-input" />
+                        <label htmlFor="" className="SectionCreateAccount-Form-contain-label">DNI/RUC</label>
+                        <input type="text" name="dni_ruc" placeholder="Ingresa tu N° DNI o RUC" className="SectionCreateAccount-Form-contain-input" />
+                        <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Teléfono</label>
+                        <input type="text" name="telefono" placeholder="Ingresa un teléfono" className="SectionCreateAccount-Form-contain-input" />
+                        
+                        <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Dirección</label>
+                        <input type="text" name="address" placeholder="Ingresa tu dirección" className="SectionCreateAccount-Form-contain-input" />
+
                         <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Correo electrónico</label>
                         <input type="text" name="email" placeholder="Ingresa un correo electrónico" className="SectionCreateAccount-Form-contain-input" />
                         <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Contraseña</label>

@@ -4,7 +4,7 @@ import '../styles/Page/Home.scss'
 
 //Import containers
 import S1_Navbar from '@containers/S1_Navbar';
-import S2_Slider from '@containers/S2_Slider';
+import S2_Slider from '../containers/S2_Slider';
 import S3_Promotions from '@containers/S3_Promotions';
 import S4_Categories from '@containers/S4_Categories';
 import S5_DataEnterprice from '@containers/S5_DataEnterprice';
