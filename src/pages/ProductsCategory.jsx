@@ -5,7 +5,7 @@ import '../styles/Page/ProductCategory.scss';
 
 //Import containers
 import S1_Navbar from '@containers/S1_Navbar';
-import ProductList from '@containers/ProductList';
+import ProductList from '../containers/ProductList';
 import S5_DataEnterprice from '@containers/S5_DataEnterprice';
 import S6_Footer from '@containers/S6_Footer';
 
