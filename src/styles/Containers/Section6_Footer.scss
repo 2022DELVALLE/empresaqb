@@ -1,179 +1,279 @@
 @import '../vars';
 
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: var(--font);
 }
 
-.sectionFooter{
+.sectionFooter {
     background: #2F2F2F;
     width: 100%;
-    height: 410px;
+    height: 450px;
     color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
-}
-
-.Footer__box1{
-    padding-top: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 120px;
-}
-
-.Footer__box1-logo img{
-    width: 246px;
-    height: 246px;
-    border-radius: 50%;
-}
-
-.Footer__box1-information{
-    max-width: 395px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.Footer__box1-title{
-    font-weight: bold;
-    font-weight: 18px;
-    margin-bottom: 22px;
-}
-
-.Footer__box1-paragraph{
-    font-size: 16px;
-    text-align: justify;
-}
-
-.Footer__box1-locationInfo{
-    display: flex;
-    align-items: center;
     gap: 10px;
 }
 
-.Footer__box1-locationIcon{
+.Footer__box1 {
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    height: 90%;
 }
 
-.Footer__box1-locationIcon svg{
-    width: 40px;
-}
-
-.Footer__box1-locationIcon span{
-    font-size: 16px;
-}
-
-.Footer__box1-Social{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-
-.Footer__box1-Social1Icons a svg{
-    color: var(--white);
-    width: 45px;
-}
-
-.Footer__box1-Social1Icons a:nth-child(2){
-    margin-left: 10px;
-}
-
-.Footer__box1-Social2-Contacto{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.Footer__box1-Social2-Icon{
-    display: flex;
-    align-items: center;
-    gap:15px;
-}
-
-.Footer__box1-Social2-Icon svg{
-    width: 35px;
-}
-
-.Footer__box1-Social2-Icon span a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.Footer__box2{
+.Footer__box2 {
     text-align: center;
     padding: 5px;
 }
 
-/*responsive design smarthphone*/
-@media screen and (max-width:800px) {
-    
-.sectionFooter{
-    width: 100%;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
-
-.Footer__box1{
-    padding-top: 10px;
+.Footer__box1-logo {
+    width: 30%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    gap: 50px;
 }
 
-.Footer__box1-logo img{
-    width: 150px;
-    height: 150px;
-}
-
-.Footer__box1-information{
+.Footer__box1-logo img {
     width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.Footer__box1-datos {
+    width: 70%;
+    margin-top: 41px;
+    padding: 10px;
+    margin-right: 5%;
+}
+
+.Footer__box1-datos span {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 600;
+    font-size: var(--lg);
+    line-height: 22px;
+}
+
+.Footer__box1-datos p {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--md);
+    line-height: 19px;
+}
+
+.Footer__box1_SobreNosotros {
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.Footer__box1_OtherInfo {
+    display: flex;
+    width: 100%;
+}
+
+.Footer__OtherInfo {
+    width: 48%;
+    margin-right: 4%;
+}
+
+.RedesSociales_icons {
+    margin-top: 2.5%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.RedesSociales_icons img {
+    width: 50px;
+    height: 50px;
+}
+
+.RedesSociales_icons svg {
+    cursor: pointer;
+}
+
+.Footer__OtherInfo_Ubicación {
+    margin-top: 6%;
+}
+
+.OtherInfo_Location {
+    margin-top: 2.5%;
+    display: flex;
+    justify-items: center;
     gap: 10px;
 }
 
-.Footer__box1-locationIcon svg{
-    width: 30px;
+.OtherInfo_Location a:nth-child(2) {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--lg);
+    line-height: 22px;
+    margin-top: 8px;
+    text-decoration: none;
+    color: var(--white);
+
 }
 
-.Footer__box1-Social{
-    gap: 20px;
-    width: 300px;
-    height: 200px;
+.Footer__OtherInfo_Contactos {
+    width: 48%;
 }
 
-.Footer__box1-Social1Icons a svg{
-    width: 35px;
-}
-
-.Footer__box1-Social2-Icon{
+.Contact_Call {
+    margin-top: 2.5%;
     display: flex;
-    align-items: center;
-    gap:10px;
+    gap: 35px;
 }
 
-.Footer__box1-Social2-Icon svg{
-    width: 25px;
-}
-
-.Footer__box2{
-    height: 30px;
-    margin-top: 0px;
-    text-align: center;
-}
-}
-
-@media screen and (max-height:990px) and (max-width:600px){
-    .sectionFooter{
-        height: 940px;
-    }
+.Contact_Whatssapp {
+    display: flex;
+    gap: 10px;
     
+}
+
+.Contact_Whatssapp a{
+    margin-top: 13px;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.Contact_Mobile {
+    display: flex;
+    gap: 10px;
+    
+}
+
+.Contact_Mobile a{
+    margin-top: 13px;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.Footer_Mobile_icon {
+    margin-top: 6px;
+}
+
+.Contact_Outlook {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.Contact_Outlook a {
+    text-decoration: none;
+    color: var(--white);
+    margin-top: 9px;
+}
+
+.Contact_Gmail {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.Contact_Gmail a {
+    text-decoration: none;
+    color: var(--white);
+    margin-top: 5px;
+}
+
+/*responsive design smarthphone*/
+@media screen and (max-width:800px) {
+
+    .Footer__box1-logo img {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+    }
+
+    .Footer__box1-datos span {
+        font-size: var(--md);
+    }
+
+    .Footer__box1-datos p {
+        font-size: var(--sm);
+    }
+
+    .Footer__box1-datos {
+        margin-top: 25px;
+        padding: 10px;
+        margin-right: 2.5%;
+    }
+
+
+
+
+    .Contact_Call {
+        margin-top: 2.5%;
+        display: block;
+        gap: 35px;
+    }
+
+}
+
+@media screen and (max-width:700px) {
+
+    .sectionFooter {
+        width: 100vw;
+        height: 995px;
+    }
+
+    .Footer__box1 {
+        width: 100%;
+        display: block;
+    }
+
+    .Footer__box1-logo {
+        width: 100%;
+        height: 23%;
+    }
+
+    .Footer__box1-datos {
+        width: 88%;
+        margin: auto;
+        padding: 0 15px;
+    }
+
+    .Footer__box1_OtherInfo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Footer__OtherInfo {
+        margin-top: 5%;
+        width: 100%;
+        order: 2;
+    }
+
+    .Footer__OtherInfo_Contactos {
+        width: 100%;
+        order: 1;
+        margin-top: 5%;
+    }
+
+    .Footer__OtherInfo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Footer__OtherInfo_RedesSociales {
+        order: 2;
+        margin-top: 10%;
+        text-align: center;
+    }
+
+    .RedesSociales_icons {
+        justify-content: center;
+    }
+
+    .Footer__OtherInfo_Ubicación {
+        order: 1;
+        margin-top: 1%;
+    }
+
 }

@@ -19,10 +19,7 @@ const PortalAddCart = ({ portalRefAddCart }) => {
         amount,
         setAmount,
     } = React.useContext(ProductPreviewContext);
-    console.log("carta: ");
-    console.log(productItemPreview)
-    console.log("carta pedido: ");
-    console.log(productItemPedido)
+
     const {
         addToCart,
         addToCartPedido,

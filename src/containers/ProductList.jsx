@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 //import sccs
 import '../styles/Containers/ProductsList.scss'
@@ -13,16 +14,16 @@ import AppContext from '../context/AppContext';
 import PortalAddCart from '../portals/PortalAddCart';
 
 const ProductList = () => {
-    
+
+    //Recupero la lista de productos filtrados
+    const { leakedProducts, setLeakedproduct } = React.useContext(AppContext);
+
     //mostrar combo box
     const [isOpenBox, setIsOpenBox] = React.useState(false);
 
     function toggleDropDown() {
         setIsOpenBox(!isOpenBox);
     }
-
-    //Recupero la lista de productos filtrados
-    const { leakedProducts, setLeakedproduct } = React.useContext(AppContext);
 
     //filtro de  menor a mayor por precio de producto
     const hanldeMenorToMayor = (event) => {
@@ -77,8 +78,6 @@ const ProductList = () => {
             document.removeEventListener(event, handleCloseAddCart);
         }
     });
-
-
 
 
     return (

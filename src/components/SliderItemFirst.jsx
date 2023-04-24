@@ -9,18 +9,19 @@ const SliderItemFirst = ({ slider }) => {
     const navigate = useNavigate();
 
     const {
-        handleFilerCategorybySlider
+        handleFilerCategorybySlider, leakedProducts, saveLeackedLocalStorage
     } = React.useContext(AppContext);
 
     const hanldeClickFilter = (item) => {
         handleFilerCategorybySlider(item);
-        navigate('/products');        
+        navigate('/products');
+        saveLeackedLocalStorage(leakedProducts);
     }
 
 
     return (
         <div className="slide  firts"
-        onClick={()=>hanldeClickFilter(slider)}
+            onClick={() => hanldeClickFilter(slider)}
         >
             <img src={slider.image} alt={slider.name} />
         </div>

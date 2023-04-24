@@ -1,6 +1,6 @@
 import React from 'react';
 //Import scss
-import '@styles/Containers/Section6_Footer.scss'
+import '../styles/Containers/Section6_Footer.scss'
 
 //Import Images
 import logoBackgroundWhite from '@logos/logo-background-white.png';
@@ -8,78 +8,187 @@ import logoBackgroundWhite from '@logos/logo-background-white.png';
 function Section6_Footer() {
     return (
         <footer className="sectionFooter">
-        <div className="Footer__box1">
-            <div className="Footer__box1-logo">
-                <img src={logoBackgroundWhite} alt="logo de Empresa QB" />
-            </div>
 
-            <div className="Footer__box1-information">
-                <div className="Footer__box1-information1">
-                    <div className="Footer__box1-title">SOBRE NOSOTROS</div>
-                    <p className="Footer__box1-paragraph">Ser una agencia líder en productos y accesorios personalizados, cumpliendo con la expectativa de los clientes, alcanzando prestigio en el mercado actual y ante sus cambios.</p>
+            <div className="Footer__box1">
+                <div className="Footer__box1-logo">
+                    <img src={logoBackgroundWhite} alt="logo de Empresa QB" />
                 </div>
 
-                <div className="Footer__box1-information2">
-                    <div className="Footer__box1-title">NUESTRA UBICACION</div>
-                    <div className="Footer__box1-locationInfo">
-                        <div className="Footer__box1-locationIcon"><svg xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-                            </svg></div>
-                        <div className="Footer__box1-locationIcon">
-                            <span className="Footer__box1-locations">Jr. Chanchamayo 288</span>
-                            <span className="Footer__box1-locations">Jr. San Juan 529</span>
+                <div className="Footer__box1-datos">
+                    <div className="Footer__box1_SobreNosotros">
+                        <span>SOBRE NOSOTROS</span>
+                        <p>Lorem ipsum dolor sit amet consectetur. Facilisi feugiat dignissim id aenean convallis auctor.
+                            Rhoncus massa consectetur lorem malesuada neque sit id. Mi lectus quis faucibus in urna cursus
+                            sollicitudin eu tellus. Ornare sollicitudin dolor ultrices volutpat scelerisque enim massa ut.
+                            Platea ultrices dolor a est maecenas id elit tortor.</p>
+                    </div>
+                    <div className="Footer__box1_OtherInfo">
+                        <div className="Footer__OtherInfo">
+                            <div className="Footer__OtherInfo_RedesSociales">
+                                <span>¡SÍGUENOS EN NUESTRAS REDES SOCIALES!</span>
+                                <div className="RedesSociales_icons">
+                                    <div className="RedesSociales_Facebook" >
+                                        <a href="https://www.facebook.com/EMPRESAQB">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="40"
+                                                height="40"
+                                                fill="none"
+                                                viewBox="0 0 40 40"
+                                            >
+                                                <path
+                                                    fill="#fff"
+                                                    d="M37.969.469H2.03A1.56 1.56 0 00.47 2.03V37.97A1.56 1.56 0 002.03 39.53H37.97a1.56 1.56 0 001.562-1.562V2.03A1.56 1.56 0 0037.97.47zM33.457 11.87h-3.12c-2.446 0-2.92 1.162-2.92 2.871v3.765h5.84l-.762 5.893h-5.078v15.132h-6.089V24.404h-5.093v-5.898h5.093V14.16c0-5.044 3.081-7.793 7.583-7.793 2.158 0 4.009.161 4.55.235v5.268h-.004z"
+                                                ></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div className="RedesSociales_Instagram">
+                                        <a href="https://www.instagram.com/illusion.qb/">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="42"
+                                                height="48"
+                                                fill="none"
+                                                viewBox="0 0 42 48"
+                                            >
+                                                <g clipPath="url(#clip0_450_575)">
+                                                    <path
+                                                        fill="#fff"
+                                                        d="M21 19a5 5 0 10.003 10A5 5 0 0021 19zm11.692-3.844a5.063 5.063 0 00-2.851-2.851c-1.97-.777-6.657-.603-8.841-.603-2.184 0-6.867-.181-8.842.603a5.063 5.063 0 00-2.85 2.85c-.777 1.97-.603 6.662-.603 8.844 0 2.183-.174 6.87.606 8.844a5.063 5.063 0 002.851 2.851c1.969.778 6.656.603 8.842.603 2.185 0 6.866.181 8.84-.603a5.063 5.063 0 002.851-2.85c.783-1.97.603-6.662.603-8.844 0-2.183.18-6.868-.603-8.843l-.003-.001zM21 31.688A7.688 7.688 0 1128.688 24 7.678 7.678 0 0121 31.688zm8.004-13.904a1.794 1.794 0 111.794-1.794 1.792 1.792 0 01-1.79 1.798l-.004-.004zM37.5 3h-33A4.5 4.5 0 000 7.5v33A4.5 4.5 0 004.5 45h33a4.5 4.5 0 004.5-4.5v-33A4.5 4.5 0 0037.5 3zm-1.605 27.188c-.12 2.402-.67 4.531-2.423 6.28-1.755 1.75-3.882 2.31-6.282 2.424-2.476.14-9.899.14-12.375 0-2.402-.12-4.524-.67-6.28-2.423-1.758-1.753-2.31-3.883-2.424-6.282-.14-2.476-.14-9.9 0-12.375.12-2.402.662-4.531 2.423-6.28 1.76-1.75 3.888-2.303 6.281-2.418 2.476-.14 9.9-.14 12.375 0 2.403.121 4.531.67 6.282 2.424 1.75 1.753 2.309 3.883 2.423 6.286.14 2.467.14 9.885 0 12.363z"
+                                                    ></path>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_450_575">
+                                                        <path fill="#fff" d="M0 0H42V48H0z"></path>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div className="RedesSociales_Youtube">
+                                        <a href="https://www.youtube.com/@Empresaqb21">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="44"
+                                                height="50"
+                                                fill="none"
+                                                viewBox="0 0 44 50"
+                                            >
+                                                <g clipPath="url(#clip0_450_577)">
+                                                    <path3
+                                                        fill="#fff"
+                                                        d="M18.242 19.736l9.297 5.284-9.297 5.283V19.736zM43.75 7.812v34.376c0 2.587-2.1 4.687-4.688 4.687H4.688A4.689 4.689 0 010 42.187V7.813c0-2.588 2.1-4.688 4.688-4.688h34.374c2.588 0 4.688 2.1 4.688 4.688zM39.648 25.03s0-5.82-.742-8.613a4.457 4.457 0 00-3.144-3.164c-2.764-.752-13.887-.752-13.887-.752s-11.123 0-13.887.752a4.457 4.457 0 00-3.144 3.164c-.742 2.783-.742 8.613-.742 8.613s0 5.82.742 8.614c.41 1.542 1.611 2.705 3.144 3.115 2.764.742 13.887.742 13.887.742s11.123 0 13.887-.752c1.533-.41 2.734-1.572 3.144-3.115.742-2.783.742-8.604.742-8.604z"
+                                                    ></path3>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_450_577">
+                                                        <path fill="#fff" d="M0 0H43.75V50H0z"></path>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div className="RedesSociales_Tiktok">
+                                        <a href="https://www.tiktok.com/@empresaqb">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="50"
+                                                height="50"
+                                                fill="none"
+                                                viewBox="0 0 50 50"
+                                            >
+                                                <g
+                                                    stroke="#fff"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="3.125"
+                                                    clipPath="url(#clip0_450_587)"
+                                                >
+                                                    <path d="M49.25 18.194v19.112A11.945 11.945 0 0137.306 49.25H18.194A11.945 11.945 0 016.25 37.306V18.194A11.944 11.944 0 0118.194 6.25h19.112A11.945 11.945 0 0149.25 18.194z"></path>
+                                                    <path d="M22.972 27.75a7.167 7.167 0 107.167 7.167v-21.5c.795 2.389 3.822 7.166 9.555 7.166"></path>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_450_587">
+                                                        <path fill="#fff" d="M0 0H50V50H0z"></path>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="Footer__OtherInfo_Ubicación">
+                                <span>NUESTRA UBICACIÓN</span>
+                                <div className="OtherInfo_Location">
+
+                                    <svg width="27" height="39" viewBox="0 0 27 39" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M13.5 19.6762C14.4281 19.6762 15.2229 19.2906 15.8844 18.5193C16.5459 17.748 16.8761 16.8219 16.875 15.741C16.875 14.6588 16.5442 13.7321 15.8827 12.9607C15.2212 12.1894 14.427 11.8044 13.5 11.8057C12.5719 11.8057 11.7771 12.1914 11.1156 12.9627C10.4541 13.734 10.1239 14.6601 10.125 15.741C10.125 16.8232 10.4558 17.7499 11.1173 18.5213C11.7788 19.2926 12.573 19.6776 13.5 19.6762ZM13.5 38.6146C13.275 38.6146 13.05 38.5654 12.825 38.4671C12.6 38.3687 12.4031 38.2375 12.2344 38.0735C8.12812 33.8431 5.0625 29.9158 3.0375 26.2914C1.0125 22.667 0 19.2814 0 16.1345C0 11.2155 1.35731 7.29661 4.07194 4.37797C6.78656 1.45932 9.92925 0 13.5 0C17.0719 0 20.2151 1.45932 22.9297 4.37797C25.6444 7.29661 27.0011 11.2155 27 16.1345C27 19.2827 25.9875 22.669 23.9625 26.2934C21.9375 29.9177 18.8719 33.8445 14.7656 38.0735C14.5969 38.2375 14.4 38.3687 14.175 38.4671C13.95 38.5654 13.725 38.6146 13.5 38.6146Z"
+                                            fill="white" />
+                                    </svg>
+
+                                    <a href="https://goo.gl/maps/236DkeE3Mw1xFoSt9">Jirón Arequipa 623, Tarma 12651</a>
+                                </div>
+                            </div>
                         </div>
+                        <div className="Footer__OtherInfo_Contactos">
+                            <span>CONTÁCTANOS</span>
+                            <div className="Other_Form_Contacts">
+                                <div className="Contact_Call">
+                                    <div className="Contact_Whatssapp">
+                                        <div className="Footer_Whatsapp_icon">
+                                            <svg width="42" height="45" viewBox="0 0 42 45" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M35.6875 6.78307C33.7775 4.73799 31.5024 3.1165 28.9951 2.01318C26.4877 0.909864 23.7981 0.346796 21.0833 0.356821C9.70831 0.356821 0.43748 10.1839 0.43748 22.2414C0.43748 26.106 1.39581 29.8602 3.18748 33.1727L0.270813 44.5235L11.2083 41.476C14.2291 43.2206 17.625 44.1481 21.0833 44.1481C32.4583 44.1481 41.7292 34.321 41.7292 22.2635C41.7292 16.4114 39.5833 10.9127 35.6875 6.78307ZM21.0833 40.4381C18 40.4381 14.9791 39.5547 12.3333 37.8985L11.7083 37.501L5.20831 39.3118L6.93748 32.5985L6.52081 31.9139C4.80778 29.0143 3.89819 25.6626 3.89581 22.2414C3.89581 12.2156 11.6041 4.04474 21.0625 4.04474C25.6458 4.04474 29.9583 5.94391 33.1875 9.38891C34.7864 11.076 36.0535 13.0827 36.9154 15.2927C37.7772 17.5027 38.2167 19.8721 38.2083 22.2635C38.25 32.2893 30.5416 40.4381 21.0833 40.4381ZM30.5 26.8347C29.9791 26.5697 27.4375 25.2447 26.9791 25.046C26.5 24.8693 26.1666 24.781 25.8125 25.311C25.4583 25.8631 24.4791 27.0997 24.1875 27.4531C23.8958 27.8285 23.5833 27.8727 23.0625 27.5856C22.5416 27.3206 20.875 26.7243 18.9166 24.8693C17.375 23.4118 16.3541 21.6231 16.0416 21.071C15.75 20.5189 16 20.2318 16.2708 19.9447C16.5 19.7018 16.7916 19.3043 17.0416 18.9952C17.2916 18.686 17.3958 18.4431 17.5625 18.0897C17.7291 17.7143 17.6458 17.4052 17.5208 17.1402C17.3958 16.8752 16.3541 14.181 15.9375 13.0768C15.5208 12.0168 15.0833 12.1493 14.7708 12.1272H13.7708C13.4166 12.1272 12.875 12.2597 12.3958 12.8118C11.9375 13.3639 10.6041 14.6889 10.6041 17.3831C10.6041 20.0772 12.4583 22.6831 12.7083 23.0364C12.9583 23.4118 16.3541 28.9327 21.5208 31.2956C22.75 31.8697 23.7083 32.201 24.4583 32.4439C25.6875 32.8635 26.8125 32.7972 27.7083 32.6647C28.7083 32.5102 30.7708 31.3397 31.1875 30.0589C31.625 28.7781 31.625 27.696 31.4791 27.4531C31.3333 27.2102 31.0208 27.0997 30.5 26.8347Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </div>
+                                        <a href="https://api.whatsapp.com/send?phone=%2B51930820893&data=AWBSqMg4WzEBzFb9AQi6eaXVGIZqMY3c5GbM9Z3xG6Qs7Twqm8AGZjicA2Ek9p53xbm14G94hdb5tUu5Vft63hGOg5HLgwLxE-8FI2QjMSgragCmqfnEiWyylY8ELwszI0Bz2Xkm9ATgepGlWqY2SH6bHB-j05w7HUNbnDraGXOhu4ZpaetRlytP3IPEnLQnot4i4Y19gR6kAmx9BxAPk7s12S08H405_YRtqPG27hvt5b0WS5YZQhX-njcUpIfCMdQ0MbwlPQoJJkpXLvSIlb_9Osz9IFpaYpifezsM-_GHSiyYFOE&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR12t0uprByw4ZrFJ6gc0ThMNi_HzAeVvg8XKM8ZBVyowI7jZ2aVaMWeqU8"> 930 820 893 </a>
+                                    </div>
+                                    <div className="Contact_Mobile">
+                                        <div className="Footer_Mobile_icon">
+                                            <svg width="33" height="35" viewBox="0 0 33 35" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M30.8512 24.1299C28.6475 24.1299 26.5154 23.7549 24.5267 23.0799C24.2151 22.9693 23.8801 22.9529 23.56 23.0325C23.24 23.1121 22.9478 23.2845 22.7171 23.5299L19.9042 27.2236C14.8337 24.6924 10.0858 19.9111 7.55958 14.4174L11.0533 11.3049C11.5371 10.7799 11.6804 10.0486 11.4833 9.39236C10.8204 7.31111 10.48 5.07986 10.48 2.77361C10.48 1.76111 9.67375 0.917358 8.70625 0.917358H2.50708C1.53958 0.917358 0.375 1.36736 0.375 2.77361C0.375 20.1924 14.2246 34.6674 30.8512 34.6674C32.1233 34.6674 32.625 33.4861 32.625 32.4549V25.9861C32.625 24.9736 31.8187 24.1299 30.8512 24.1299Z"
+                                                    fill="white" />
+                                            </svg>
+
+                                        </div>
+                                        <a> 955 404 270</a>
+                                    </div>
+                                </div>
+                                <div className="Contact_Outlook">
+                                    <div className="Outlook_icon">
+                                        <svg width="44" height="38" viewBox="0 0 44 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M39.5843 10.0222L22.3843 21.5732L5.18428 10.0222V5.40177L22.3843 16.9528L39.5843 5.40177M39.5843 0.781372H5.18428C2.79778 0.781372 0.884277 2.83745 0.884277 5.40177V33.1242C0.884277 34.3496 1.33731 35.5248 2.14372 36.3913C2.95012 37.2578 4.04385 37.7446 5.18428 37.7446H39.5843C40.7247 37.7446 41.8184 37.2578 42.6248 36.3913C43.4312 35.5248 43.8843 34.3496 43.8843 33.1242V5.40177C43.8843 4.17636 43.4312 3.00115 42.6248 2.13466C41.8184 1.26816 40.7247 0.781372 39.5843 0.781372Z" fill="white" />
+                                        </svg>
+                                    </div>
+                                    <a href="mailto:miguel_bqb@outlook.es">miguel_bqb@outlook.es</a>
+                                </div>
+                                <div className="Contact_Gmail">
+                                    <div className="Gmail_icon">
+                                        <svg width="44" height="32" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M43.7289 3.20295V28.8462C43.7289 30.3014 42.5665 31.4105 41.0414 31.4105H38.3539V8.13799L22.2289 19.1902L6.10388 8.13799V31.4105H3.41638C1.89123 31.4105 0.728882 30.3014 0.728882 28.8462V3.20295C0.728882 2.47468 1.01644 1.8336 1.49885 1.37972C1.7501 1.13986 2.04932 0.950652 2.37873 0.82334C2.70814 0.696029 3.06102 0.633213 3.41638 0.638628H4.31266L22.2289 13.0333L40.1451 0.638628H41.0414C41.8046 0.638628 42.4765 0.913011 42.9589 1.37972C43.4413 1.8336 43.7289 2.47468 43.7289 3.20295Z" fill="white" />
+                                        </svg>
+
+                                    </div>
+                                    <a href="mailto:qbcorporacion@gmail.com">qbcorporacion@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
 
-            <div className="Footer__box1-Social">
-                <div className="Footer__box1-Social1">
-                    <div className="Footer__box1-title">¡SÍGUENOS EN NUESTRAS REDES SOCIALES!</div>
-                    <div className="Footer__box1-Social1Icons">
-                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-facebook"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                            </svg></a>
-                        <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-instagram"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
-                            </svg></a>
-                    </div>
-                </div>
-
-                <div className="Footer__box1-Social2">
-                    <div className="Footer__box1-title">CONTÁCTANOS</div>
-                    <div className="Footer__box1-Social2-Contacto">
-                        <div className="Footer__box1-Social2-Icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-whatsapp"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
-                            </svg>
-                            <span><a href="https://api.whatsapp.com/send?phone=930820893&text=Welcome to EmpresaQB">930 820 893</a></span>
-                        </div>
-                        <div className="Footer__box1-Social2-Icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-envelope"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
-                            </svg>
-                            <span><a href="#">miguel_bqb@outlook.com</a></span>
-                        </div>
-                    </div>
-                </div>
+            <div className="Footer__box2">
+                <span>&copy; 2023 <b>EMPRESA QB</b> - Todos los derechos reservados</span>
             </div>
-        </div>
-
-        <div className="Footer__box2">
-            <span>&copy; 2023 <b>EMPRESA QB</b> - Todos los derechos reservados</span>
-        </div>
-    </footer>
+        </footer>
 
     );
 }

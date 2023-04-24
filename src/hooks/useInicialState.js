@@ -22,6 +22,16 @@ const useInitialState = () => {
 
 	const [leakedProducts, setLeakedproduct] = React.useState();
 
+	/*Guardar usuario en locakl storage*/
+	const {
+		saveItem: saveLeakedLS
+	} = useLocalStorage('LeakedProducts_V1', []);
+
+	const saveLeackedLocalStorage = (itemleaded) => {
+		saveLeakedLS(itemleaded);
+	}
+	//Recupero leadek productos de local storage
+
 	// Filtramos los productos psando un objeto de categoria 
 
 	const filterProductsByCategory = (category) => {
@@ -77,7 +87,6 @@ const useInitialState = () => {
 				...stateCart,
 				cart: [...stateCart.cart, payload]
 			});
-			console.log(stateCart);
 			setQuantityCart(stateCart.cart.length + 1);
 		}
 	};
@@ -107,7 +116,6 @@ const useInitialState = () => {
 				...stateCartPedido,
 				cartPedido: [...stateCartPedido.cartPedido, payload]
 			});
-			console.log(stateCartPedido);
 			setQuantityCartPedido(stateCartPedido.cartPedido.length + 1);
 		}
 	};
@@ -126,25 +134,30 @@ const useInitialState = () => {
 	const [user, setUser] = React.useState(null);
 
 	/*Guardar usuario en locakl storage*/
-	const { saveItem } = useLocalStorage('User_V1', []);
+	const {
+		saveItem: saveUserLS
+	} = useLocalStorage('User_V1', []);
 
 	const saveUserLocalStorage = (itemuser) => {
-		saveItem(itemuser);
+		saveUserLS(itemuser);
 	}
 
 	const deleteUserLocalStorage = () => {
-		saveItem(null);
+		saveUserLS(null);
 	}
 
 	//Recupero user de local storage
-	const { item } = useLocalStorage('User_V1');//pendiente
+	const {
+		item: recoverinUser
+	} = useLocalStorage('User_V1');//pendiente
+
 	React.useEffect(() => {
-		if (item) {
-			setUser(item);
+		if (recoverinUser) {
+			setUser(recoverinUser);
 		} else {
 			setUser(null);
 		}
-	}, [item]);
+	}, [recoverinUser]);
 
 
 	//Variables para controlar el total del carrito
@@ -154,7 +167,7 @@ const useInitialState = () => {
 		//Variables roductos filtrados
 		leakedProducts,
 		setLeakedproduct,
-
+		saveLeackedLocalStorage,
 		//Metodos de filtrados
 		filterProductsByCategory,
 
@@ -213,7 +226,7 @@ const useInitialState = () => {
 
 		//Guardar usuario en local storage
 		saveUserLocalStorage,
-		
+
 		//Eliminar usuario en local storage
 		deleteUserLocalStorage
 	}

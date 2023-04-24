@@ -4,26 +4,28 @@ import { useNavigate } from 'react-router-dom';
 //import app context 
 import AppContext from '../context/AppContext';
 
-const SliderItem = ({slider}) => {
+const SliderItem = ({ slider }) => {
 
     //llamando al metodo de  filter por cagtegory the slider 
     const navigate = useNavigate();
 
     const {
-        handleFilerCategorybySlider
+        handleFilerCategorybySlider, leakedProducts, saveLeackedLocalStorage
     } = React.useContext(AppContext);
 
     const hanldeClickFilter = (item) => {
         handleFilerCategorybySlider(item);
         navigate('/products');
+        saveLeackedLocalStorage(leakedProducts);
     }
+
 
     return (
         <div className="slide"
-        onClick={()=>hanldeClickFilter(slider)}
+            onClick={() => hanldeClickFilter(slider)}
         >
-        <img src={slider.image} alt={slider.name} />
-    </div>
+            <img src={slider.image} alt={slider.name} />
+        </div>
     );
 }
 

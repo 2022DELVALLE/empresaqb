@@ -38,7 +38,6 @@ const PortalMenuInicio = ({ portalRef }) => {
 
     //cerrar seseión
     const { responseLogout, logoutCustomer } = useLogoutCustomer();
-    console.log(responseLogout);
 
     React.useEffect(() => {
         if (responseLogout) {

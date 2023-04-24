@@ -1,0 +1,181 @@
+@import '../vars.scss';
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+
+.ContainerPaymentMethods {
+    background: #F5F5F5;
+    width: 100vw;
+    padding: 5%;
+}
+
+.ContenedorPaymentMethodsMain {
+    width: 100%;
+    /* height: 88vh; */
+    background: var(--white);
+    padding: 3% 5%;
+}
+
+.ContainerDatesPaymentMethod {
+    border-left: var(--logo-red) solid 15PX;
+    padding-left: 3%;
+}
+
+.ContainerDatesPaymentMethod h1 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 97px;
+    margin-bottom: 10px;
+}
+
+.ContainerDatesPaymentMethod h2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 39px;
+}
+
+.PaymentMethods_Location {
+    margin-top: 3%;
+    display: flex;
+    gap: 3%;
+}
+
+.PaymentMethods_Location_Place_I {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #C00100;
+    border: 1px solid #FFFFFF;
+}
+
+.PaymentMethods_Location_Place_II {
+    margin-top: 5%;
+}
+
+.PaymentMethods_Location_Place_II span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.PaymentMethods_FormPays {
+    text-align: center;
+}
+
+.PaymentMethods_FormPay_II_circles {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+}
+
+
+.PaymentMethods_FormPay_II_Banks {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+}
+
+/*responsive design*/
+@media screen and (max-width:800px) {
+    .ContainerDatesPaymentMethod h1 {
+        font-size: 50px;
+    }
+
+    .ContainerDatesPaymentMethod h2 {
+        font-size: 27px;
+    }
+
+    .PaymentMethods_Location {
+        text-align: center;
+    }
+
+    .PaymentMethods_Location_Place_II {
+        margin-top: 2%;
+    }
+
+    .PaymentMethods_FormPay_I {
+        margin-top: 4.5%;
+    }
+
+    .PaymentMethods_FormPay_II_Banks {
+        display: inline-block;
+    }
+
+    .PaymentMethods_FormPay_II_Banks img {
+        margin-bottom: 8%;
+    }
+
+    .PaymentMethods_FormPay_II_Banks img:nth-child(1) {
+        margin-right: 10%;
+    }
+}
+
+@media screen and (max-width:650px) {
+
+    .ContainerDatesPaymentMethod {
+        border-left: var(--logo-red) solid 6PX;
+        padding-left: 3%;
+        text-align: center;
+    }
+
+    .ContainerDatesPaymentMethod h1 {
+        font-size: 36px;
+        line-height: 44px;
+    }
+
+    .ContainerDatesPaymentMethod h2 {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .PaymentMethods_Location {
+        margin-top: 6%;
+    }
+
+    .PaymentMethods_Location_Place_I {
+        font-weight: 600;
+        font-size: var(--md);
+        line-height: 19px;
+    }
+
+    .PaymentMethods_Location_icon svg {
+        width: 39.87px;
+        height: 40px;
+    }
+
+    .PaymentMethods_Location_Place_II span {
+        font-size: var(--sm);
+        line-height: 19px;
+    }
+
+    .PaymentMethods_FormPay_II_circles img {
+        height: 70px;
+        width: 70px;
+    }
+}
+
+@media screen and (max-width:330px) {
+    .PaymentMethods_FormPay_II_circles img {
+        height: 60px;
+        width: 60px;
+    }
+
+    .PaymentMethods_FormPay_II_Banks img {
+        height: 75px;
+        width: 210px;
+
+    }
+}

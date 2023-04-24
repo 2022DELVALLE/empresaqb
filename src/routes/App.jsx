@@ -8,6 +8,7 @@ import ForgotPassword from '../pages/ForgotPassword';
 import DetailsProduct from '../pages/DetailsProduct';
 import Cart from '../pages/Cart';
 import MyAccount from '../pages/MyAccount';
+import Payment from '../pages/Payment';
 
 // Obtenemos los valores necesarios para el app context que agrupa el item product cart
 import AppContext from '../context/AppContext';
@@ -36,7 +37,9 @@ const App = () => {
 							<Route path="/details" element={<DetailsProduct />} />
 							<Route path="/cart" element={<Cart />} />
 							<Route path="/myaccount" element={<MyAccount />} />		
-							<Route path="/reset-password" element={<ResetPassword />} />						
+							<Route path="/reset-password" element={<ResetPassword />} />	
+							<Route path="/payment" element={<Payment />} />	
+							<Route path="*" element={<p>Not found</p>} />	
 						</Routes>
 					</Layout>
 				</BrowserRouter>

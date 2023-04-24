@@ -39,7 +39,6 @@ const Login = ({ portalRefLogin }) => {
         setPortalLogin(false);
     }
 
-
     const { user, loginCustomer, error } = useLoginCustomer();
 
     console.log("user");
@@ -52,8 +51,6 @@ const Login = ({ portalRefLogin }) => {
     }, [error]);
 
     React.useEffect(() => {
-        console.log("user")
-        console.log(user);
         if (user) {
             if (user.res = true) {
                 alert(user.message);

@@ -13,8 +13,7 @@ const Details = () => {
 
     //Recuperamos el product preview item
     const { productItemPreview, setProductItemPreview, setProductItemPedido } = React.useContext(ProductPreviewContext);
-    console.log("product item previuw:")
-    console.log(productItemPreview)
+
     //Añado productos al carrito
     function handleOpenAddCart(item) {
         const PedidoObjeto = {
@@ -24,7 +23,6 @@ const Details = () => {
             precio_total: amount * item.priceUnit
         }
         setProductItemPedido(PedidoObjeto);
-        console.log(PedidoObjeto);
         setProductItemPreview(item);
         setPortalAddCart(!portalAddCart);
     }
