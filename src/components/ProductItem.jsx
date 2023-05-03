@@ -11,11 +11,10 @@ const ProductItem = ({ itemproduct }) => {
 	const navigate = useNavigate();
 
 	// Guardo un producto preview para ver sus details mas claro
-	const { productItemPreview, setProductItemPreview } = React.useContext(ProductPreviewContext);
+	const { setProductItemPreview,setAmount } = React.useContext(ProductPreviewContext);
 
 	const handleDetailsProduct = (payload) => {
 		setAmount(0);
-		console.log(payload);
 		setProductItemPreview(payload);
 		navigate('/details');
 	};
@@ -28,10 +27,6 @@ const ProductItem = ({ itemproduct }) => {
 		setProductItemPreview(item)
 		setPortalAddCart(!portalAddCart);
 	}
-
-	//Verificamos la cantidad ingresas
-
-	const { amount, setAmount } = React.useContext(ProductPreviewContext);
 
 	return (
 		<div className="ProductCardsSection__container-cards-Product">

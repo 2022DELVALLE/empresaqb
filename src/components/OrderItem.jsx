@@ -7,10 +7,8 @@ function OrderItem({ product }) {
 
     const { removeFromCart, removeFromCartPedido, stateCartPedido, setTotal} = React.useContext(AppContext);
 
-    const handleRemove = product => {
+    const handleRemove = (product) => {
         const objePedido = stateCartPedido.cartPedido.find(item => item.id === product.id);
-        console.log("Objeto de pedido encontrado");
-        console.log(objePedido);
         removeFromCartPedido(objePedido);
         removeFromCart(product);
     }

@@ -30,15 +30,18 @@ const PortalAddCart = ({ portalRefAddCart }) => {
         setPortalAddCart(false);
     }
 
-    const onClickAddCart = (item,itemPedido) => {
-        productItemPreview.quantity = amount;
-        itemPedido.cantidad = amount;
+    const onClickAddCart = (item, itemPedido) => {
+        //productItemPreview.quantity = amount; 
+        itemPedido.cantidad = amount; //
         itemPedido.precio_total = itemPedido.cantidad * productItemPreview.priceUnit;
         addToCartPedido(itemPedido);
         addToCart(item);
         setH1Text("Agregaste el siguiente producto al carrito");
-        setTimeout(() => setPortalAddCart(false), 1000);
-        setTimeout(() => navigate('/cart'), 1000);
+        setTimeout(() =>
+            setPortalAddCart(false),
+            navigate('/cart')
+            , 1000);
+        ;
     }
 
     //control del mensaje
