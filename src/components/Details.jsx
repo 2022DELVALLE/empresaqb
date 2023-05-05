@@ -8,12 +8,20 @@ import ProductPreviewContext from "../context/ProductPreviewContext.js";
 //Import app context
 import AppContext from '../context/AppContext';
 import PortalAddCart from '../portals/PortalAddCart';
+import { useNavigate } from 'react-router-dom';
 
 const Details = () => {
+    const navigate = useNavigate();
 
     //Recuperamos el product preview item
     const { productItemPreview, setProductItemPreview, setProductItemPedido } = React.useContext(ProductPreviewContext);
 
+    if (!productItemPreview || !productItemPreview.image) {
+        navigate('/');
+        return null;
+    }
+
+    console.log(productItemPreview)
     //Añado productos al carrito
     function handleOpenAddCart(item) {
         const PedidoObjeto = {
@@ -59,6 +67,7 @@ const Details = () => {
     const [mainImgAlt, setMainImgAlt] = React.useState("");
     const imgRef = React.useRef(null);
     const containerRef = React.useRef(null);
+
 
     const handleThumbnailClick = (imgSrc, imgAlt) => {
         setMainImgSrc(imgSrc);
@@ -192,6 +201,7 @@ const Details = () => {
             </section>
         </>
     );
+
 }
 
 export default Details;

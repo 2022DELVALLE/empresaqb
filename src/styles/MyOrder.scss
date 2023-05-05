@@ -192,5 +192,23 @@
 
 }
 
-
-
+.container-button-to-bay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+.button-cart-to-bay {
+    width: 234px;
+    height: 53px;
+    margin-top: 10px;
+    background: #C00100;
+    border-radius: 24px;
+    border: none;
+    align-self: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    cursor: pointer;
+}

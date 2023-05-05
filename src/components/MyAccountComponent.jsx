@@ -22,16 +22,6 @@ const MyAccountComponent = () => {
 
     const { user, setUser } = React.useContext(AppContext);
 
-    if (!user) {
-        return (
-            <div className='container-button-iniciar-sesion'>
-                <button
-                    className='button-iniciar-sesion'
-                    onClick={() => handleopenLogin()}
-                >Iniciar sesión</button>
-            </div>
-        );
-    }
 
     //Variables para mostrar datos del usuario
 
@@ -59,6 +49,19 @@ const MyAccountComponent = () => {
     const handleaddressChange = (event) => {
         setaddress(event.target.value);
     }
+
+    //control de mi cuenta si el usuario no existe 
+    if (!user) {
+        return (
+            <div className='container-button-iniciar-sesion'>
+                <button
+                    className='button-iniciar-sesion'
+                    onClick={() => handleopenLogin()}
+                >Iniciar sesión</button>
+            </div>
+        );
+    }
+
     return (
         <section className="container_my_account">
             <div className="Name_user_my_account">
