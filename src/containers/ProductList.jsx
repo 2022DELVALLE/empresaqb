@@ -80,7 +80,7 @@ const ProductList = () => {
         }
     });
 
-    function handleToHome () {
+    function handleToHome() {
         navigate('/');
     }
 

@@ -195,9 +195,12 @@
 .container-button-to-bay {
     display: flex;
     justify-content: center;
+    flex-direction: column; 
     align-items: center;
-    padding: 100px;
+    padding: 200px;
+    gap: 30px 30px;
 }
+
 .button-cart-to-bay {
     width: 234px;
     height: 53px;

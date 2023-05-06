@@ -22,16 +22,6 @@ const useInitialState = () => {
 
 	const [leakedProducts, setLeakedproduct] = React.useState();
 
-	/*Guardar usuario en locakl storage*/
-	const {
-		saveItem: saveLeakedLS
-	} = useLocalStorage('LeakedProducts_V1', []);
-
-	const saveLeackedLocalStorage = (itemleaded) => {
-		saveLeakedLS(itemleaded);
-	}
-	//Recupero leadek productos de local storage
-
 	// Filtramos los productos psando un objeto de categoria 
 
 	const filterProductsByCategory = (category) => {
@@ -71,9 +61,26 @@ const useInitialState = () => {
 	const [portalAddCart, setPortalAddCart] = React.useState(false);
 
 
+
 	//Inicamos el variables para el carrito como estado carrito
 
 	const [stateCart, setStateCart] = React.useState(initialStateCart);
+
+
+
+	//Proceso de recuperado de contraseña
+	//Recupero user de local storage
+	/*const {
+		item: recoverinStateCart
+	} = useLocalStorage('stateCart_V1');//pendiente
+
+	React.useEffect(() => {
+		if (recoverinStateCart) {
+			initialStateCart.cart = recoverinStateCart;
+		} else {
+			initialStateCart.cart = [];
+		}
+	}, [recoverinStateCart]);*/
 
 	//Variables para controlar la cantidad de objetos en el carrito
 	const [quantityCart, setQuantityCart] = React.useState(0);
@@ -100,9 +107,38 @@ const useInitialState = () => {
 		setQuantityCart(stateCart.cart.length - 1);
 	}
 
+		/**
+	 * Extension de statecart para local storage
+	 * 
+	 */
+		const {
+			saveItem: saveStateCart
+		} = useLocalStorage('stateCart_V1', []);
+	
+		const saveStateCartActual = (productscart) => {
+			saveStateCart(productscart)
+		}
+		React.useEffect(() => {
+			saveStateCartActual(stateCart);
+		}, [stateCart]);
+
 	//Inicamos el variables para el carrito como estado pedido
 
 	const [stateCartPedido, setStateCartPedido] = React.useState(initialStateCartPedido);
+	/**
+	 * Extension de statecart en pedido para local storage
+	 * 
+	 */
+	const {
+		saveItem: saveStateCartPedido
+	} = useLocalStorage('stateCartPedido_V1', []);
+
+	const saveStateCartPedidoActual = (productscartPedido) => {
+		saveStateCartPedido(productscartPedido)
+	}
+	React.useEffect(() => {
+		saveStateCartPedido(stateCartPedido);
+	}, [stateCartPedido]);
 
 	//Variables para controlar la cantidad de objetos en el carrito
 
@@ -167,7 +203,6 @@ const useInitialState = () => {
 		//Variables roductos filtrados
 		leakedProducts,
 		setLeakedproduct,
-		saveLeackedLocalStorage,
 		//Metodos de filtrados
 		filterProductsByCategory,
 

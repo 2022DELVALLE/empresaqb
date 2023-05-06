@@ -9,13 +9,12 @@ const SliderItemFirst = ({ slider }) => {
     const navigate = useNavigate();
 
     const {
-        handleFilerCategorybySlider, leakedProducts, saveLeackedLocalStorage
+        handleFilerCategorybySlider
     } = React.useContext(AppContext);
 
     const hanldeClickFilter = (item) => {
         handleFilerCategorybySlider(item);
         navigate('/products');
-        saveLeackedLocalStorage(leakedProducts);
     }
 
 

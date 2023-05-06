@@ -21,7 +21,6 @@ const Details = () => {
         return null;
     }
 
-    console.log(productItemPreview)
     //Añado productos al carrito
     function handleOpenAddCart(item) {
         const PedidoObjeto = {
