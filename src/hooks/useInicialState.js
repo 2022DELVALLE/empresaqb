@@ -188,7 +188,7 @@ const useInitialState = () => {
 	} = useLocalStorage('User_V1');//pendiente
 
 	React.useEffect(() => {
-		if (recoverinUser) {
+		if (recoverinUser && !recoverinUser.length === 0 ) {
 			setUser(recoverinUser);
 		} else {
 			setUser(null);
