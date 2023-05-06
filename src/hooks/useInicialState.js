@@ -107,20 +107,20 @@ const useInitialState = () => {
 		setQuantityCart(stateCart.cart.length - 1);
 	}
 
-		/**
-	 * Extension de statecart para local storage
-	 * 
-	 */
-		const {
-			saveItem: saveStateCart
-		} = useLocalStorage('stateCart_V1', []);
-	
-		const saveStateCartActual = (productscart) => {
-			saveStateCart(productscart)
-		}
-		React.useEffect(() => {
-			saveStateCartActual(stateCart);
-		}, [stateCart]);
+	/**
+ * Extension de statecart para local storage
+ * 
+ */
+	const {
+		saveItem: saveStateCart
+	} = useLocalStorage('stateCart_V1', []);
+
+	const saveStateCartActual = (productscart) => {
+		saveStateCart(productscart)
+	}
+	React.useEffect(() => {
+		saveStateCartActual(stateCart);
+	}, [stateCart]);
 
 	//Inicamos el variables para el carrito como estado pedido
 
@@ -188,7 +188,9 @@ const useInitialState = () => {
 	} = useLocalStorage('User_V1');//pendiente
 
 	React.useEffect(() => {
-		if (recoverinUser && !recoverinUser.length === 0 ) {
+		if (recoverinUser && !recoverinUser.length === 0) {
+			setUser(recoverinUser);
+		} else if (recoverinUser) {
 			setUser(recoverinUser);
 		} else {
 			setUser(null);

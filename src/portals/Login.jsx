@@ -41,8 +41,6 @@ const Login = ({ portalRefLogin }) => {
 
     const { user, loginCustomer, error } = useLoginCustomer();
 
-    console.log("user");
-    console.log(user);
     React.useEffect(() => {
         if (error) {
             console.log(error);

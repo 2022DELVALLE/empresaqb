@@ -12,7 +12,7 @@ const PromotionItem = ({ promotionitem }) => {
     const { setAmount, setProductItemPreview } = React.useContext(ProductPreviewContext);
 
     const handleProductSavePreview = (item) => {
-        setAmount(0);
+        setAmount(1);
         setProductItemPreview(item);
         navigate('/details')
     }

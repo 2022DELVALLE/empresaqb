@@ -23,7 +23,7 @@ const ProductItem = ({ itemproduct }) => {
 	const { portalAddCart, setPortalAddCart, } = React.useContext(AppContext);
 
 	function handleOpenAddCart(item) {
-		setAmount(0);
+		setAmount(1);
 		setProductItemPreview(item)
 		setPortalAddCart(!portalAddCart);
 	}
