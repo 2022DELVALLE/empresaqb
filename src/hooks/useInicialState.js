@@ -166,38 +166,75 @@ const useInitialState = () => {
 		saveStateCartPedidoActual(stateCartPedido);
 	}, [stateCartPedido]);*/
 
-	//Variables para controlodar user 
-
+	//Variables para controlar user
 	const [user, setUser] = React.useState(null);
 
-	/*Guardar usuario en locakl storage*/
-	const {
-		saveItem: saveUserLS
-	} = useLocalStorage('User_V1', []);
+	//Crear objeto observers
+	const observers = {};
+
+	//Función para registrar un observador
+	const registerObserver = (key, observerFunc) => {
+		if (!observers[key]) {
+			observers[key] = [];
+		}
+		observers[key].push(observerFunc);
+	}
+
+	//Función para eliminar un observador
+	const unregisterObserver = (key, observerFunc) => {
+		if (observers[key]) {
+			const index = observers[key].indexOf(observerFunc);
+			if (index !== -1) {
+				observers[key].splice(index, 1);
+			}
+		}
+	}
+
+	//Función para notificar a los observadores
+	const notifyObservers = (key, data) => {
+		if (observers[key]) {
+			observers[key].forEach((observer) => observer(data));
+		}
+	}
+
+	/*Guardar usuario en local storage*/
+	const { saveItem: saveUserLS } = useLocalStorage('User_V1', []);
 
 	const saveUserLocalStorage = (itemuser) => {
 		saveUserLS(itemuser);
+		notifyObservers('User_V1', itemuser);
 	}
 
 	const deleteUserLocalStorage = () => {
 		saveUserLS(null);
+		notifyObservers('User_V1', null);
 	}
 
-	//Recupero user de local storage
-	const {
-		item: recoverinUser
-	} = useLocalStorage('User_V1');//pendiente
+	//Recuperar usuario del local storage al montar el componente
+	const { item: recoverinUser } = useLocalStorage('User_V1');
 
 	React.useEffect(() => {
-		if (recoverinUser && !recoverinUser.length === 0) {
+		// Verificar si hay un usuario en el "local storage"
+		if (recoverinUser) {
 			setUser(recoverinUser);
-		} else if (!recoverinUser) {
-			setUser(recoverinUser);
-		}  else {
-			setUser(null);
 		}
+	}, []);
+
+	//Actualizar el estado del usuario cuando cambia el valor recuperado del "local storage"
+	React.useEffect(() => {
+		setUser(recoverinUser);
 	}, [recoverinUser]);
 
+	//Registrar el observador de 'User_V1'
+	React.useEffect(() => {
+		const observerFunc = (data) => {
+			setUser(data);
+		}
+		registerObserver('User_V1', observerFunc);
+		return () => {
+			unregisterObserver('User_V1', observerFunc);
+		};
+	}, []);
 
 	//Variables para controlar el total del carrito
 	const [total, setTotal] = React.useState(0);
