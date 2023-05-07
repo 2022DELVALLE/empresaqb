@@ -206,9 +206,10 @@ const useInitialState = () => {
 	}
 
 	const deleteUserLocalStorage = () => {
-		saveUserLS(null);
+		localStorage.removeItem('User_V1');
 		notifyObservers('User_V1', null);
 	}
+
 
 	//Recuperar usuario del local storage al montar el componente
 	const { item: recoverinUser } = useLocalStorage('User_V1');
