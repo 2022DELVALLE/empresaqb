@@ -176,7 +176,7 @@ const Details = () => {
                                     <div className="number-quanty" >{amount}</div>
                                     <button className="elipse-btn"
                                         onClick={() => setAmount(amount - 1)}
-                                        disabled={amount <= 0}
+                                        disabled={amount <= 1}
                                     >
                                         <i className="fa-solid fa-minus"></i>
                                     </button>

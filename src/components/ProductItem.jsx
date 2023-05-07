@@ -14,7 +14,7 @@ const ProductItem = ({ itemproduct }) => {
 	const { setProductItemPreview,setAmount } = React.useContext(ProductPreviewContext);
 
 	const handleDetailsProduct = (payload) => {
-		setAmount(0);
+		setAmount(1);
 		setProductItemPreview(payload);
 		navigate('/details');
 	};

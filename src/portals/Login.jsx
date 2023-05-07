@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import ReactDOM from 'react-dom';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 //Import scss
 import '../styles/portal/Login.scss'
@@ -40,6 +41,7 @@ const Login = ({ portalRefLogin }) => {
     }
 
     const { user, loginCustomer, error } = useLoginCustomer();
+
 
     React.useEffect(() => {
         if (error) {

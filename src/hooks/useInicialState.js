@@ -125,20 +125,7 @@ const useInitialState = () => {
 	//Inicamos el variables para el carrito como estado pedido
 
 	const [stateCartPedido, setStateCartPedido] = React.useState(initialStateCartPedido);
-	/**
-	 * Extension de statecart en pedido para local storage
-	 * 
-	 */
-	const {
-		saveItem: saveStateCartPedido
-	} = useLocalStorage('stateCartPedido_V1', []);
 
-	const saveStateCartPedidoActual = (productscartPedido) => {
-		saveStateCartPedido(productscartPedido)
-	}
-	React.useEffect(() => {
-		saveStateCartPedido(stateCartPedido);
-	}, [stateCartPedido]);
 
 	//Variables para controlar la cantidad de objetos en el carrito
 
@@ -164,6 +151,20 @@ const useInitialState = () => {
 		});
 		setQuantityCartPedido(stateCartPedido.cartPedido.length - 1);
 	}
+	/**
+	 * Extension de statecart en pedido para local storage
+	 * 
+	 */
+	/*const {
+		saveItem: saveStateCartPedido
+	} = useLocalStorage('stateCartPedido_V1', []);
+
+	const saveStateCartPedidoActual = (productscartPedido) => {
+		saveStateCartPedido(productscartPedido)
+	}
+	React.useEffect(() => {
+		saveStateCartPedidoActual(stateCartPedido);
+	}, [stateCartPedido]);*/
 
 	//Variables para controlodar user 
 

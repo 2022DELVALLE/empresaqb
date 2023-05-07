@@ -31,7 +31,7 @@ const PortalAddCart = ({ portalRefAddCart }) => {
     }
 
     const onClickAddCart = (item, itemPedido) => {
-        //productItemPreview.quantity = amount; 
+        productItemPreview.quantity = amount; 
         itemPedido.cantidad = amount; //
         itemPedido.precio_total = itemPedido.cantidad * productItemPreview.priceUnit;
         addToCartPedido(itemPedido);
@@ -88,7 +88,7 @@ const PortalAddCart = ({ portalRefAddCart }) => {
                         <div className="cont">{amount}</div>
                         <button className="icon-remove"
                             onClick={() => setAmount(amount - 1)}
-                            disabled={amount <= 0}
+                            disabled={amount <= 1}
                         >
                             <i className="bi bi-dash-lg"></i>
                         </button>
