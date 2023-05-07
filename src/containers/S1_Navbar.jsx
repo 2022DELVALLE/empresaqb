@@ -152,7 +152,7 @@ const S1_Navbar = () => {
     //Control del nombre inicio sesion por el nombre de usuario
     const { user } = React.useContext(AppContext);
 
-
+console.log('home')
     
     return (
         <>
@@ -229,7 +229,7 @@ const S1_Navbar = () => {
                     >
                         <i className="bi bi-person-circle login-icon"></i>
                         <div className="text-login">
-                            <a href="#" value="" >Hola,<br />{user ? user.data.user.name.split(" ").slice(0, 2).join(" ") + '!' : 'inicia sesión!'}</a>
+                            <a href="#" value="" >Hola,<br />{user && user.data ? user.data.user.name.split(" ").slice(0, 2).join(" ") + '!' : 'inicia sesión!'}</a>
                         </div>
                     </div>
                     <div className="navbar__shop"
