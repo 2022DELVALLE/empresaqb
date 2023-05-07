@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import ReactDOM from 'react-dom';
-import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 //Import scss
 import '../styles/portal/Login.scss'

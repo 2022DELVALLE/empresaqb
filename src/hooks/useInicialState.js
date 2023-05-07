@@ -191,9 +191,9 @@ const useInitialState = () => {
 	React.useEffect(() => {
 		if (recoverinUser && !recoverinUser.length === 0) {
 			setUser(recoverinUser);
-		} else if (recoverinUser) {
+		} else if (!recoverinUser) {
 			setUser(recoverinUser);
-		} else {
+		}  else {
 			setUser(null);
 		}
 	}, [recoverinUser]);
