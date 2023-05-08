@@ -170,7 +170,7 @@ const useInitialState = () => {
 	const [user, setUser] = React.useState(null);
 
 	/*Guardar usuario en local storage*/
-	const { saveItem: saveUserLS } = useLocalStorage('User_V5', []);
+	const { saveItem: saveUserLS } = useLocalStorage('User_V6', []);
 
 	const saveUserLocalStorage = (itemuser) => {
 		saveUserLS(itemuser);
@@ -182,7 +182,7 @@ const useInitialState = () => {
 
 
 	//Recuperar usuario del local storage al montar el componente
-	const { item: recoverinUser } = useLocalStorage('User_V5');
+	const { item: recoverinUser } = useLocalStorage('User_V6');
 
 	//Actualizar el estado del usuario cuando cambia el valor recuperado del "local storage"
 	React.useEffect(() => {

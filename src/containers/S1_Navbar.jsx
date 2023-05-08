@@ -152,8 +152,6 @@ const S1_Navbar = () => {
     //Control del nombre inicio sesion por el nombre de usuario
     const { user } = React.useContext(AppContext);
 
-console.log('home')
-    
     return (
         <>
             <header>
