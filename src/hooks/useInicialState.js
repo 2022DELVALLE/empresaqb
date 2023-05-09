@@ -109,7 +109,7 @@ const useInitialState = () => {
 
 	/**
  * Extension de statecart para local storage
- * dd
+ * dddd
  */
 	const {
 		saveItem: saveStateCart
