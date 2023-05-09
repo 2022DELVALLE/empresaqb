@@ -31,7 +31,7 @@ const CreateAccountComponent = () => {
             if (responseRegister.res = true) {
                 Swal.fire(
                     'Felicitaciones!!!!',
-                    responseRegister.message,
+                    'Se registro exitosamente',
                     'success'
                 );
             }
@@ -59,7 +59,16 @@ const CreateAccountComponent = () => {
             address: formData.get('address'),
             telephone: formData.get('telefono'),
         }
-        saveCustomer(user);
+
+        if (termsChecked === true && (promotionsChecked === true || promotionsChecked === false)) {
+            saveCustomer(user);        
+        } else {
+            Swal.fire(
+                'Upss!!!!',
+                'Seleccion terminos y condiciones',
+                'error'
+            );
+        }
     }
 
     //Ver contraseña y ocultar
@@ -229,7 +238,7 @@ const CreateAccountComponent = () => {
                         <input type="text" name="dni_ruc" placeholder="Ingresa tu N° DNI o RUC" className="SectionCreateAccount-Form-contain-input" />
                         <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Teléfono</label>
                         <input type="text" name="telefono" placeholder="Ingresa un teléfono" className="SectionCreateAccount-Form-contain-input" />
-                        
+
                         <label htmlFor="" className="SectionCreateAccount-Form-contain-label">Dirección</label>
                         <input type="text" name="address" placeholder="Ingresa tu dirección" className="SectionCreateAccount-Form-contain-input" />
 
@@ -273,11 +282,7 @@ const CreateAccountComponent = () => {
                                     checked={termsChecked}
                                     className="termsConditionsPromotions-checkbox"
                                     onChange={() => hanldeTermsChange(event)}
-                                    style={{
-                                        backgroundImage: termsChecked ? 'none' : `url('../assets/icons/check.svg')`,
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundPosition: 'center',
-                                    }}
+
                                 />
                                 <span>Acepto los <a href="#">Terminos y Condiciones.</a></span>
                             </label>
@@ -304,7 +309,7 @@ const CreateAccountComponent = () => {
                         <label htmlFor="" className="LoginQuestion">¿Ya tienes una cuenta?
                             <a
                                 onClick={hanldeToLogin}
-                                href="#">Inicia sesión{termsChecked ? 'false' : 'true'}</a>
+                                href="#">Inicia sesión{termsChecked ? 'true' : 'false'}</a>
                         </label>
                     </form>
                 </div>
