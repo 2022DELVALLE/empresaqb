@@ -198,6 +198,10 @@ const useInitialState = () => {
 	//Variables para controlar el total del carrito
 	const [total, setTotal] = React.useState(0);
 
+	//controlamos el numero de pedido
+	const[numeroPedido, setNumeroPedido] = React.useState(0);
+
+
 	return {
 		//Variables roductos filtrados
 		leakedProducts,
@@ -262,7 +266,10 @@ const useInitialState = () => {
 		saveUserLocalStorage,
 
 		//Eliminar usuario en local storage
-		deleteUserLocalStorage
+		deleteUserLocalStorage,
+
+		//numero de pedido
+		numeroPedido, setNumeroPedido,
 	}
 };
 

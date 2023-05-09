@@ -10,15 +10,19 @@ import paypal from '../assets/img/paypl.png';
 import bancoNacion from '../assets/img/Banco de la nación.png';
 import bbva from '../assets/img/BBVa.png';
 import bcp from '../assets/img/BCP.png';
+import AppContext from '../context/AppContext';
 
 
 const MyPayment = () => {
+
+    const { numeroPedido } = React.useContext(AppContext);
+
     return (
         <section className="ContainerPaymentMethods">
             <div className="ContenedorPaymentMethodsMain">
                 <div className="ContainerDatesPaymentMethod">
                     <h1>Gracias por su compra</h1>
-                    <h2>N° DE PEDIDO : 121238383</h2>
+                    <h2>N° DE PEDIDO : {numeroPedido}</h2>
                     <div className="PaymentMethods_Location">
                         <div className="PaymentMethods_Location_icon">
                             <svg width="123" height="126" viewBox="0 0 123 126" fill="none"

@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import ReactDOM from 'react-dom';
 
+import Swal from 'sweetalert2';
+
 //Import scss
 import '../styles/portal/Login.scss'
 
@@ -52,7 +54,11 @@ const Login = ({ portalRefLogin }) => {
     React.useEffect(() => {
         if (user) {
             if (user.res = true) {
-                alert(user.message);
+                Swal.fire(
+                    'Welcome!!!!',
+                    user.message,
+                    'success'
+                );
                 saveUserLocalStorage(user);
                 setPortalLogin(!portalLogin);
             }

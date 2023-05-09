@@ -21,7 +21,7 @@ const MyOrder = () => {
     const { user } = React.useContext(AppContext);
 
     //Hacemos calculos
-    const { stateCart, quantityCart, setStateCart, total } = React.useContext(AppContext);
+    const { stateCart, quantityCart, setStateCart, total, setNumeroPedido } = React.useContext(AppContext);
     //console.log("carta de orden")
     //console.log(stateCart);
 
@@ -48,6 +48,7 @@ const MyOrder = () => {
         }
     }
 
+
     //Mensajes
     React.useEffect(() => {
         if (responseSavePedido) {
@@ -55,6 +56,8 @@ const MyOrder = () => {
                 setStateCartPedido({ cartPedido: [] });
                 setStateCart({ cart: [] });
                 alert(responseSavePedido.message);
+                navigate('/payment');
+                setNumeroPedido(responseSavePedido.numero_pedido)
             }
         }
 
