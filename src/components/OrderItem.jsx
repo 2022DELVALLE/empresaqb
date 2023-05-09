@@ -32,10 +32,6 @@ function OrderItem({ product }) {
     React.useEffect(() => {
         const objePedido = stateCartPedido.cartPedido.find(item => item.id === product.id);
         objePedido.cantidad = productQuantity;
-        console.log("Objeto update cantidad");
-        console.log(objePedido);
-        console.log("pedidosssssssss");
-        console.log(stateCartPedido.cartPedido);
         const reducer = (accumalator, currentValue) => accumalator + (currentValue.precio_unitario * currentValue.cantidad);
         const sum = stateCartPedido.cartPedido.reduce(reducer, 0);
         setTotal(sum);

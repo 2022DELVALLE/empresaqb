@@ -32,7 +32,7 @@ const PortalAddCart = ({ portalRefAddCart }) => {
 
     const onClickAddCart = (item, itemPedido) => {
         productItemPreview.quantity = amount; 
-        itemPedido.cantidad = amount; //
+        itemPedido.cantidad = amount;
         itemPedido.precio_total = itemPedido.cantidad * productItemPreview.priceUnit;
         addToCartPedido(itemPedido);
         addToCart(item);

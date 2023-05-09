@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import Swal from 'sweetalert2';
 
 //import scss
 import '../styles/Components/CreateAcountComponent.scss';
@@ -13,7 +14,7 @@ import useSaveCustomer from '../hooks/useSaveCustomer';
 const CreateAccountComponent = () => {
 
     //Traemos la señal para cerrar el portla login
-    const { portalLogin, setPortalLogin, } = React.useContext(AppContext);
+    const { setPortalLogin, } = React.useContext(AppContext);
 
     const hanldeToLogin = () => {
         setPortalLogin(true);
@@ -23,20 +24,27 @@ const CreateAccountComponent = () => {
 
     const form = useRef(null);
 
-    const { responseRegister, error, loading, saveCustomer } = useSaveCustomer();
-    console.log(responseRegister);
+    const { responseRegister, error, saveCustomer } = useSaveCustomer();
 
     React.useEffect(() => {
         if (responseRegister) {
             if (responseRegister.res = true) {
-                alert(responseRegister.msg);
+                Swal.fire(
+                    'Felicitaciones!!!!',
+                    responseRegister.message,
+                    'success'
+                );
             }
         }
     }, [responseRegister]);
 
     React.useEffect(() => {
         if (error) {
-            alert(error.message);
+            Swal.fire(
+                'Upsss!!!!',
+                error.message,
+                'info'
+            );
         }
     }, [error]);
 
@@ -51,7 +59,6 @@ const CreateAccountComponent = () => {
             address: formData.get('address'),
             telephone: formData.get('telefono'),
         }
-        console.log(user);
         saveCustomer(user);
     }
 

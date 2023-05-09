@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 //Import scss
 import '../styles/MyOrder.scss';
@@ -22,17 +23,12 @@ const MyOrder = () => {
 
     //Hacemos calculos
     const { stateCart, quantityCart, setStateCart, total, setNumeroPedido } = React.useContext(AppContext);
-    //console.log("carta de orden")
-    //console.log(stateCart);
 
     //Pedidos
     const { stateCartPedido, setStateCartPedido } = React.useContext(AppContext);
 
     //invoco al metodo guardar pedido
     const { responseSavePedido, SavePedido, error } = useSavePedido();
-
-    //console.log("carta pedido")
-    //console.log(stateCartPedido)
 
     const createdModeloPedido = () => {
         if (user) {
@@ -41,13 +37,15 @@ const MyOrder = () => {
                 'productos': stateCartPedido.cartPedido,
                 'total_amount': total
             }
-            console.log(objetoPedidoFinal);
             SavePedido(objetoPedidoFinal);
         } else {
-            alert("Inicia sesión para realizar la compra");
+            Swal.fire(
+                'Upsss!!!!',
+                'Inicia sesión para realizar la compra',
+                'info'
+            );
         }
     }
-
 
     //Mensajes
     React.useEffect(() => {
@@ -55,7 +53,11 @@ const MyOrder = () => {
             if (responseSavePedido.res = true) {
                 setStateCartPedido({ cartPedido: [] });
                 setStateCart({ cart: [] });
-                alert(responseSavePedido.message);
+                Swal.fire(
+                    'Felicitaciones!!!!',
+                    responseSavePedido.message,
+                    'success'
+                );
                 navigate('/payment');
                 setNumeroPedido(responseSavePedido.numero_pedido)
             }
@@ -65,13 +67,16 @@ const MyOrder = () => {
 
     React.useEffect(() => {
         if (error) {
-            alert(error.message);
+            Swal.fire(
+                'Upsss!!!!',
+                error.message,
+                'info'
+            );
         }
     }, [error]);
 
     //Control de carrito vacio
     if (stateCart.cart.length === 0) {
-
         const handleToHomeBuy = () => {
             navigate('/');
         }

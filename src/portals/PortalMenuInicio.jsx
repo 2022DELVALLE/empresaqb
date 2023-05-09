@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 //import scss
 import '../styles/portal/PortalMenuInicio.scss';
@@ -34,7 +35,7 @@ const PortalMenuInicio = ({ portalRef }) => {
     }
 
     //recibo señal de inico de usuario
-    const { user, setUser } = React.useContext(AppContext);
+    const { user } = React.useContext(AppContext);
 
     //cerrar seseión
     const { responseLogout, logoutCustomer } = useLogoutCustomer();
@@ -42,7 +43,12 @@ const PortalMenuInicio = ({ portalRef }) => {
     React.useEffect(() => {
         if (responseLogout) {
             if (responseLogout.res = true) {
-                alert(responseLogout.message);
+                Swal.fire(
+                    'Salio!!!!',
+                    responseLogout.message,
+                    'success'
+                );
+                //alert(responseLogout.message);
                 setShowPortal(false);
             }
         }

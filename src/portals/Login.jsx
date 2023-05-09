@@ -46,8 +46,11 @@ const Login = ({ portalRefLogin }) => {
 
     React.useEffect(() => {
         if (error) {
-            console.log(error);
-            alert(error.message);
+                Swal.fire(
+                    'Upsss!!!!',
+                    error.message,
+                    'info'
+                );
         }
     }, [error]);
 
@@ -63,7 +66,6 @@ const Login = ({ portalRefLogin }) => {
                 setPortalLogin(!portalLogin);
             }
         }
-
     }, [user]);
 
     const formLogin = useRef(null);
@@ -75,9 +77,7 @@ const Login = ({ portalRefLogin }) => {
             email: formData.get('email'),
             password: formData.get('password'),
         }
-        console.log(userrecovering);
         loginCustomer(userrecovering);
-
     }
 
     //Ver contraseña y ocultar
