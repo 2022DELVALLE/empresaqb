@@ -13,6 +13,8 @@ function OrderItem({ product }) {
         removeFromCart(product);
     }
 
+console.log(product.quantity);
+
     //Control de la cantidad 
     const [productQuantity, setProductQuantity] = React.useState(product.quantity);
 
