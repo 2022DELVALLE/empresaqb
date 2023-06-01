@@ -8,11 +8,18 @@
 
 .title-shop{
     font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
     margin-bottom: 22px;
+
+
+
 }
 
 .container-basquet {
     display: flex;
+    margin-top: 5%;
     justify-content: center;
     gap: 100px;
     padding: 30px 30px;
@@ -88,13 +95,13 @@
 }
 
 .product-remove{
-    margin-top: 120px;
+    margin-top: 100px;
 }
 .product-remove button{
     border: none;
-    background: var(--logo-red);
+    background: #E0A100;
     color: var(--white);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     width: 100px;
     padding: 10px;
@@ -108,7 +115,7 @@
 .container-total{
     border: 2px solid rgb(235, 235, 235);
     border-radius: 10px;
-    padding: 20px 50px;
+    padding: 35px 50px;
     display: flex;
     flex-direction: column;
     max-width: 500px;
@@ -139,16 +146,11 @@
 }
 
 /*responsive design smartphone*/
-@media screen and (max-width:600px) {
-    .container-basquet{
-        flex-direction: column;
-        gap: 10px;
-        padding: 20px 30px;
-    }
-    .title-shop{
-        font-size: 20px;
-        text-align: center;
-        margin-bottom: 26px;
+
+
+@media screen and (max-width:800px) {
+    .container-basquet {
+        margin-top: 7%;
     }
 
     .product-basquet {
@@ -156,6 +158,13 @@
         align-items: center;
         max-width: 500px;
         gap: 10px;
+    }
+
+    .product-name {
+        color: var(--very-light-gray);
+        font-weight: bold;
+        margin-top: 25px;
+        margin-bottom: 10px;
     }
 
     .product-description {
@@ -174,7 +183,8 @@
 
     .product-quantity {
         padding:0;
-        margin-left: 20px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .cont {
@@ -188,6 +198,20 @@
 
     .container-total{
         padding: 20px 30px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .container-basquet{
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 30px;
+        margin-top: 33%;
+    }
+    .title-shop{
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 26px;
     }
 
 }
@@ -214,4 +238,10 @@
     line-height: 22px;
     color: #FFFFFF;
     cursor: pointer;
+}
+
+@media screen and (max-width:360px) {
+    .container-basquet{
+        margin-top: 39%;
+    }
 }

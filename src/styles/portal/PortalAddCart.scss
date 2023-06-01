@@ -48,7 +48,7 @@
     height: 150px;
     padding: 10px 20px;
     display: flex;
-    gap: 80px;
+    gap: 60px;
     margin-top: 16px;
 }
 
@@ -71,20 +71,29 @@
     margin-bottom: 4px;
 }
 
+.precio{
+    display: flex;
+    align-items: center;
+}
+
 .precio-prod {
     color: var(--logo-red);
     font-size: 24px;
 }
 
+
 .add-remove {
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 20px;
     height: 30px;
+    margin-top: 7%;
 }
 
 .icon-remove,
 .icon-add {
+    display: flex;
+    align-items: center;
     background: rgb(235, 235, 235);
     height: 22px;
     color: var(--black);
@@ -139,7 +148,7 @@
 
 @media screen and (max-width:600px) {
     .modal-carrito {
-        width: 320px;
+        width: 83%;
     }
 
     .title {
@@ -156,7 +165,8 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        margin-top: 0;
+        margin-top: 10px;
+      
     }
 
 
@@ -165,13 +175,18 @@
         border: 1px solid #000;
     }
 
+    .add-remove {
+        margin-top: 0.5%;
+    }
+
     .precio,
     .add-remove {
-        align-self: flex-end;
+        justify-content: center;
+        align-content: center;
     }
 
     .text {
-        margin-top: 50px;
+        margin-top: 100px;
     }
 
     .link-continue a {
@@ -194,4 +209,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width:350px) {
+    .link-continue a {
+        font-size: 12px;
+    }
+
+    .primary-button button {
+        font-size: 12px;
+        border-radius: 18px;
+        padding: 13px;
+    }
 }

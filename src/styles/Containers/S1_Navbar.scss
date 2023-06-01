@@ -40,6 +40,7 @@ a {
     align-items: center;
     padding: 0 20px;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .navbar__logo img {
@@ -65,14 +66,24 @@ a {
     display: flex;
 }
 
+.container-fluid-II {
+    display: flex;
+}
+
 .iconmenu {
     color: var(--white);
     font-size: 30px;
 }
 
+.navbar__menucategory-name_Container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 .navbar__menucategory-name {
     font-size: 18px;
-    padding: 5px 5px 5px 1px;
+    padding: 2.8px 5px 5px 1px;
 }
 
 .offcanvas {
@@ -116,7 +127,7 @@ a {
     outline: none;
     height: 35px;
     font-size: 14px;
-    width: 36.6vw;
+    width: 36.4vw;
     margin-left: 11px;
 }
 
@@ -209,13 +220,12 @@ a {
         position: absolute;
         width: 85%;
         top: 78px;
-
     }
 
     .navbar__search input {
         box-sizing: border-box;
         height: 35px;
-        margin-left: 15px;
+        margin-left: 13px;
     }
 
     #search {
@@ -224,7 +234,8 @@ a {
 
     .seach_icon {
         position: absolute;
-        margin-left: 73vw;
+        margin-left: 90%;
+        font-size: 25px;
     }
 
     .navbar__logo {
@@ -262,7 +273,12 @@ a {
     }
 
     #search {
-        width: 270px;
+        width: 265px;
+    }
+
+    .seach_icon {
+        margin-left: 88%;
+        font-size: 24px;
     }
 
 }

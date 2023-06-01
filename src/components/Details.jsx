@@ -189,7 +189,8 @@ const Details = () => {
                             </div>
                             <div className="personalization-information">
                                 <div>¿Quieres personalizar este producto? </div>
-                                <a href="https://api.whatsapp.com/send?phone=930820893&text=Welcome to EmpresaQB"> Contacta a una asesor</a>
+                                <a href="https://api.whatsapp.com/send?phone=930820893&text=Welcome to EmpresaQB">
+                                    Contacta a una asesor</a>
                             </div>
                         </div>
                     </div>

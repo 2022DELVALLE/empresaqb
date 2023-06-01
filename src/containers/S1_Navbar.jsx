@@ -168,14 +168,18 @@ const S1_Navbar = () => {
                     </div>
                     <div className="navbar__menucategories">
                         <div className="container-fluid">
-                            <div
-                                onClick={() => handleClickMenuP()}
-                            >
-                                <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                                    <i className="fa-solid fa-bars iconmenu"></i>
-                                </button>
-                                <a className="navbar__menucategory-name">Menú</a>
+                            <div onClick={() => handleClickMenuP()} className="container-fluid-II" >
+                                <div>
+                                    <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                                        <i className="fa-solid fa-bars iconmenu"></i>
+                                    </button>
+                                </div>
+
+                                <div className="navbar__menucategory-name_Container">
+                                    <a className="navbar__menucategory-name">Menú</a>
+                                </div>
+                                {/* <a className="navbar__menucategory-name">Menú</a> */}
                             </div>
                             <div className="offcanvas offcanvas-end" id="offcanvasNavbar"
                                 aria-labelledby="offcanvasNavbarLabel">

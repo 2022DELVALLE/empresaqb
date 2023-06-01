@@ -98,7 +98,7 @@ const MyOrder = () => {
         <main>
             <div className="container-basquet">
                 <div className="products-basquet">
-                    <h1 className="title-shop">Productos en la bolsa (10)</h1>
+                    <h1 className="title-shop">Productos en la bolsa</h1>
                     {stateCart.cart.map(product => (
                         <OrderItem product={product} key={`OrderItem-${product.id}`} />
                     ))}
