@@ -17,12 +17,11 @@
 }
 
 .SectionCreateAccount-container {
-    max-width: 1000px;
-    height: 750px;
+    max-width: 1100px;
     background: var(--white);
     border-radius: 20px;
     display: flex;
-    padding: 60px 100px;
+    padding: 10px 100px;
     align-items: center;
     justify-content: center;
 }
@@ -39,16 +38,16 @@
 .SectionCreateAccount-Form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 10px;
     width: 450px;
 }
 
 .SectionCreateAccount-form-title {
-    font-weight: 400;
+    font-weight: 600;
     font-size: 24px;
     line-height: 29px;
     color: var(--logo-red);
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .SectionCreateAccount-form-subtitle {
@@ -63,15 +62,17 @@
     flex-direction: column;
     width: 455px;
     height: 669px;
-    gap: 15px;
 }
 
 .SectionCreateAccount-Form-contain-label {
-    font-weight: 400;
+    font-weight: 600;
     font-size: 16px;
     line-height: 19px;
     padding: 2px 0;
+    margin-top: 15px;
+    margin-bottom: 3px;
 }
+
 
 .SectionCreateAccount-Form-contain-input,
 .inputSignUp {
@@ -81,6 +82,7 @@
     font-size: 14px;
     line-height: 17px;
     color: var(--black);
+
 }
 
 .passwordSignUpInput {
@@ -105,7 +107,7 @@
 .passwordSecurityRecomendations {
     color: #E0A100;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 17px;
     display: flex;
     width: 450px;
@@ -149,7 +151,7 @@
 }
 
 .SignUp-button {
-    width: 312px;
+    width: 310px;
     height: 48px;
     font-weight: 400;
     font-size: 18px;
@@ -167,10 +169,12 @@
     font-size: 14px;
     line-height: 17px;
     align-self: center;
+    margin-top: 8px;
 }
 
 .LoginQuestion a {
     color: var(--logo-red);
+    margin-left: 6px;
 }
 
 /*responsive design*/
@@ -184,27 +188,23 @@
         height: 350px;
     }
 
-
     .SectionCreateAccount {
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 0px;
-
     }
 
     .SectionCreateAccount-container {
         width: 100vw;
-        height: 100vh;
+        // height: 100vh;
         padding: 0;
         border-radius: 0px;
     }
 
     .SectionCreateAccount-Form {
         width: 310px;
-        gap: 10px;
     }
-
 
     .SectionCreateAccount-form-title {
         font-size: 20px;
@@ -218,7 +218,6 @@
 
     .SectionCreateAccount-Form-contain {
         width: 320px;
-        gap: 10px;
     }
 
     .SectionCreateAccount-Form-contain-label {
@@ -242,10 +241,10 @@
     }
 
     .passwordSecurityRecomendations {
-        font-size: 12px;
+        font-size: 9.5px;
         line-height: 15px;
-        width: 280px;
-        gap: 10px;
+        width: 90%;
+        gap: 3px;
     }
 
     .passwordSecurityRecomendations__box1 {
@@ -266,9 +265,8 @@
     }
 
     .TemsConditions {
-        gap: 8px;
         font-weight: 400;
-        font-size: 12px;
+        font-size: 10px;
         line-height: 15px;
         display: flex;
         width: 300px;
@@ -281,6 +279,7 @@
 
     .SignUp-button {
         width: 193px;
+        height: 44px;
         padding: 10px;
         font-size: 14px;
         line-height: 17px;
@@ -292,11 +291,21 @@
         line-height: 15px;
     }
 
-
-
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:600px) {
+
+    .SectionCreateAccount {
+        margin-top: 110px;
+    }
+}
+
+@media screen and (max-width:550px) {
+
+    .SectionCreateAccount {
+        margin-top: 100px;
+    }
+
     .SectionCreateAccount-Image {
         display: none;
     }
@@ -316,7 +325,6 @@
     .SectionCreateAccount-Form-contain {
         width: 100%;
         align-items: center;
-
     }
 
     .SectionCreateAccount-form-title {
@@ -337,7 +345,9 @@
     }
 
     .passwordSecurityRecomendations {
-        font-size: 11px;
+        width: 85%;
+        font-size: 10px;
+        gap: 1px;
     }
 
     .termsConditionsPromotions {
@@ -346,9 +356,13 @@
         align-items: center;
     }
 
+    .SignUp-button {
+        width: 185px;
+        height: 40px;
+    }
 }
 
-@media screen and (max-width:330px) {
+@media screen and (max-width:370px) {
 
     .SectionCreateAccount-container {
         width: 100%;
@@ -361,8 +375,40 @@
         display: flex;
     }
 
-    .SectionCreateAccount-Form-contain-input {
-        width: 80%;
+    .SectionCreateAccount-Form-contain-label {
+        font-size: 13px;
     }
 
+    .SectionCreateAccount-Form-contain-input {
+        width: 80%;
+        font-size: 13px;
+    }
+
+    .termsConditionsPromotions-checkbox {
+        width: 12px;
+    }
+
+    .termsConditionsPromotions {
+        font-size: 9px;
+        gap: 6px;
+        width: 90%;
+    }
+
+    .SignUp-button {
+        width: 175px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width:350px) {
+
+    .passwordSecurityRecomendations {
+        width: 90%;
+        font-size: 10px;
+        gap: 1px;
+    }
+
+    .termsConditionsPromotions {
+        font-size: 5px;
+    }
 }
