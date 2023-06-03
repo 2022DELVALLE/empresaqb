@@ -11,7 +11,7 @@ const ProductItem = ({ itemproduct }) => {
 	const navigate = useNavigate();
 
 	// Guardo un producto preview para ver sus details mas claro
-	const { setProductItemPreview,setAmount } = React.useContext(ProductPreviewContext);
+	const { setProductItemPreview,setAmount,setProductItemPedido,amount } = React.useContext(ProductPreviewContext);
 
 	const handleDetailsProduct = (payload) => {
 		setAmount(1);
@@ -24,8 +24,15 @@ const ProductItem = ({ itemproduct }) => {
 
 	function handleOpenAddCart(item) {
 		setAmount(1);
-		setProductItemPreview(item)
-		setPortalAddCart(!portalAddCart);
+        setProductItemPreview(item);
+		setPortalAddCart(true);
+        const PedidoObjeto = {
+            id: item.id,
+            cantidad: amount,
+            precio_unitario: item.priceUnit,
+            precio_total: amount * item.priceUnit
+        }
+        setProductItemPedido(PedidoObjeto);
 	}
 
 	return (

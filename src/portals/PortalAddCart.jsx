@@ -109,7 +109,7 @@ const PortalAddCart = ({ portalRefAddCart }) => {
                     <div className="primary-button"
                         onClick={() => onClickAddCart(productItemPreview, productItemPedido)}
                     >
-                        <button>Ir al Carrito</button>
+                        <button>Añadir e ir al carrito</button>
                     </div>
                 </div>
             </section>

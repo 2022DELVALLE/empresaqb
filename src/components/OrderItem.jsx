@@ -33,11 +33,14 @@ console.log(product.quantity);
     //Metodo para calcular el monto total de productos en el carrito
     React.useEffect(() => {
         const objePedido = stateCartPedido.cartPedido.find(item => item.id === product.id);
+        console.log(objePedido)
         objePedido.cantidad = productQuantity;
         const reducer = (accumalator, currentValue) => accumalator + (currentValue.precio_unitario * currentValue.cantidad);
         const sum = stateCartPedido.cartPedido.reduce(reducer, 0);
         setTotal(sum);
     }, [productQuantity]);
+
+
 
     return (
         <div className="product-basquet">
