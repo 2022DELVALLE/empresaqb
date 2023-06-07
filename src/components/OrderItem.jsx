@@ -3,17 +3,36 @@ import React from 'react';
 //import app context
 import AppContext from '../context/AppContext';
 
+import Swal from 'sweetalert2';
+
 function OrderItem({ product }) {
 
-    const { removeFromCart, removeFromCartPedido, stateCartPedido, setTotal} = React.useContext(AppContext);
+    const { removeFromCart, removeFromCartPedido, stateCartPedido, setTotal } = React.useContext(AppContext);
 
     const handleRemove = (product) => {
-        const objePedido = stateCartPedido.cartPedido.find(item => item.id === product.id);
+        Swal.fire({
+            title: '¿Estás seguro de eliminar el producto de tu carrito?',
+            text: 'Modal with a custom image.',
+            imageUrl: product.image[0],
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            showCancelButton: true,
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Eliminado correctamente!!', '', 'success');
+                        const objePedido = stateCartPedido.cartPedido.find(item => item.id === product.id);
         removeFromCartPedido(objePedido);
         removeFromCart(product);
+            } else {
+                Swal.fire('Cancelado', '', 'info');
+            }
+        });
+
     }
 
-console.log(product.quantity);
 
     //Control de la cantidad 
     const [productQuantity, setProductQuantity] = React.useState(product.quantity);

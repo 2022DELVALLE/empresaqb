@@ -2,10 +2,13 @@ import React from 'react';
 
 //import scss
 import '../styles/Components/MyAccount.scss';
+import Swal from 'sweetalert2';
 
 //import app context
 import AppContext from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
+
+import useEditCustomer from '../hooks/useEditeCustomer';
 
 const MyAccountComponent = () => {
 
@@ -21,7 +24,6 @@ const MyAccountComponent = () => {
     //Recuperamos el usuario activo
 
     const { user, setUser } = React.useContext(AppContext);
-    
     //control de mi cuenta si el usuario no existe 
     if (!user) {
         return (
@@ -62,6 +64,52 @@ const MyAccountComponent = () => {
     }
 
 
+    const [isEdit, setIsEdit] = React.useState(false);
+
+    const handleSelectedEdit = () => {
+        event.preventDefault();
+        setIsEdit(!isEdit);
+    }
+
+    const { responseEdit, error, loading, editCustomer} = useEditCustomer();
+
+
+    const handleSelectedSave = () => {
+        event.preventDefault();
+        const newUser = {
+            name: name,
+            dni_ruc: dni,
+            email: email,
+            address: address,
+            telephone: telephone,
+        }
+        console.log("dddkfedjkm")
+        console.log(newUser);
+        editCustomer(newUser,user.data.user.id );
+        setIsEdit(!isEdit);
+    }
+
+    React.useEffect(() => {
+        if (responseEdit) {
+            if (responseEdit.res = true) {
+                Swal.fire(
+                    'Felicitaciones!!!!',
+                    'Se actualizo exitosamente',
+                    'success'
+                );
+            }
+        }
+    }, [responseEdit]);
+
+    React.useEffect(() => {
+        if (error) {
+            Swal.fire(
+                'Upsss!!!!',
+                error.message,
+                'info'
+            );
+        }
+    }, [error]);
 
     return (
         <section className="container_my_account">
@@ -84,9 +132,8 @@ const MyAccountComponent = () => {
                         />
                     </div>
                     <div className="item_my_account_dato no_editable_item_my_account_dato">
-                        <label htmlFor="">Tipo de documento:</label>
+                        <label htmlFor="">DNI/RUC</label>
                         <div className="select_options_my_account">
-                            <span>DNI:</span>
                             <input type="" value={dni}
                                 onChange={handledniChange}
                             />
@@ -108,15 +155,26 @@ const MyAccountComponent = () => {
                         </div>
                     </div>
                     <div className="item_my_account_dato">
-                        <label htmlFor="">Apellido Paterno :</label>
+                        <label htmlFor="">Direccion :</label>
                         <input type="text" value={address}
                             onChange={handleaddressChange}
                         />
                     </div>
                 </div>
-                <div className="container_btn_edit_my_account">
-                    <a href="">EDITAR</a>
-                </div>
+
+                {!isEdit ? (
+                    <div className="container_btn_edit_my_account"
+                        onClick={() => handleSelectedEdit()}
+                    >
+                        <a href="">Editar</a>
+                    </div>
+                ) : (
+                    <div className="container_btn_edit_my_account"
+                        onClick={() => handleSelectedSave()}>
+                        <a href="">Guardar</a>
+                    </div>
+                )
+                }
             </div>
         </section>
     );

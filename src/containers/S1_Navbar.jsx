@@ -90,7 +90,6 @@ const S1_Navbar = () => {
     const onChangeWordSearch = event => {
         event.preventDefault();
         setWordSearch(event.target.value);
-        console.log(wordSearch);
     }
 
     //Lamammos al contexto y pasamos el metodo de filter por word search

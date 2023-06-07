@@ -1,5 +1,6 @@
 import React from 'react';
 import useGetProducts from './useGetProducts';
+import Swal from 'sweetalert2';
 
 //Import local storage
 import { useLocalStorage } from './useLocalStorage';
@@ -32,10 +33,23 @@ const useInitialState = () => {
 	//Filtramos productos por palabra ingresado en la barra de busqueda
 
 	const filterProductsBySearch = (word) => {
-		setLeakedproduct(productsdata.filter(producto =>
-			producto.title.toLowerCase()
-				.includes(word.toLowerCase())
-		));
+		const filteredProducts = productsdata.filter(producto =>
+			producto.title.toLowerCase().includes(word.toLowerCase())
+		);
+		if (filteredProducts.length > 0) {
+			setLeakedproduct(filteredProducts);
+		} else {
+			Swal.fire({
+			}).then((result) => {
+				if (result.isConfirmed) {
+					Swal.fire('Lo sentimos no encontramos su producto!!', 'Le puede interesar los siguientes', 'success');
+			setLeakedproduct(productsdata);
+
+				}
+			});		
+		}
+
+
 	}
 
 	//Metodo para filrar los prouctos segun las cartegorias del slider
@@ -199,7 +213,7 @@ const useInitialState = () => {
 	const [total, setTotal] = React.useState(0);
 
 	//controlamos el numero de pedido
-	const[numeroPedido, setNumeroPedido] = React.useState(0);
+	const [numeroPedido, setNumeroPedido] = React.useState(0);
 
 
 	return {
