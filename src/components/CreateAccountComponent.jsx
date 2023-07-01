@@ -40,9 +40,11 @@ const CreateAccountComponent = () => {
 
     React.useEffect(() => {
         if (error) {
+            const firstErrorKey = Object.keys(error.errors)[0];
+            const firstErrorMessage = error.errors[firstErrorKey][0];
             Swal.fire(
                 'Upsss!!!!',
-                error.message,
+                firstErrorMessage,
                 'info'
             );
         }

@@ -36,10 +36,10 @@ const App = () => {
 							<Route path="/forgot-password" element={<ForgotPassword />} />
 							<Route path="/details" element={<DetailsProduct />} />
 							<Route path="/cart" element={<Cart />} />
-							<Route path="/myaccount" element={<MyAccount />} />		
-							<Route path="/reset-password" element={<ResetPassword />} />	
-							<Route path="/payment" element={<Payment />} />	
-							<Route path="*" element={<p>Not found</p>} />	
+							<Route path="/myaccount" element={<MyAccount />} />
+							<Route path="/reset-password" element={<ResetPassword />} />
+							<Route path="/payment" element={<Payment />} />
+							<Route path="*" element={<p>Not found</p>} />
 						</Routes>
 					</Layout>
 				</BrowserRouter>

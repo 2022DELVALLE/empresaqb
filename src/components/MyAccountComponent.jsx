@@ -25,7 +25,7 @@ const MyAccountComponent = () => {
 
     const { user, setUser } = React.useContext(AppContext);
     //control de mi cuenta si el usuario no existe 
-    if (!user) {
+    if (!user) { 
         return (
             <div className='container-button-iniciar-sesion'>
                 <button
