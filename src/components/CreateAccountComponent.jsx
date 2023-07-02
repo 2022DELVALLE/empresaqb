@@ -311,7 +311,7 @@ const CreateAccountComponent = () => {
                         <label htmlFor="" className="LoginQuestion">¿Ya tienes una cuenta?
                             <a
                                 onClick={hanldeToLogin}
-                                href="#">Inicia sesión{termsChecked ? 'true' : 'false'}</a>
+                                href="#">Inicia sesión</a>
                         </label>
                     </form>
                 </div>
