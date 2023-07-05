@@ -12,7 +12,6 @@ function OrderItem({ product }) {
     const handleRemove = (product) => {
         Swal.fire({
             title: '¿Estás seguro de eliminar el producto de tu carrito?',
-            text: 'Modal with a custom image.',
             imageUrl: product.image[0],
             imageWidth: 200,
             imageHeight: 200,

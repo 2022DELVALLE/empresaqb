@@ -27,6 +27,7 @@ const ForgotPasswordComponent = () => {
 
     React.useEffect(() => {
         if (error) {
+            console.log(error)
             alert(error.message);
         }
     }, [error]);
