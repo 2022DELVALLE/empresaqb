@@ -18,6 +18,9 @@ import useInitialState from '../hooks/useInicialState';
 import ProductPreviewContext from '../context/ProductPreviewContext';
 import useProductPreview from '../hooks/useProductPreview';
 import ResetPassword from '../pages/ResetPassword';
+import Admin from '../Adminp/Admin';
+import Table from '../Adminp/Table';
+import Editarcategoria from '../Adminp/Editarcategoria';
 
 const App = () => {
 
@@ -39,6 +42,14 @@ const App = () => {
 							<Route path="/myaccount" element={<MyAccount />} />
 							<Route path="/reset-password" element={<ResetPassword />} />
 							<Route path="/payment" element={<Payment />} />
+
+
+
+							<Route path="/admin" element={<Admin />} />
+							<Route path="/table" element={<Table />} />
+							<Route path="/editcategory" element={<Editarcategoria />} />
+
+
 							<Route path="*" element={<p>Not found</p>} />
 						</Routes>
 					</Layout>

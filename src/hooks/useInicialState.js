@@ -43,10 +43,10 @@ const useInitialState = () => {
 			}).then((result) => {
 				if (result.isConfirmed) {
 					Swal.fire('Lo sentimos no encontramos su producto!!', 'Le puede interesar los siguientes', 'success');
-			setLeakedproduct(productsdata);
+					setLeakedproduct(productsdata);
 
 				}
-			});		
+			});
 		}
 
 
@@ -216,6 +216,12 @@ const useInitialState = () => {
 	const [numeroPedido, setNumeroPedido] = React.useState(0);
 
 
+	//==============================
+	// categorias
+	const [categoria, setCategoria] = React.useState(null);
+
+	//==================
+
 	return {
 		//Variables roductos filtrados
 		leakedProducts,
@@ -284,6 +290,14 @@ const useInitialState = () => {
 
 		//numero de pedido
 		numeroPedido, setNumeroPedido,
+
+
+
+			//==============================
+	// categorias
+	categoria, setCategoria,
+
+	//==================
 	}
 };
 
