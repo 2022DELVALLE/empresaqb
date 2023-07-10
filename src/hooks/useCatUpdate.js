@@ -10,7 +10,7 @@ const useCatUpdate = () => {
     const updateCategory = async (newCategoey, idCategory) => {
         try {
             setLoading(true);
-            const response = await axios.put(`https://api-empresaqb-version3-production.up.railway.app/api/categories/${idCategory}`, newCategoey);
+            const response = await axios.put(`http://127.0.0.1:8000/api/categories/${idCategory}`, newCategoey);
             setReponseUpdateCategory(response.data);
             setLoading(false);
         } catch (error) {

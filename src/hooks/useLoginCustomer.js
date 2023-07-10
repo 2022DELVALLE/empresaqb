@@ -11,7 +11,7 @@ const useLoginCustomer = () => {
 
     const loginCustomer = async (credenciales) => {
         try {
-            const response = await axios.post('https://api-empresaqb-version3-production.up.railway.app/api/login', credenciales);
+            const response = await axios.post('http://127.0.0.1:8000/api/login', credenciales);
             setUser(response.data);
         } catch (error) {
             console.log(error.response.data.message);

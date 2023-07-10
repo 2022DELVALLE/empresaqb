@@ -10,7 +10,7 @@ const useSaveCustomer = () => {
     const saveCustomer = async (user) => {
         try {
             setLoading(true);
-            const response = await axios.post('https://api-empresaqb-version3-production.up.railway.app/api/register', user);
+            const response = await axios.post('http://127.0.0.1:8000/api/register', user);
             setReponseRegister(response.data);
             setLoading(false);
         } catch (error) {

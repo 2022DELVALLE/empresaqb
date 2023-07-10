@@ -1,0 +1,38 @@
+.container-categorias {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: hsl(218deg 50% 91%);
+    height: 100vh;
+}
+
+.container-labelcat {
+    background: hsl(0deg 0% 100%);
+    box-shadow: 0 0 2em hsl(231deg 62% 94%);
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    border-radius: 20px;
+    color: hsl(0deg 0% 30%);
+    margin-bottom: 1em;
+}
+
+
+.button-guardar {
+    border: none;
+    background: #720007;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    width: 234px;
+    padding: 10px;
+    border-radius: 16px;
+}
+.h2-cat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

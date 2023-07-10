@@ -14,7 +14,7 @@ const S4_Categories = () => {
 
     //Traemos la data de sliders
 
-    const APICategories = 'https://api-empresaqb-version3-production.up.railway.app/api/categories';
+    const APICategories = 'http://127.0.0.1:8000/api/categories';
 
     const categoriesdata = useGetCategories(APICategories);
 

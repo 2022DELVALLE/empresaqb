@@ -21,6 +21,10 @@ import ResetPassword from '../pages/ResetPassword';
 import Admin from '../Adminp/Admin';
 import Table from '../Adminp/Table';
 import Editarcategoria from '../Adminp/Editarcategoria';
+import Tableproducts from '../Adminp/products/Tableproducts';
+import EditarProductos from '../Adminp/products/EditarProductos';
+import AnadirProducto from '../Adminp/products/AnadirProducto';
+
 
 const App = () => {
 
@@ -49,6 +53,10 @@ const App = () => {
 							<Route path="/table" element={<Table />} />
 							<Route path="/editcategory" element={<Editarcategoria />} />
 
+
+							<Route path="/tableproductos" element={<Tableproducts />} />
+							<Route path="/editarproductos" element={<EditarProductos />} />
+							<Route path="/anadirproductos" element={<AnadirProducto />} />
 
 							<Route path="*" element={<p>Not found</p>} />
 						</Routes>

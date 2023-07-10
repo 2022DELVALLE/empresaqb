@@ -16,7 +16,7 @@ const useInitialState = () => {
 
 	//Traemos la data de sliders
 
-	const APIProducts = 'https://api-empresaqb-version3-production.up.railway.app/api/products';
+	const APIProducts = 'http://127.0.0.1:8000/api/products';
 	const productsdata = useGetProducts(APIProducts);
 
 	//Inicamos variables que tendra los productos filtrados
@@ -221,7 +221,11 @@ const useInitialState = () => {
 	const [categoria, setCategoria] = React.useState(null);
 
 	//==================
+	//==============================
+	// productos
+	const [productospasado, setProductosPasado] = React.useState(null);
 
+	//==================
 	return {
 		//Variables roductos filtrados
 		leakedProducts,
@@ -293,11 +297,18 @@ const useInitialState = () => {
 
 
 
-			//==============================
-	// categorias
-	categoria, setCategoria,
+		//==============================
+		// categorias
+		categoria, setCategoria,
 
-	//==================
+		//==================
+
+
+		//==============================
+		// productos
+		productospasado, setProductosPasado
+
+		//==================
 	}
 };
 

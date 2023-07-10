@@ -9,16 +9,19 @@ const Admin = () => {
     const handleOnCategories = () => {
         navigate('/table')
     }
+    const handleOnProductos = () => {
+        navigate('/tableproductos')
+    }
 
     return (
-        <>
+        <div className='container-admin'>
             <h1>Elija qué elemento desea modificar</h1>
-            <div className="container">
+            <div className="container2-admin">
                 <h2 className="category" onClick={() => handleOnCategories()}>Categorías</h2>
-                <h2 className="product">Productos</h2>
+                <h2 className="product"  onClick={() => handleOnProductos()}>Productos</h2>
             </div>
 
-        </>
+        </div>
 
     );
 }
