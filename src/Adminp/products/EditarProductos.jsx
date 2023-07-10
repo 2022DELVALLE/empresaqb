@@ -87,7 +87,6 @@ const EditarProducto = () => {
             );
         }
     }, [error]);
-    console.log(error)
     return (
         <>
             <h2>Editar Producto</h2>
