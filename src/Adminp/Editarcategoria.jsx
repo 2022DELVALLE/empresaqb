@@ -33,6 +33,7 @@ const Editarcategoria = () => {
         }
         console.log(newCategory);
         updateCategory(newCategory, categoria.id);
+        window.location.href = 'http://localhost:8080/table'
     }
 
     React.useEffect(() => {
@@ -87,6 +88,7 @@ const Editarcategoria = () => {
                 <button type="submit"
                     className='button-guardar '
                     onClick={() => handleSaveCategory()}
+                    
                 >Guardar cambios</button>
             </div>
         </>
