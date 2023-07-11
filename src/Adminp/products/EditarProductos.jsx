@@ -69,11 +69,14 @@ const EditarProducto = () => {
     React.useEffect(() => {
         if (responseUpdateProduct) {
             if (responseUpdateProduct.res = true) {
-                Swal.fire(
-                    'Felicitaciones!!!!',
-                    responseUpdateProduct.message,
-                    'success'
-                );
+                Swal.fire({
+                    title: 'Se actualizo exitosamente',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'http://localhost:8080/tableproductos'
+                    }
+                });
             }
         }
     }, [responseUpdateProduct]);

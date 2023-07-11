@@ -14,7 +14,7 @@ const S5_DataEnterprice = () => {
         <section className="section__beforeFooter">
             <div className="section_beforeFooter-container">
                 <div className="section__beforeFooter-img"><img src={ListHome} alt="icono de lista" /></div>
-                <div className="section__beforeFooter-title">Envíos</div>
+                <div className="section__beforeFooter-title">Manual Usuario</div>
             </div>
             <div className="section_beforeFooter-container">
                 <div className="section__beforeFooter-img"><img src={BagHome} alt="icono de bolsa de compras" /></div>

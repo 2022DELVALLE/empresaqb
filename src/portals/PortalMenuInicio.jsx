@@ -117,6 +117,7 @@ const PortalMenuInicio = ({ portalRef }) => {
                     >
                         <a href="#">Regístrate</a>
                     </div>
+                    
                 </div>
             </div>
         </div>,

@@ -33,17 +33,19 @@ const Editarcategoria = () => {
         }
         console.log(newCategory);
         updateCategory(newCategory, categoria.id);
-        window.location.href = 'http://localhost:8080/table'
     }
 
     React.useEffect(() => {
         if (responseUpdateCategory) {
             if (responseUpdateCategory.res = true) {
-                Swal.fire(
-                    'Felicitaciones!!!!',
-                    'Se actualizo exitosamente',
-                    'success'
-                );
+                Swal.fire({
+                    title: 'Se actualizo exitosamente',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'http://localhost:8080/table'
+                    }
+                });
             }
         }
     }, [responseUpdateCategory]);
@@ -88,7 +90,7 @@ const Editarcategoria = () => {
                 <button type="submit"
                     className='button-guardar '
                     onClick={() => handleSaveCategory()}
-                    
+
                 >Guardar cambios</button>
             </div>
         </>
