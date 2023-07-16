@@ -35,7 +35,19 @@
         background-color: #f9f9f9;
         transition: background-color 0.3s ease;
     }
+    
 
     .container2-admin h2:hover {
         background-color: #eaeaea;
+    }
+
+    .container2-admin2  {
+        font-size: 20px;
+        cursor: pointer;
+        margin: 10px 0;
+        padding: 10px 20px;
+        border: 2px solid #222222;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s ease;
     }

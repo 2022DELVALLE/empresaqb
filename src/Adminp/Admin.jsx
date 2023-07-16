@@ -15,12 +15,12 @@ const Admin = () => {
 
     return (
         <div className='container-admin'>
-            <h1>Elija qué elemento desea modificar</h1>
+            <h1>Elija qué elemento desea administrar</h1>
             <div className="container2-admin">
                 <h2 className="category" onClick={() => handleOnCategories()}>Categorías</h2>
                 <h2 className="product" onClick={() => handleOnProductos()}>Productos</h2>
             </div>
-            <div>
+            <div className="container2-admin2">
                 <button>
                     Manual de administrador
                 </button>

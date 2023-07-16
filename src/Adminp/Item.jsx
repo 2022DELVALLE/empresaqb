@@ -18,8 +18,6 @@ const Item = ({ categoryitem }) => {
     const handleDeleteCategory = (idcategory) => {
         deleteCategory(idcategory);
     }
-    console.log(responseDeleteCategory)
-    console.log(error)
 
     React.useEffect(() => {
         if (responseDeleteCategory) {
