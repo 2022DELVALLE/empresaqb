@@ -10,9 +10,16 @@ import SignUpHome from '@icons/iconSignUpHome.svg';
 import CallHome from '@icons/iconCallHome.svg';
 
 const S5_DataEnterprice = () => {
+
+    const handleToManualUsuario = ()=> {
+        window.open('https://drive.google.com/file/d/1x4O1NNKwlUHamTJu68k-WwmR1MZ9fxds/view?usp=sharing', '_blank');
+    }
+
     return (
         <section className="section__beforeFooter">
-            <div className="section_beforeFooter-container">
+            <div className="section_beforeFooter-container"
+            onClick={() => handleToManualUsuario()}
+            >
                 <div className="section__beforeFooter-img"><img src={ListHome} alt="icono de lista" /></div>
                 <div className="section__beforeFooter-title">Manual Usuario</div>
             </div>

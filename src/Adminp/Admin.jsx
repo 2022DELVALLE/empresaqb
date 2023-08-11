@@ -13,6 +13,10 @@ const Admin = () => {
         navigate('/tableproductos')
     }
 
+    const handleToManualAdministrador = ()=> {
+        window.open('https://drive.google.com/file/d/1h-ZYOwgrQTfmlj6IavYeVCZ6ujb1ejHD/view?usp=sharing', '_blank');
+    }
+
     return (
         <div className='container-admin'>
             <h1>Elija qué elemento desea administrar</h1>
@@ -20,13 +24,14 @@ const Admin = () => {
                 <h2 className="category" onClick={() => handleOnCategories()}>Categorías</h2>
                 <h2 className="product" onClick={() => handleOnProductos()}>Productos</h2>
             </div>
-            <div className="container2-admin2">
+            <div className="container2-admin2"
+            onClick={()=> handleToManualAdministrador()}
+            >
                 <button>
                     Manual de administrador
                 </button>
             </div>
         </div>
-
     );
 }
 
