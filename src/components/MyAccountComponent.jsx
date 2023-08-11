@@ -83,8 +83,6 @@ const MyAccountComponent = () => {
             address: address,
             telephone: telephone,
         }
-        console.log("dddkfedjkm")
-        console.log(newUser);
         editCustomer(newUser,user.data.user.id );
         setIsEdit(!isEdit);
     }

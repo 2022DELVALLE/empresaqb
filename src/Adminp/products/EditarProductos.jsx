@@ -74,7 +74,7 @@ const EditarProducto = () => {
                     confirmButtonText: 'Aceptar',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = 'http://localhost:8080/tableproductos'
+                        window.location.href = 'https://empresaqb.com/tableproductos'
                     }
                 });
             }
