@@ -13,7 +13,7 @@ const useSavePedido = () => {
     const SavePedido = async (modeloPedido) => {
         try {
             const response = await axios.post(
-                'http://127.0.0.1:8000/api/pedidos',
+                'https://api-empresaqb-version3-production.up.railway.app/api/pedidos',
                 modeloPedido,
                 { headers: { Authorization: `Bearer ${user.data.token}` } }
             );

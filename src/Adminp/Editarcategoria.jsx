@@ -43,7 +43,7 @@ const Editarcategoria = () => {
                     confirmButtonText: 'Aceptar',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = 'http://localhost:8080/table'
+                        window.location.href = 'https://empresaqb.com/table'
                     }
                 });
             }

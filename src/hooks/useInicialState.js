@@ -16,7 +16,7 @@ const useInitialState = () => {
 
 	//Traemos la data de sliders
 
-	const APIProducts = 'http://127.0.0.1:8000/api/products';
+	const APIProducts = 'https://api-empresaqb-version3-production.up.railway.app/api/products';
 	const productsdata = useGetProducts(APIProducts);
 
 	//Inicamos variables que tendra los productos filtrados

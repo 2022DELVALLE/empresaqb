@@ -10,7 +10,7 @@ const useProDelete = () => {
     const deleteProduct = async ( idProduct) => {
         try {
             setLoading(true);
-            const response = await axios.delete(`http://127.0.0.1:8000/api/products/${idProduct}`);
+            const response = await axios.delete(`https://api-empresaqb-version3-production.up.railway.app/api/products/${idProduct}`);
             setReponseDeleteProduct(response.data);
             setLoading(false);
         } catch (error) {

@@ -13,7 +13,7 @@ const S3_Promotions = () => {
 
     //Recuperamos datos de las promociones
 
-    const APIPromtions = 'http://127.0.0.1:8000/api/promotions';
+    const APIPromtions = 'https://api-empresaqb-version3-production.up.railway.app/api/promotions';
 
     const promotionsdata = useGetPromotions(APIPromtions);
 

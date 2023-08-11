@@ -9,7 +9,7 @@ const useForgotPassword = () => {
 
     const forgotPassword = async (email) => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/forgot-password', email);
+            const response = await axios.post('https://api-empresaqb-version3-production.up.railway.app/api/forgot-password', email);
             setResponseForgotPassword(response.data);
         } catch (error) {
             SetError(error.response.data);

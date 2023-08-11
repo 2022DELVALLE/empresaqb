@@ -9,7 +9,7 @@ const useResetPassword = () => {
 
     const resetPassword = async (credencialesPassword) => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/reset-password', credencialesPassword);
+            const response = await axios.post('https://api-empresaqb-version3-production.up.railway.app/api/reset-password', credencialesPassword);
             setResponseResetPassword(response.data);
         } catch (error) {
             setError(error.response.data);
