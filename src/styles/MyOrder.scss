@@ -1,4 +1,6 @@
-@import 'vars';
+@use '../styles/_vars.scss' as *;
+
+
 
 * {
     font-family: var(--font);

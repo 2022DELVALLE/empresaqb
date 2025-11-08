@@ -171,7 +171,7 @@ function Section6_Footer() {
             </div>
 
             <div className="Footer__box2">
-                <span>&copy; 2023 <b>EMPRESA QB</b> - Todos los derechos reservados</span>
+                <span>&copy; 2025 <b>EMPRESA QB</b> - Todos los derechos reservados</span>
             </div>
         </footer>
 

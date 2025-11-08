@@ -10,7 +10,7 @@ const useProSave = () => {
     const saveProduct = async (product) => {
         try {
             setLoading(true);
-            const response = await axios.post('https://api-empresaqb-version3-production.up.railway.app/api/products', product);
+            const response = await axios.post('http://127.0.0.1:8000/api/products', product);
             setReponseProduct(response.data);
             setLoading(false);
         } catch (error) {

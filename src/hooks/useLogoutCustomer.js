@@ -12,7 +12,7 @@ const useLogoutCustomer = () => {
     const logoutCustomer = async () => {
         try {
             const response = await axios.post(
-                'https://api-empresaqb-version3-production.up.railway.app/api/logout',
+                'http://127.0.0.1:8000/api/logout',
                 null,
                 { headers: { Authorization: `Bearer ${user.data.token}` } }
             );

@@ -1,6 +1,6 @@
 import React from 'react';
 //Archivo scs
-import '@styles/Containers/Section2_Slider.scss';
+import '../styles/Containers/Section2_Slider.scss';
 
 //Import Containers y components
 import SliderItemFirst from '../components/SliderItemFirst';
@@ -13,7 +13,7 @@ const S2_Slider = () => {
 
     //Traemos la data de sliders
 
-    const APISlider = 'https://api-empresaqb-version3-production.up.railway.app/api/sliders';
+    const APISlider = 'http://127.0.0.1:8000/api/sliders';
 
     const sliderdata = useGetSliders(APISlider);
 
@@ -35,7 +35,6 @@ const S2_Slider = () => {
     const handleRadioChange = (event) => {
         setCounter(Number(event.target.value));
     }
-
 
 
     return (
@@ -83,3 +82,4 @@ const S2_Slider = () => {
 }
 
 export default S2_Slider;
+

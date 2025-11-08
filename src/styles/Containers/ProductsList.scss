@@ -1,5 +1,6 @@
+@use '../_vars.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
-@import '../vars.scss';
+
 
 * {
     font-family: var(--font);

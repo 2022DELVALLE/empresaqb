@@ -10,7 +10,7 @@ const useCatDelete = () => {
     const deleteCategory = async ( idCategory) => {
         try {
             setLoading(true);
-            const response = await axios.delete(`https://api-empresaqb-version3-production.up.railway.app/api/categories/${idCategory}`);
+            const response = await axios.delete(`http://127.0.0.1:8000/api/categories/${idCategory}`);
             setReponseDeleteCategory(response.data);
             setLoading(false);
         } catch (error) {

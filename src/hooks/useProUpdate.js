@@ -10,7 +10,7 @@ const useProUpdate = () => {
     const updateProduct = async (newPropduct, idProduct) => {
         try {
             setLoading(true);
-            const response = await axios.put(`https://api-empresaqb-version3-production.up.railway.app/api/products/${idProduct}`, newPropduct);
+            const response = await axios.put(`http://127.0.0.1:8000/api/products/${idProduct}`, newPropduct);
             setReponseUpdateProduct(response.data);
             setLoading(false);
         } catch (error) {

@@ -1,4 +1,4 @@
-@import '../vars';
+@use '../_vars.scss' as *;
 
 * {
     margin: 0;
@@ -9,18 +9,19 @@
 
 .slider {
     width: 100%;
-    height: 600px;
+    height: auto;
     overflow: hidden;
-
-    
-    margin-bottom: 60px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-top: 10px;
+    position: relative;
 }
 
 .slides {
     width: 500%;
-    height: 600px;
+    height: 100%;
     display: flex;
-
+    position: relative;
 }
 
 .slides input {
@@ -30,21 +31,26 @@
 .slide {
     width: 20%;
     transition: 2s;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: transparent;
 }
 
 .slide img {
     width: 100%;
-    height: 600px;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
+    object-position: top;
+    display: block;
+    /* Sin margin-top por defecto (desktop) */
 }
 
-.navigation-manual {
-    position: absolute;
-    width: 100%;
-    margin-top: 620px;
-    display: flex;
-    justify-content: center;
-
+/* Media query para móviles */
+@media (max-width: 768px) {
+    .slide img {
+        margin-top: 60px;
+    }
 }
 
 .manual-btn {
@@ -79,17 +85,32 @@
     margin-left: -60%;
 }
 
+.navigation-manual {
+    position: absolute;
+    width: 100%;
+    top: 20px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: none;
+}
 
+.manual-btn {
+    pointer-events: auto;
+}
 
-.navigation-auto{
+.navigation-auto {
     position: absolute;
     display: flex;
     width: 100%;
+    top: 20px;
+    left: 0;
     justify-content: center;
-    margin-top: 620px;
+    z-index: 5;
 }
 
-.navigation-auto div{
+.navigation-auto div {
     border: 2px solid var(--very-light-gray);
     padding: 5px;
     border-radius: 10px;
@@ -115,5 +136,4 @@
 
 #radio4:checked~.navigation-auto .auto-btn4 {
     background: var(--very-light-gray);
-} 
-
+}
