@@ -17,10 +17,7 @@ function Section6_Footer() {
                 <div className="Footer__box1-datos">
                     <div className="Footer__box1_SobreNosotros">
                         <span>SOBRE NOSOTROS</span>
-                        <p>Lorem ipsum dolor sit amet consectetur. Facilisi feugiat dignissim id aenean convallis auctor.
-                            Rhoncus massa consectetur lorem malesuada neque sit id. Mi lectus quis faucibus in urna cursus
-                            sollicitudin eu tellus. Ornare sollicitudin dolor ultrices volutpat scelerisque enim massa ut.
-                            Platea ultrices dolor a est maecenas id elit tortor.</p>
+                        <p>Somos una empresa dedicada a la creación de productos y accesorios personalizados, tanto físicos como digitales, diseñados para ofrecer a cada cliente una experiencia única, creativa y de alta calidad. Apostamos por la innovación constante, el desarrollo de nuevos productos y la expansión del negocio a través de canales virtuales y sucursales físicas. Nuestro compromiso es ingresar con fuerza al mundo digital, posicionándonos como una agencia líder en personalización, reconocida por su profesionalismo, dinamismo y capacidad para adaptarse a las necesidades cambiantes del mercado.</p>
                     </div>
                     <div className="Footer__box1_OtherInfo">
                         <div className="Footer__OtherInfo">

@@ -163,7 +163,10 @@ const Details = () => {
                         <div className="Description_product">
                             <h1>{productItemPreview.title}</h1>
                             <h2>Descripción</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus id quam iste vitae culpa perferendis, omnis magnam autem vero voluptates nam delectus tempora eligendi rem ex tempore dolor possimus consequuntur.</p>
+                            <p>
+                                {productItemPreview?.description?.trim() ||
+                                    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus id quam iste vitae culpa perferendis, omnis magnam autem vero voluptates nam delectus tempora eligendi rem ex tempore dolor possimus consequuntur."}
+                            </p>
                             <div className="content-items-product-info">
                                 <div className="price">S/{productItemPreview.priceUnit}</div>
                                 <div className="quanty">
