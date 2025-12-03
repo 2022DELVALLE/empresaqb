@@ -1,10 +1,7 @@
 import React from 'react';
-
-//import scss
 import '../styles/Components/MyAccount.scss';
 import Swal from 'sweetalert2';
 
-//import app context
 import AppContext from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,85 +11,52 @@ const MyAccountComponent = () => {
 
     const navigate = useNavigate();
 
-    // Recupero señal para abrir portal login y la señal para cerrar el portal menu inicio
-    const { portalLogin, setPortalLogin, setShowPortal } = React.useContext(AppContext);
+    // Recupero señal para abrir portal login y cerrar portal inicio
+    const { portalLogin, setPortalLogin, setShowPortal, user, setUser } =
+        React.useContext(AppContext);
+
+    const { responseEdit, error, loading, editCustomer } = useEditCustomer();
+
+    // Si NO hay usuario, devolvemos UI al final (NO antes de los hooks)
+
+    // Hooks (deben ir siempre arriba)
+    const [name, setName] = React.useState(user?.data.user.name || "");
+    const [dni, setdni] = React.useState(user?.data.user.dni_ruc || "");
+    const [telephone, settelephone] = React.useState(user?.data.user.telephone || "");
+    const [email, setemail] = React.useState(user?.data.user.email || "");
+    const [address, setaddress] = React.useState(user?.data.user.address || "");
+    const [isEdit, setIsEdit] = React.useState(false);
 
     const handleopenLogin = () => {
         setPortalLogin(!portalLogin);
-    }
+    };
 
-    //Recuperamos el usuario activo
-
-    const { user, setUser } = React.useContext(AppContext);
-    //control de mi cuenta si el usuario no existe 
-    if (!user) { 
-        return (
-            <div className='container-button-iniciar-sesion'>
-                <button
-                    className='button-iniciar-sesion'
-                    onClick={() => handleopenLogin()}
-                >Iniciar sesión</button>
-            </div>
-        );
-    }
-
-    //Variables para mostrar datos del usuario
-
-    const [name, setName] = React.useState(user.data.user.name);
-    const handleNameChange = (event) => {
-        setName(event.target.value);
-    }
-
-    const [dni, setdni] = React.useState(user.data.user.dni_ruc);
-    const handledniChange = (event) => {
-        setdni(event.target.value);
-    }
-
-    const [telephone, settelephone] = React.useState(user.data.user.telephone);
-    const handletelephoneChange = (event) => {
-        settelephone(event.target.value);
-    }
-
-    const [email, setemail] = React.useState(user.data.user.email);
-    const handleemailChange = (event) => {
-        setemail(event.target.value);
-    }
-
-    const [address, setaddress] = React.useState(user.data.user.address);
-    const handleaddressChange = (event) => {
-        setaddress(event.target.value);
-    }
-
-
-    const [isEdit, setIsEdit] = React.useState(false);
-
-    const handleSelectedEdit = () => {
-        event.preventDefault();
+    const handleSelectedEdit = (e) => {
+        e.preventDefault();
         setIsEdit(!isEdit);
-    }
+    };
 
-    const { responseEdit, error, loading, editCustomer} = useEditCustomer();
-
-
-    const handleSelectedSave = () => {
-        event.preventDefault();
+    const handleSelectedSave = (e) => {
+        e.preventDefault();
         const newUser = {
-            name: name,
+            name,
             dni_ruc: dni,
-            email: email,
-            address: address,
-            telephone: telephone,
-        }
-        editCustomer(newUser,user.data.user.id );
-        setIsEdit(!isEdit);
-    }
+            email,
+            address,
+            telephone,
+        };
 
+        editCustomer(newUser, user.data.user.id);
+        setIsEdit(false);
+    };
+
+    // Escuchar respuesta del hook editar
     React.useEffect(() => {
         if (responseEdit) {
-            if (responseEdit.res = true) {
+            if (responseEdit.res === true) {
                 Swal.fire(
                     'Felicitaciones!!!!',
-                    'Se actualizo exitosamente',
+                    'Se actualizó exitosamente',
                     'success'
                 );
             }
@@ -109,73 +73,86 @@ const MyAccountComponent = () => {
         }
     }, [error]);
 
+
+    // Ahora, después de todos los hooks, se evalúa si NO hay usuario
+    if (!user) {
+        return (
+            <div className='container-button-iniciar-sesion'>
+                <button
+                    className='button-iniciar-sesion'
+                    onClick={handleopenLogin}
+                >
+                    Iniciar sesión
+                </button>
+            </div>
+        );
+    }
+
+    // Render normal
     return (
         <section className="container_my_account">
             <div className="Name_user_my_account">
                 <div className="Image_user_my_account">
-                    <img src="https://www.blogdelfotografo.com/wp-content/uploads/2022/01/girasol-foto-perfil.webp" alt="" />
+                    <img
+                        src="https://www.blogdelfotografo.com/wp-content/uploads/2022/01/girasol-foto-perfil.webp"
+                        alt=""
+                    />
                 </div>
                 <div className="Name_my_account">
                     <p>HOLA</p>
                     <b>{name}</b>
                 </div>
             </div>
+
+
             <div className="Datos_personales_my_account">
                 <div className="title_date_personal_my_account">Datos Personales</div>
+
                 <div className="items_datos_personales_my_account">
+
                     <div className="item_my_account_dato">
-                        <label htmlFor="">Nombre :</label>
-                        <input type="text" value={name}
-                            onChange={handleNameChange}
-                        />
+                        <label>Nombre :</label>
+                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
                     </div>
+
                     <div className="item_my_account_dato no_editable_item_my_account_dato">
-                        <label htmlFor="">DNI/RUC</label>
+                        <label>DNI/RUC</label>
+                        <input value={dni} onChange={(e) => setdni(e.target.value)} />
+                    </div>
+
+                    <div className="item_my_account_dato no_editable_item_my_account_dato">
+                        <label>Correo:</label>
+                        <input type="email" value={email} onChange={(e) => setemail(e.target.value)} />
+                    </div>
+
+                    <div className="item_my_account_dato">
+                        <label>Teléfono:</label>
                         <div className="select_options_my_account">
-                            <input type="" value={dni}
-                                onChange={handledniChange}
-                            />
+                            <span>+51</span>
+                            <input type="number" value={telephone} onChange={(e) => settelephone(e.target.value)} />
                         </div>
                     </div>
-                    <div className="item_my_account_dato no_editable_item_my_account_dato">
-                        <label htmlFor="">Correo:</label>
-                        <input type="email"
-                            onChange={handleemailChange}
-                            value={email} />
-                    </div>
+
                     <div className="item_my_account_dato">
-                        <label htmlFor="">Teléfono:</label>
-                        <div className="select_options_my_account">
-                            <span> +51</span>
-                            <input type="number" value={telephone}
-                                onChange={handletelephoneChange}
-                            />
-                        </div>
+                        <label>Dirección :</label>
+                        <input type="text" value={address} onChange={(e) => setaddress(e.target.value)} />
                     </div>
-                    <div className="item_my_account_dato">
-                        <label htmlFor="">Direccion :</label>
-                        <input type="text" value={address}
-                            onChange={handleaddressChange}
-                        />
-                    </div>
+
                 </div>
 
                 {!isEdit ? (
-                    <div className="container_btn_edit_my_account"
-                        onClick={() => handleSelectedEdit()}
-                    >
+                    <div className="container_btn_edit_my_account" onClick={handleSelectedEdit}>
                         <a href="">Editar</a>
                     </div>
                 ) : (
-                    <div className="container_btn_edit_my_account"
-                        onClick={() => handleSelectedSave()}>
+                    <div className="container_btn_edit_my_account" onClick={handleSelectedSave}>
                         <a href="">Guardar</a>
                     </div>
-                )
-                }
+                )}
+
             </div>
         </section>
     );
-}
+};
 
 export default MyAccountComponent;

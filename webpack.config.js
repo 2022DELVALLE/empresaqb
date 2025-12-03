@@ -1,18 +1,25 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractOlguin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    devtool: 'source-map',
+    mode: isProd ? 'production' : 'development',
+
     entry: './src/index.js',
+
     output: {
+        filename: isProd ? 'bundle.[contenthash].js' : 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
         publicPath: '/',
+        clean: true, // Limpia dist automáticamente (Webpack 5)
     },
-    mode: 'development',
+
+    devtool: isProd ? 'source-map' : 'eval-cheap-module-source-map',
+
     resolve: {
-        extensions: ['.js', '.jsx','.scss'],
+        extensions: ['.js', '.jsx', '.scss'],
         alias: {
             '@components': path.resolve(__dirname, 'src/components/'),
             '@containers': path.resolve(__dirname, 'src/containers/'),
@@ -23,63 +30,61 @@ module.exports = {
             '@portals': path.resolve(__dirname, 'src/portals/'),
             '@hooks': path.resolve(__dirname, 'src/hooks/'),
             '@context': path.resolve(__dirname, 'src/context/'),
-
-        }
+        },
     },
+
     module: {
         rules: [
+            // JS / JSX con Babel
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                use: 'babel-loader',
             },
+
+            // HTML
             {
                 test: /\.html$/,
-                use: [
-                    {
-                        loader: 'html-loader'
-                    }
-                ]
+                use: 'html-loader',
             },
+
+            // CSS + SCSS → MiniCssExtract (prod) / style-loader (dev)
             {
                 test: /\.(css|scss)$/i,
                 use: [
-                    "style-loader",
-                    "css-loader",
-                    "sass-loader",
+                    isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+                    'css-loader',
+                    'sass-loader',
                 ],
             },
+
+            // IMÁGENES moderno Webpack 5 (SIN file-loader)
             {
-                test: /\.(png|gif|jpg|svg|webp)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'assets/[hash].[ext]',
-                        },
-                    },
-                ],
+                test: /\.(png|jpg|jpeg|gif|svg|webp)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/[hash][ext][query]',
+                },
             },
-        ]
+        ],
     },
+
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            filename: './index.html'
+            filename: 'index.html',
         }),
-        new MiniCssExtractOlguin({
-            filename: '[name].css'
+
+        new MiniCssExtractPlugin({
+            filename: isProd ? '[name].[contenthash].css' : '[name].css',
         }),
     ],
+
     devServer: {
-        historyApiFallback: true,
-        /*
-        static: {
-            directory: path.join(__dirname, 'public'),
-        },
+        historyApiFallback: true,   // Soporte para React Router
+        static: path.join(__dirname, 'public'),
         compress: true,
-        port: 3005,*/
-    }
-}
+        hot: true,
+        port: 3000,
+    },
+};
